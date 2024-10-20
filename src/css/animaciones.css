@@ -1,0 +1,200 @@
+/* #### ANIMACION DEGRADADO FONDO #### */
+@keyframes hero-gradient-animation {
+0% {
+    --y-0: 98%;
+    --c-0: hsla(55, 0%, 100%, 0.86);
+    --s-start-0: 2%;
+    --s-end-0: 78.72573401919361%;
+    --x-0: 98%;
+}
+
+100% {
+    --y-0: 98%;
+    --c-0: hsla(0, 0%, 100%, 0.86);
+    --s-start-0: 2%;
+    --s-end-0: 78.72573401919361%;
+    --x-0: 2%;
+}
+}
+@property --y-0 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 98%
+}
+@property --c-0 {
+syntax: '<color>';
+inherits: false;
+initial-value: hsla(55, 0%, 100%, 0.86)
+}
+@property --s-start-0 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 2%
+}
+@property --s-end-0 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 78.72573401919361%
+}
+@property --x-0 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 98%
+}
+@property --x-1 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 98%
+}
+@property --s-start-1 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 2%
+}
+@property --s-end-1 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 78.72573401919361%
+}
+@property --y-1 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 91%
+}
+@property --c-1 {
+syntax: '<color>';
+inherits: false;
+initial-value: hsla(0, 85%, 73%, 0.42)
+}
+@property --x-2 {
+syntax: '<percentage>';
+inherits: false;
+initial-value: 16%
+}
+@property --y-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 87%
+}
+@property --s-start-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%;
+}
+@property --s-end-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 61.288600779667334%
+}
+@property --c-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(236, 85%, 73%, 0.42)
+}
+@property --y-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 79%
+}
+@property --x-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 52%
+}
+@property --s-start-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%
+}
+@property --s-end-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 61.288600779667334%
+}
+@property --c-3 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(287, 85%, 73%, 0.42)
+}
+
+
+/* #### ANIMACION ESTRELLAS FONDO #### */
+#fondo {
+    position: fixed;
+    animation: rotateStars 120s linear infinite;
+}
+#reves {
+    position: fixed;
+    animation: rotateStarsReverse 200s linear infinite;
+}
+@keyframes rotateStars {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateStarsReverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* #### ANIMACION DEL NOMBRE #### */
+h1:after {
+    font-size: 170%;
+    content: "";
+    width: 100%;
+    height: 100%;
+    line-height: 48px;
+    animation: abomination1 7.5s linear 1;
+    animation-fill-mode: forwards;
+}
+@keyframes abomination1 {
+    0% {
+        content: "S";
+    }
+    4% {
+        content: "Sa";
+    }
+    8% {
+        content: "Sam";
+    }
+    12% {
+        content: "Samu";
+    }
+    16% {
+        content: "Samue";
+    }
+    20% {
+        content: "Samuel";
+    }
+    24% {
+        content: "Samuel ";
+    }
+    28% {
+        content: "Samuel O";
+    }
+    32% {
+        content: "Samuel Os";
+    }
+    36% {
+        content: "Samuel Osp";
+    }
+    40% {
+        content: "Samuel Ospi";
+    }
+    44% {
+        content: "Samuel Ospin";
+    }
+    48% {
+        content: "Samuel Ospina";
+    }
+    100% {
+        content: "Samuel Ospina ";
+    }
+}

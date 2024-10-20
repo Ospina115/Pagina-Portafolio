@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/*  ####### GENERAL ####### */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    font-family: "JetBrains Mono", monospace;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+/* ####### HEADER ####### */
+header { 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+header h2 {
+    margin-left: 10px;
+}
+header nav{
+    margin-right: 25px;
+}
+nav ul li {
+    display: inline-block; 
+}
+nav ul li:last-child {
+    margin-right: 0; 
+}
+nav ul li a {
+    text-decoration: auto; 
+    padding: 10px 20px; 
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+    border-radius: 30px;
+}
+
+/* ####### INICIO ####### */
+.titulo {
+    padding-top: 10%;
+    position: relative;
+    width: 83%;
+    margin: 7% auto;
+}
+.titulo .container{
+    padding: 3% 0;
+    font-size: 130%;
+    backdrop-filter: blur(5px);
+    width: 60%;
+}
+.titulo .container .text{
+    padding-left: 3%;
+}
+
+h3{
+    font-size: 200%;
+}
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.titulo h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+.titulo img{
+    position: absolute;
+    top: 10%;
+    right: 4%;
+    border-radius: 50%;
+}

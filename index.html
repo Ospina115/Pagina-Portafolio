@@ -4,14 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/src/images/blue-book_1f4d8.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css">
-  <title>Portafolio OSVE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/animaciones.css">
+  <link rel="stylesheet" href="/src/css/temaclaro.css">
+  <link rel="stylesheet" href="/src/css/temaoscuro.css">
+  <title>Samuel Ospina | Portafolio</title>
 </head>
 
 <body>
 
-    <header>
+  <img src="/public/stars.png" alt="stars" id="fondo">
+  <img src="/public/stars.png" alt="stars" id="reves">
+
+  <header>
       <nav>
           <ul class="menu">
               <li id="Home"><a href="#inicio">Home</a></li>
@@ -23,13 +29,31 @@
       </nav>
   </header>
 
-    <img src="/public/starts.png" alt="stars" id="fondo">
-    <img src="/public/starts.png" alt="stars" id="reves">
-    <div class="titulo">
-      <h1></h1>
-      <h3>Software Developer</h3>
+  <div class="titulo" id="inicio">
+    <h1></h1>
+    <h3>FullStack Developer</h3>
+    <div class="container">
+      <p class="code">&lt;<span style="color: #569CD6;">Details </span><span style="color: #7CDCF0;">[data-status]</span>=<span style="color: #CE834A;">"availableNow"</span>&gt;</p>
+      <p class="text">I'm a Software Developer &amp; Tech enthusiast</p>
+      <p class="text">1.5+ years experience. Continuously evolving and learning new stuff.</p>
+      <p class="text">If you can imagine it, you can program it</p>
+      <p class="code">&lt;/<span style="color: #569CD6;">Details</span>&gt;</p>
     </div>
+    <img src="/public/icon.png" alt="icon">
+  </div>
+
+  <div class="about" id="info">
+    <h2>About Me</h2>
+    <div class="container">
+      <p>Hi, I'm Samuel Ospina, a FullStack Developer from Colombia. I'm a passionate developer who loves to code and learn new things. I have experience in web development, mobile development, and desktop development. I'm always looking for new challenges and opportunities to grow as a professional.</p>
+      <p>My main goal is to become a great developer and help others to achieve their goals. I'm always looking for new projects and opportunities to work with other developers and companies.</p>
+      <p>My main skills are: HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, MySQL, Python, Django, Flask, Java, Spring Boot, Android, Kotlin, Swift, iOS, C#, .NET, Unity, and more.</p>
+    </div>
+    <img src="/public/about.png" alt="about">
+  </div>
+
     <script type="module" src="/src/main.jsx"></script>
     <script type="module" src="/src/script.js"></script>
+
 </body>
 </html>
