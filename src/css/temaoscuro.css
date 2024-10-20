@@ -40,18 +40,28 @@
     .container .code {
         color: #808080;
     }
+    }
+    .code .etiqueta{
+        color: #569CD6;
+    }
+    .code .propiedad{
+        color: #7CDCF0;
+    }
+    .code .string{
+        color: #CE834A;
+    }
 
     /* #### SOBRE MI #### */
     .card{
-        background-color: #ebebeb;
+        background-color: #0e1225;
     }
     .card__content {
-        background-color: #ffffff;
+        background-color: #2e3768;
     }
     .card__title {
-        color: #000000;
+        color: #ffffff;
     }
     .card__description{
-        color: #777;
+        color: #ffffff;
     }
 }

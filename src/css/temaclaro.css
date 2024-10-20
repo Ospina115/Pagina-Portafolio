@@ -44,7 +44,17 @@
     .container .code {
         color: #000000;
     }
+    .code .etiqueta{
+        color: #800000;
+    }
+    .code .propiedad{
+        color: #E50000;
+    }
+    .code .string{
+        color: #0000FF;
+    }
 
+    
     /* #### SOBRE MI #### */
     .card{
         background-color: #ebebeb;
