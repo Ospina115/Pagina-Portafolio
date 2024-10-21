@@ -38,9 +38,6 @@
     }
 
     /* ####### INICIO ####### */
-    .titulo {
-        color: rgb(0, 0, 0);
-    }
     .container .code {
         color: #000000;
     }
@@ -54,7 +51,6 @@
         color: #0000FF;
     }
 
-    
     /* #### SOBRE MI #### */
     .card{
         background-color: #ebebeb;
