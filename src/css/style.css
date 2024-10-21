@@ -117,6 +117,7 @@ body {
     justify-content: center;
     overflow: hidden;
     box-shadow: 0 0 0 5px #ffffff80;
+    margin-top: 5%;
 }
 .card img {
     width: 80px;
