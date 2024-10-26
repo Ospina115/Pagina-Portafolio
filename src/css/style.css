@@ -116,6 +116,16 @@ body {
     width: 80%;
     margin: 7% auto;
 }
+.about .container h2{
+    font-size: 300%;
+    margin: 5%;
+    margin-bottom: 3%;
+}
+.about .container p{
+    font-size: 130%;
+    margin: 5%;
+    margin-top: 0%;
+}
 .about .info {
     display: flex;
     flex-direction: row;
@@ -125,7 +135,7 @@ body {
 .card {
     position: relative;
     width: 700px;
-    height: 500px;
+    height: 300px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -133,6 +143,9 @@ body {
     overflow: hidden;
     box-shadow: 0 0 0 5px #ffffff80;
     margin-top: 5%;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
 }
 .card img {
     width: 80px;
