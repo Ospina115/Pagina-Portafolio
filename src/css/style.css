@@ -24,7 +24,7 @@
 header { 
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
@@ -53,6 +53,10 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
     border-radius: 30px;
+}
+header img {
+    height: 4vh;
+    cursor: pointer;
 }
 
 /* ####### INICIO ####### */
