@@ -2,36 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/src/images/blue-book_1f4d8.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="/src/css/style.css">
-  <link rel="stylesheet" href="/src/css/animaciones.css">
-  <link rel="stylesheet" href="/src/css/temaclaro.css">
-  <link rel="stylesheet" href="/src/css/temaoscuro.css">
-  <title>Samuel Ospina | Portafolio</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/images/blue-book_1f4d8.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/animaciones.css">
+    <link rel="stylesheet" href="/src/css/temaclaro.css">
+    <link rel="stylesheet" href="/src/css/temaoscuro.css">
+    <title>Samuel Ospina | Portafolio</title>
 </head>
 
 <body>
 
-  <img src="/public/stars.png" alt="stars" id="fondo">
-  <img src="/public/stars.png" alt="stars" id="reves">
+<header>
+        <img src="" alt="logo">
+        <nav>
+            <ul class="menu">
+                <li id="Home"><a href="#inicio" data-lang-en="Home" data-lang-es="Inicio">Inicio</a></li>
+                <li id="About"><a href="#info" data-lang-en="About" data-lang-es="Sobre Mi">Sobre Mi</a></li>
+                <li id="Menu"><a href="#habilidades" data-lang-en="Skills" data-lang-es="Habilidades">Habilidades</a></li>
+                <li id="Service"><a href="#proyectos" data-lang-en="Projects" data-lang-es="Proyectos">Proyectos</a></li>
+                <li id="Contant"><a href="#contacto" data-lang-en="Contact" data-lang-es="Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <img id="boton-cambiar-idioma" data-lang-image src="/public/spanish.png" data-lang-es="spanish.png" data-lang-en="english.png" alt="Idioma">
+</header>
 
-  <header>
-      <img src="" alt="logo">
-      <nav>
-          <ul class="menu">
-              <li id="Home"><a href="#inicio" data-lang-en="Home" data-lang-es="Inicio">Inicio</a></li>
-              <li id="About"><a href="#info" data-lang-en="About" data-lang-es="Sobre Mi">Sobre Mi</a></li>
-              <li id="Menu"><a href="#habilidades" data-lang-en="Skills" data-lang-es="Habilidades">Habilidades</a></li>
-              <li id="Service"><a href="#proyectos" data-lang-en="Projects" data-lang-es="Proyectos">Proyectos</a></li>
-              <li id="Contant"><a href="#contacto" data-lang-en="Contact" data-lang-es="Contacto">Contacto</a></li>
-          </ul>
-      </nav>
-      <img id="boton-cambiar-idioma" data-lang-image src="/public/spanish.png" data-lang-es="spanish.png" data-lang-en="english.png" alt="Idioma">
-  </header>
-  <div class="containerd">
-    <div class="titulo" id="inicio">
+<div class="start"  id="inicio">
+    <div class="titulo">
         <h1></h1>
         <h3 data-lang-en="FullStack Developer" data-lang-es="Desarrollador FullStack">Desarrollador FullStack</h3>
         <div class="container">
@@ -47,10 +45,12 @@
 
 <div class="about" id="info">
     <div class="container">
-        <h2 data-lang-en="Allow me to introduce myself" data-lang-es="Permíteme presentarme">Permíteme presentarme</h2>
-        <p data-lang-en="As a student in Computer Science, I've spent countless nights coding, debugging, and consuming unhealthy amounts of caffeine. One of my proudest moments was developing an application and databases for a local enterprise, which increased their efficiency by 70%. On my student path, I've been contributing in a lot of software projects based on business situations, helping me to improve my skills as a software developer." data-lang-es="Como estudiante de Ingenieria de sistemas, he pasado incontables noches programando, depurando y consumiendo cantidades poco saludables de cafeína. Uno de mis momentos más orgullosos fue desarrollar una aplicación y bases de datos para una empresa local, que aumentó su eficiencia en un 70%. En mi camino estudiantil, he estado contribuyendo en muchos proyectos de software basados en situaciones empresariales, ayudándome a mejorar mis habilidades como desarrollador de software.">Como estudiante de Ingenieria de sistemas, he pasado incontables noches programando, depurando y consumiendo cantidades poco saludables de cafeína. Uno de mis momentos más orgullosos fue desarrollar una aplicación y bases de datos para una empresa local, que aumentó su eficiencia en un 70%. En mi camino estudiantil, he estado contribuyendo en muchos proyectos de software basados en situaciones empresariales, ayudándome a mejorar mis habilidades como desarrollador de software.</p>
+        <div>
+            <h2 data-lang-en="Allow me to introduce myself" data-lang-es="Permíteme presentarme">Permíteme presentarme</h2>
+            <p data-lang-en="As a student in Computer Science, I've spent countless nights coding, debugging, and consuming unhealthy amounts of caffeine. One of my proudest moments was developing an application and databases for a local enterprise, which increased their efficiency by 70%. On my student path, I've been contributing in a lot of software projects based on business situations, helping me to improve my skills as a software developer." data-lang-es="Como estudiante de Ingenieria de sistemas, he pasado incontables noches programando, depurando y consumiendo cantidades poco saludables de cafeína. Uno de mis momentos más orgullosos fue desarrollar una aplicación y bases de datos para una empresa local, que aumentó su eficiencia en un 70%. En mi camino estudiantil, he estado contribuyendo en muchos proyectos de software basados en situaciones empresariales, ayudándome a mejorar mis habilidades como desarrollador de software.">Como estudiante de Ingenieria de sistemas, he pasado incontables noches programando, depurando y consumiendo cantidades poco saludables de cafeína. Uno de mis momentos más orgullosos fue desarrollar una aplicación y bases de datos para una empresa local, que aumentó su eficiencia en un 70%. En mi camino estudiantil, he estado contribuyendo en muchos proyectos de software basados en situaciones empresariales, ayudándome a mejorar mis habilidades como desarrollador de software.</p>
+        </div>
+            <img class="sobremii" src="/public/sobremi.jpg" alt="about">
     </div>
-    <img src="/public/about.png" alt="about">
     <div class="info">
         <div class="card" id="mision">
             <img src="/public/mision.png" alt="">
@@ -67,10 +67,212 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
+
+<div class="skills" id="habilidades">
+    <h2 Programming languages>Habilidades</h2>
+    <div class="lenguajes">
+        <h2 data-lang-en="Programming languages" data-lang-es="Lenguajes de Programacion">Lenguajes de Programacion</h2>
+        <div class="slider">
+            <div class="slide-track">
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="hosting">
+        <h2 data-lang-en="Hosting / SaaS" data-lang-es="Hosting/SaaS">Hosting/SaaS</h2>
+        <div class="slider">
+            <div class="slide-track">
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="frameworks">
+        <h2 data-lang-en="Frameworks, Platforms & Libraries" data-lang-es="Frameworks, Plataformas y Librerias">Frameworks, Plataformas y Librerias</h2>
+        <div class="slider">
+            <div class="slide-track">
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="databases">
+        <h2 data-lang-en="Databases / ORM" data-lang-es="Bases de Datos / ORM">Bases de Datos / ORM</h2>
+        <div class="slider">
+            <div class="slide-track">
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+              </div>
+              <div class="slide">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
 
     <script type="module" src="/src/main.jsx"></script>
     <script type="module" src="/src/script.js"></script>
+    <img src="/public/stars.png" alt="stars" id="fondo">
+    <img src="/public/stars.png" alt="stars" id="reves">
 
 </body>
 </html>
