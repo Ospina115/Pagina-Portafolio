@@ -177,44 +177,20 @@ body {
     line-height: 1.4;
 }
 
-.slider {
-    background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    height: 100px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: 960px;
-}
-
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 100px;
-    position: absolute;
-    width: 200px;
-    z-index: 2;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider .slide-track {
-    animation: scroll 40s linear infinite;
+.skill-group {
     display: flex;
-    width: calc(250px * 14);
+    flex-wrap: wrap;
+    justify-content: space-around; /* Ajusta el espacio entre los iconos */
+    margin: 20px 0; /* Espacio entre grupos */
 }
 
-.slider .slide {
-    height: 100px;
-    width: 250px;
+.skill-group img {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    margin: 10px; /* Espacio entre iconos */
+}
+
+
+.skill-group img:hover {
+    filter: brightness(1.5); /* Efecto de brillo al pasar el puntero */
+    transform: scale(1.1); /* Aumentar ligeramente el tamaño */
 }
