@@ -144,8 +144,8 @@ body {
 }
 .card {
     position: relative;
-    width: 700px;
-    height: 300px;
+    width: 75vh;
+    height: 30vh;
     border-radius: 10px;
     display: flex;
     align-items: center;

@@ -51,4 +51,13 @@
     .card__description{
         color: #ffffff;
     }
+
+    /* #### HABILIDADES #### */
+
+    span.etiqueta{
+        color: #569CD6;
+    }
+    span.code{
+        color: #808080;
+    }
 }
