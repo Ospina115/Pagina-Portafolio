@@ -177,20 +177,32 @@ body {
     line-height: 1.4;
 }
 
-.skill-group {
+.skills h2{
+    font-size: 400%;
+    text-align: center;
+    padding: 2%;
+}
+.skill-group h2{
+    font-size: 250%;
+    text-align: left;
+}
+
+i {
+    font-size: 600%;
+}
+.slider {
+    width: 75vw;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
+.slider .slide-track {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* Ajusta el espacio entre los iconos */
-    margin: 20px 0; /* Espacio entre grupos */
+    width: calc(200px * 14);
 }
-
-.skill-group img {
-    width: 100px; /* Ajusta el tamaño según sea necesario */
-    margin: 10px; /* Espacio entre iconos */
+.slider .slide {
+    width: 200px;
 }
-
-
-.skill-group img:hover {
-    filter: brightness(1.5); /* Efecto de brillo al pasar el puntero */
-    transform: scale(1.1); /* Aumentar ligeramente el tamaño */
+.slider .slide i {
+    width: 100%;
 }

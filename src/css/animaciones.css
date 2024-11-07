@@ -122,29 +122,27 @@ h1:after {
     scale: 0;
 }
 
-/* ANIMACION DE CARRUSEL */
+/* ANIMACION DE SLIDER */
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+}
 @keyframes scroll {
     0% {
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-250px * 7));
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
     }
 }
 
-.skill-group img {
-    transition: transform 0.3s, filter 0.3s; /* Transiciones suaves */
-    animation: float 3s ease-in-out infinite; /* Animación de flotación */
-}
 
-@keyframes float {
-    0% {
-        transform: translatey(0px);
-    }
-    50% {
-        transform: translatey(-10px); /* Altura de flotación */
-    }
-    100% {
-        transform: translatey(0px);
-    }
+/* TRANSICION PARA LOS ICONOS */
+.slider i {
+    transition: transform 0.5s ease, 0.5s ease;
+}
+.slider i:hover {
+    transform: scale(1.1);
 }

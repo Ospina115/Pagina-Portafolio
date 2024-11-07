@@ -41,3 +41,25 @@ button.addEventListener('click', () => {
         element.textContent = isSpanish ? element.getAttribute('data-lang-es') : element.getAttribute('data-lang-en');
     });
 });
+
+
+// ************************
+// **** CAMBIAR ICONOS ****
+// ************************
+
+const skillIcons = document.querySelectorAll('.slide i');
+
+function addColoredClass(event) {
+    event.target.classList.add('colored');
+}
+
+function removeColoredClass(event) {
+    event.target.classList.remove('colored');
+}
+
+skillIcons.forEach(icon => {
+    icon.addEventListener('mouseover', addColoredClass);
+    icon.addEventListener('mouseout', removeColoredClass);
+});
+
+
