@@ -40,3 +40,11 @@ my-portfolio/
 ├── package.json                # Información y configuraciones del proyecto
 ├── package-lock.json           # Bloqueo de versiones de dependencias
 └── README.md                   # Documentación del proyecto
+
+-- 1 --
+organizar el componente de skills
+crear mas componentes para que no se vea esa locura
+
+-- 2 --
+organizar los proyectos
+crear un componente para cada proyecto y llamarlo en el principal
