@@ -21,7 +21,7 @@
     scroll-behavior: smooth;
 }
 #fondo, #reves{
-    z-index: 0; /* Coloca las imágenes detrás del contenido */
+    z-index: 0;
     pointer-events: none;
     position: fixed;
     height: 200vh;
