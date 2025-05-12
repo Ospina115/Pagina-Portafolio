@@ -1,4 +1,21 @@
 export function Skills() {
+
+    // **** CAMBIAR ICONOS ****
+    const skillIcons = document.querySelectorAll('.slide i');
+
+    function addColoredClass(event) {
+        event.target.classList.add('colored');
+    }
+
+    function removeColoredClass(event) {
+        event.target.classList.remove('colored');
+    }
+
+    skillIcons.forEach(icon => {
+        icon.addEventListener('mouseover', addColoredClass);
+        icon.addEventListener('mouseout', removeColoredClass);
+    });
+
     return (
             <div class="skills" id="habilidades">
                 <h2><span class="code">&lt;</span><span class="etiqueta">h1</span><span class="code">&gt;</span> Habilidades <span class="code">&lt;</span><span class="etiqueta">\h1</span><span class="code">&gt;</span></h2>

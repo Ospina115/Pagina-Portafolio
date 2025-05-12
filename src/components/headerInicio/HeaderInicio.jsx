@@ -1,4 +1,5 @@
 export function HeaderInicio() {
+
     return (
         <header>
                 <img src="" alt="logo"/>
@@ -11,7 +12,7 @@ export function HeaderInicio() {
                         <li id="Contant"><a href="#contacto" data-lang-en="Contact" data-lang-es="Contacto">Contacto</a></li>
                     </ul>
                 </nav>
-                <img id="boton-cambiar-idioma" data-lang-image src="public/images/icons/spanish.png" data-lang-es="public/images/icons/spanish.png" data-lang-en="public/images/icons/english.png" alt="Idioma"/>
+                <img id="boton-cambiar-idioma" data-lang-image src="src/assets/images/icons/english.png" data-lang-es="src/assets/images/icons/spanish.png" data-lang-en="src/assets/images/icons/english.png" alt="Idioma"/>
         </header>
     );
 }

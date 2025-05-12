@@ -48,3 +48,6 @@ crear mas componentes para que no se vea esa locura
 -- 2 --
 organizar los proyectos
 crear un componente para cada proyecto y llamarlo en el principal
+
+-- 3 -- 
+no funciona el javascript de skills, arreglelo

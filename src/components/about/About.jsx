@@ -1,4 +1,4 @@
-export function Aboutt() {
+export function About() {
     return (
         <div class="about" id="info">
             <div class="container">

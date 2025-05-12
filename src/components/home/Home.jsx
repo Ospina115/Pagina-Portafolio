@@ -12,7 +12,7 @@ export function Home() {
                     <p class="code">&lt;/<span class="etiqueta">Details</span>&gt;</p>
                 </div>
             </div>
-            <img src="/public/images/icon.png" alt="icon" class="sam"/>
+            <img src="src/assets/images/AÑA.png" alt="icon" class="sam"/>
         </div>
     );
 }
