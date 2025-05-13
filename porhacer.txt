@@ -1,8 +1,13 @@
 -- POR HACER --
 
--- 2 --
-organizar los proyectos
-crear un componente para cada proyecto y llamarlo en el principal
+--1--
+actualizar el readme
 
--- 3 -- 
-no funciona el javascript de skills, arreglelo
+--2-- 
+agregar las tarjetas de los proyectos
+
+--3--
+modificar el navbar para que se vea mejor
+
+--4--
+planificar el footer
