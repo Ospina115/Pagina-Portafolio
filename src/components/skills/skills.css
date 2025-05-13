@@ -1,0 +1,11 @@
+.slider i {
+    transition: transform 0.5s ease, 0.5s ease;
+}
+.slider i:hover {
+    transform: scale(1.1);
+}
+
+.slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+    animation: scroll 40s linear infinite;
+}

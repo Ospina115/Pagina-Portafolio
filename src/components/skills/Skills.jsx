@@ -6,7 +6,7 @@ const skillData = [
     key: 'lenguajes',
     titleEs: 'Lenguajes de Programacion',
     titleEn: 'Programming languages',
-    iconSrc: '/public/images/icons/laptop.png',
+    iconSrc: 'src/assets/images/skills/laptop.png',
     icons: [
       'devicon-java-plain',
       'devicon-javascript-plain',
@@ -20,7 +20,7 @@ const skillData = [
     key: 'hosting',
     titleEs: 'Hosting / SaaS',
     titleEn: 'Hosting / SaaS',
-    iconSrc: '/public/images/icons/satelite.png',
+    iconSrc: 'src/assets/images/skills/satelite.png',
     icons: [
       'devicon-azure-plain',
       'devicon-netlify-plain',
@@ -33,7 +33,7 @@ const skillData = [
     key: 'frameworks',
     titleEs: 'Frameworks, Plataformas y Librerias',
     titleEn: 'Frameworks, Platforms & Libraries',
-    iconSrc: '/public/images/icons/libros.png',
+    iconSrc: 'src/assets/images/skills/libros.png',
     icons: [
       'devicon-react-original',
       'devicon-nodejs-plain',
@@ -53,7 +53,7 @@ const skillData = [
     key: 'servers',
     titleEs: 'Servidores',
     titleEn: 'Servers',
-    iconSrc: '/public/images/icons/señal.png',
+    iconSrc: 'src/assets/images/skills/señal.png',
     icons: [
       'devicon-apache-plain',
       'devicon-maven-plain',
@@ -64,7 +64,7 @@ const skillData = [
     key: 'design',
     titleEs: 'Diseño',
     titleEn: 'Design',
-    iconSrc: '/public/images/icons/brocha.png',
+    iconSrc: 'src/assets/images/skills/brocha.png',
     icons: [
       'devicon-aftereffects-plain',
       'devicon-illustrator-plain',
@@ -76,7 +76,7 @@ const skillData = [
     key: 'versions',
     titleEs: 'Control de Versiones',
     titleEn: 'CI/CD VCS',
-    iconSrc: '/public/images/icons/disquete.png',
+    iconSrc: 'src/assets/images/skills/disquete.png',
     icons: [
       'devicon-github-original',
       'devicon-git-plain',
@@ -87,7 +87,7 @@ const skillData = [
     key: 'bases-de-datos',
     titleEs: 'Bases de datos',
     titleEn: 'Databases',
-    iconSrc: '/public/images/icons/archivos.png',
+    iconSrc: 'src/assets/images/skills/archivos.png',
     icons: [
       'devicon-mysql-original',
       'devicon-postgresql-plain',

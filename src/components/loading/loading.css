@@ -10,10 +10,6 @@
     height:100dvh;
 }
 
-.loader > * {
-    color: black;
-}
-
 .loader span {
     display: inline-flex;
 }
@@ -34,5 +30,17 @@
     50% {
         opacity: 1;
         letter-spacing: 0em;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .loader > * {
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .loader > * {
+        color: white;
     }
 }

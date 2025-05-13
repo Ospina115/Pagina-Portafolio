@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './skills.css';
 
 export function SkillIcon({ iconClass }) {
     const [colored, setColored] = useState(false);

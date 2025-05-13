@@ -1,9 +1,5 @@
 -- POR HACER --
 
--- 1 --
-organizar el componente de skills
-crear mas componentes para que no se vea esa locura
-
 -- 2 --
 organizar los proyectos
 crear un componente para cada proyecto y llamarlo en el principal

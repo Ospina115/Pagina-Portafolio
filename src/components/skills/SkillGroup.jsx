@@ -1,7 +1,11 @@
 import React from 'react';
 import { SkillIcon } from './SkillIcon';
+import './skills.css';
 
 export function SkillGroup({ titleEs, titleEn, iconSrc, icons }) {
+    // Duplicate icons array to create infinite scroll effect
+    const duplicatedIcons = [...icons, ...icons];
+
     return (
         <div className={"skill-group " + titleEs.toLowerCase().replace(/\s+/g, '-')}>
         <div className="titulo">
@@ -10,7 +14,7 @@ export function SkillGroup({ titleEs, titleEn, iconSrc, icons }) {
         </div>
         <div className="slider">
             <div className="slide-track">
-            {icons.map((iconClass, index) => (
+            {duplicatedIcons.map((iconClass, index) => (
                 <SkillIcon key={index} iconClass={iconClass} />
             ))}
             </div>
