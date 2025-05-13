@@ -7,26 +7,10 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-header h2 {
-    margin-left: 10px;
-}
-header nav{
-    margin-right: 25px;
-}
+
 nav ul li {
+    padding: 0 0.8rem;
     display: inline-block; 
-}
-nav ul li:last-child {
-    margin-right: 0; 
-}
-nav ul li a {
-    text-decoration: auto; 
-    padding: 10px 20px; 
-    transition: 0.3s;
-}
-nav ul li a:hover {
-    text-decoration: underline;
-    border-radius: 30px;
 }
 
 header .logo{
@@ -47,4 +31,76 @@ header .logo{
 #boton-cambiar-idioma:active {
     transform: scale(0.9);
     transition: transform 0.1s ease;
+}
+
+/* Estilos para las animaciones del menú */
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+
+.menu a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.menu a span {
+  transition: transform 0.2s ease-out;
+}
+
+.menu a span:first-child {
+  display: inline-block;
+  padding: 10px;
+}
+
+.menu a span:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+}
+
+.menu i {
+  font-size: 30px;
+}
+
+.menu a:hover span:first-child {
+  transform: translateY(100%);
+}
+
+.menu a:hover span:last-child,
+.menu[data-animation] a:hover span:last-child {
+  transform: none;
+}
+
+/* Animaciones específicas */
+.menu[data-animation="to-top"] a span:last-child {
+  transform: translateY(100%);
+}
+
+.menu[data-animation="to-top"] a:hover span:first-child {
+  transform: translateY(-100%);
+}
+
+.menu[data-animation="to-right"] a span:last-child {
+  transform: translateX(-100%);
+}
+
+.menu[data-animation="to-right"] a:hover span:first-child {
+  transform: translateX(100%);
+}
+
+.menu[data-animation="to-left"] a span:last-child {
+  transform: translateX(100%);
+}
+
+.menu[data-animation="to-left"] a:hover span:first-child {
+  transform: translateX(-100%);
 }

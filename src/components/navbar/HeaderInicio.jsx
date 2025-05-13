@@ -1,4 +1,3 @@
-import React from 'react';
 import './headerInicio.css'; // Assuming you have a CSS file for styles
 
 const menuItems = [
@@ -9,10 +8,15 @@ const menuItems = [
   { id: 'Contact', href: '#contacto', labelEs: 'Contacto', labelEn: 'Contact' },
 ];
 
-function MenuItem({ id, href, label }) {
+function MenuItem({ id, href, label, iconClass }) {
   return (
     <li id={id}>
-      <a href={href}>{label}</a>
+      <a href={href}>
+        <span>{label}</span>
+        <span>
+          <i className={iconClass} aria-hidden="true"></i>
+        </span>
+      </a>
     </li>
   );
 }
@@ -38,14 +42,14 @@ export function HeaderInicio({ isSpanish, toggleLanguage }) {
     <header>
       <img className="logo" src="src/assets/images/icons/coding.png" alt="logo" />
       <nav>
-        <ul className="menu">
-          {menuItems.map(({ id, href, labelEs, labelEn }) => (
+        <ul className="menu" data-animation="to-top">
+          {menuItems.map(({ id, href, labelEs, labelEn }, index) => (
             <MenuItem
               key={id}
               id={id}
               href={href}
               label={isSpanish ? labelEs : labelEn}
-              isSpanish={isSpanish}
+              iconClass={`fas ${['fa-address-card', 'fa-tasks', 'fa-users', 'fa-envelope-open-text'][index]}`}
             />
           ))}
         </ul>
