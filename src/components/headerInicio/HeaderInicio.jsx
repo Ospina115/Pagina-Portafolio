@@ -1,18 +1,55 @@
-export function HeaderInicio() {
+import React from 'react';
 
-    return (
-        <header>
-                <img src="" alt="logo"/>
-                <nav>
-                    <ul class="menu">
-                        <li id="Home"><a href="#inicio" data-lang-en="Home" data-lang-es="Inicio">Inicio</a></li>
-                        <li id="About"><a href="#info" data-lang-en="About" data-lang-es="Sobre Mi">Sobre Mi</a></li>
-                        <li id="Menu"><a href="#habilidades" data-lang-en="Skills" data-lang-es="Habilidades">Habilidades</a></li>
-                        <li id="Service"><a href="#proyectos" data-lang-en="Projects" data-lang-es="Proyectos">Proyectos</a></li>
-                        <li id="Contant"><a href="#contacto" data-lang-en="Contact" data-lang-es="Contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-                <img id="boton-cambiar-idioma" data-lang-image src="src/assets/images/icons/english.png" data-lang-es="src/assets/images/icons/spanish.png" data-lang-en="src/assets/images/icons/english.png" alt="Idioma"/>
-        </header>
-    );
+const menuItems = [
+  { id: 'Home', href: '#inicio', labelEs: 'Inicio', labelEn: 'Home' },
+  { id: 'About', href: '#info', labelEs: 'Sobre Mi', labelEn: 'About' },
+  { id: 'Menu', href: '#habilidades', labelEs: 'Habilidades', labelEn: 'Skills' },
+  { id: 'Service', href: '#proyectos', labelEs: 'Proyectos', labelEn: 'Projects' },
+  { id: 'Contact', href: '#contacto', labelEs: 'Contacto', labelEn: 'Contact' },
+];
+
+function MenuItem({ id, href, label, isSpanish }) {
+  return (
+    <li id={id}>
+      <a href={href}>{label}</a>
+    </li>
+  );
+}
+
+function LanguageToggle({ isSpanish, toggleLanguage }) {
+  const src = isSpanish
+    ? 'src/assets/images/icons/spanish.png'
+    : 'src/assets/images/icons/english.png';
+  return (
+    <img
+      id="boton-cambiar-idioma"
+      data-lang-image
+      src={src}
+      alt="Idioma"
+      onClick={toggleLanguage}
+      style={{ cursor: 'pointer' }}
+    />
+  );
+}
+
+export function HeaderInicio({ isSpanish, toggleLanguage }) {
+  return (
+    <header>
+      <img src="" alt="logo" />
+      <nav>
+        <ul className="menu">
+          {menuItems.map(({ id, href, labelEs, labelEn }) => (
+            <MenuItem
+              key={id}
+              id={id}
+              href={href}
+              label={isSpanish ? labelEs : labelEn}
+              isSpanish={isSpanish}
+            />
+          ))}
+        </ul>
+      </nav>
+      <LanguageToggle isSpanish={isSpanish} toggleLanguage={toggleLanguage} />
+    </header>
+  );
 }
