@@ -6,7 +6,7 @@
     height: 100vh;
 }
 .titulo .container{
-    padding: 3% 0;
+    padding: 5% 0;
     font-size: 130%;
     backdrop-filter: blur(5px);
     border-radius: 30px;
@@ -37,7 +37,8 @@ body {
     line-height: 1.1;
 }
 
-.sam{
+.start img {
+    height: 60vh;
     border-radius: 50%;
 }
 
@@ -50,6 +51,7 @@ body {
     animation: abomination1 7.5s linear 1;
     animation-fill-mode: forwards;
 }
+
 @keyframes abomination1 {
     0% {
         content: "S";

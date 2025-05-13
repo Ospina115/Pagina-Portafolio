@@ -10,6 +10,45 @@
     animation: scroll 40s linear infinite;
 }
 
+.skills h2{
+    font-size: 400%;
+    text-align: center;
+    padding: 2%;
+}
+.skills .titulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.skills .titulo img{
+    height: 5vh;
+}
+.skill-group h2{
+    font-size: 250%;
+    text-align: left;
+}
+
+i {
+    font-size: 600%;
+}
+.slider {
+    width: 75vw;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
+.slider .slide-track {
+    display: flex;
+    width: calc(200px * 14);
+}
+.slider .slide {
+    width: 200px;
+}
+.slider .slide i {
+    width: 100%;
+}
+
+
 /* ANIMACION DE SLIDER */
 .slider .slide-track {
     animation: scroll 40s linear infinite;

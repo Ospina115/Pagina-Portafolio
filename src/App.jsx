@@ -12,12 +12,8 @@ import { Review } from "./components/review/Review.jsx";
 import "../src/styles/style.css";
 import "../src/styles/temaclaro.css";
 import "../src/styles/temaoscuro.css";
-import "../src/styles/animaciones.css";
 
 function App() {
-  const lenis = useLenis(({ scroll }) => {
-    // called every scroll
-  });
 
   // Global language state: true for Spanish, false for English
   const [isSpanish, setIsSpanish] = useState(true);

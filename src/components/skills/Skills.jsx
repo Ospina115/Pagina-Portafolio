@@ -97,10 +97,10 @@ const skillData = [
   },
 ];
 
-export function Skills() {
+export function Skills({isSpanish}) {
   return (
     <div className="skills" id="habilidades">
-      <h1>Habilidades</h1>
+      <h1>{isSpanish? "Habilidades":"Skills"}</h1>
       {skillData.map(({ key, titleEs, titleEn, iconSrc, icons }) => (
         <SkillGroup
           key={key}

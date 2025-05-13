@@ -10,15 +10,16 @@ export function Home({ isSpanish }) {
                 
                 <div className="container">
 
-                    <p className="code">&lt;<span className="etiqueta">Details </span><span className="propiedad">[data-status]</span>=<span className="string">"availableNow"</span>&gt;</p>
+                    <p className="code">&lt;<span className="etiqueta">{isSpanish? "Detalles":"Details"} </span><span className="propiedad">[{isSpanish? "estado-dato":"data-status"}]</span>=<span className="string">"{isSpanish? "disponibleAhora" : "availableNow"}"</span>&gt;</p>
                     <p className="text">{isSpanish? "Desarrollador de software y entusiasta de la tecnología": "I'm a Software Developer & Tech enthusiast"}</p>
                     <p className="text">{isSpanish? "Mas de 2 años de experiencia. Evolucionando y aprendiendo continuamente.": "2+ years experience. Continuously evolving and learning new stuff."}</p>
                     <p className="text">{isSpanish? "Si puedes imaginarlo, yo puedo programarlo": "If you can imagine it, you can program it"}</p>
-                    <p className="code">&lt;/<span className="etiqueta">Details</span>&gt;</p>
+                    <p className="code">&lt;/<span className="etiqueta">{isSpanish? "Detalles":"Details"}</span>&gt;</p>
+                    
                 </div>
                 
             </div>
-            <img src="src/assets/images/AÑA.png" alt="icon" className="sam" />
+            <img src="src/assets/images/icon.png" alt="icon" className="sam" />
         </div>
     );
 }
