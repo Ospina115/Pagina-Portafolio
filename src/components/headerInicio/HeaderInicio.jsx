@@ -1,4 +1,5 @@
 import React from 'react';
+import './headerInicio.css'; // Assuming you have a CSS file for styles
 
 const menuItems = [
   { id: 'Home', href: '#inicio', labelEs: 'Inicio', labelEn: 'Home' },

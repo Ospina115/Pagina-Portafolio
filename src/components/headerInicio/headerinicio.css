@@ -1,0 +1,49 @@
+header { 
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+header h2 {
+    margin-left: 10px;
+}
+header nav{
+    margin-right: 25px;
+}
+nav ul li {
+    display: inline-block; 
+}
+nav ul li:last-child {
+    margin-right: 0; 
+}
+nav ul li a {
+    text-decoration: auto; 
+    padding: 10px 20px; 
+    transition: 0.3s;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+    border-radius: 30px;
+}
+
+#boton-cambiar-idioma {
+    height: 4vh;
+    cursor: pointer;
+    transition: transform 0.3s ease;    
+}
+
+#boton-cambiar-idioma:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+#boton-cambiar-idioma:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}

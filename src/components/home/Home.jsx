@@ -1,9 +1,11 @@
+import './home.css';
+
 export function Home({ isSpanish }) {
     return (
         <div className="start" id="inicio">
             <div className="titulo">
 
-                <h1></h1>
+                <h1 className='animacioninicio'></h1>
                 <h3>{isSpanish ? "Desarrollador FullStack" : "FullStack Developer"}</h3>
                 
                 <div className="container">

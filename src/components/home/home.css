@@ -1,0 +1,96 @@
+.start{
+    padding: 10%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.titulo .container{
+    padding: 3% 0;
+    font-size: 130%;
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    width: 90%;
+}
+.titulo .container .text{
+    padding-left: 3%;
+}
+
+.text{
+    margin-left: 20px;
+}
+
+h3{
+    font-size: 200%;
+}
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+.titulo h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+.sam{
+    border-radius: 50%;
+}
+
+.animacioninicio:after {
+    font-size: 170%;
+    content: "";
+    width: 100%;
+    height: 100%;
+    line-height: 48px;
+    animation: abomination1 7.5s linear 1;
+    animation-fill-mode: forwards;
+}
+@keyframes abomination1 {
+    0% {
+        content: "S";
+    }
+    4% {
+        content: "Sa";
+    }
+    8% {
+        content: "Sam";
+    }
+    12% {
+        content: "Samu";
+    }
+    16% {
+        content: "Samue";
+    }
+    20% {
+        content: "Samuel";
+    }
+    24% {
+        content: "Samuel ";
+    }
+    28% {
+        content: "Samuel O";
+    }
+    32% {
+        content: "Samuel Os";
+    }
+    36% {
+        content: "Samuel Osp";
+    }
+    40% {
+        content: "Samuel Ospi";
+    }
+    44% {
+        content: "Samuel Ospin";
+    }
+    48% {
+        content: "Samuel Ospina";
+    }
+    100% {
+        content: "Samuel Ospina ";
+    }
+}

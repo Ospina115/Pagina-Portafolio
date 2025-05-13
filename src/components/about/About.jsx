@@ -1,3 +1,5 @@
+import './about.css';
+
 export function About() {
     return (
         <div class="about" id="info">

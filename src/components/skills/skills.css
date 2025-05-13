@@ -9,3 +9,30 @@
     -webkit-animation: scroll 40s linear infinite;
     animation: scroll 40s linear infinite;
 }
+
+/* ANIMACION DE SLIDER */
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+}
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
+}
+
+
+/* TRANSICION PARA LOS ICONOS */
+.slider i {
+    transition: transform 0.5s ease, 0.5s ease;
+}
+.slider i:hover {
+    transform: scale(1.1);
+}
+
+
