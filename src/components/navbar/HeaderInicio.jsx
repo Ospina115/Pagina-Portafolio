@@ -9,7 +9,7 @@ const menuItems = [
   { id: 'Contact', href: '#contacto', labelEs: 'Contacto', labelEn: 'Contact' },
 ];
 
-function MenuItem({ id, href, label, isSpanish }) {
+function MenuItem({ id, href, label }) {
   return (
     <li id={id}>
       <a href={href}>{label}</a>
@@ -36,7 +36,7 @@ function LanguageToggle({ isSpanish, toggleLanguage }) {
 export function HeaderInicio({ isSpanish, toggleLanguage }) {
   return (
     <header>
-      <img src="" alt="logo" />
+      <img className="logo" src="src/assets/images/icons/coding.png" alt="logo" />
       <nav>
         <ul className="menu">
           {menuItems.map(({ id, href, labelEs, labelEn }) => (

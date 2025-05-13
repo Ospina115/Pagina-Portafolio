@@ -2,7 +2,7 @@ import { ReactLenis, useLenis } from "lenis/react";
 import { useState } from "react";
 
 // COMPONENTES //
-import { HeaderInicio } from "./components/headerInicio/HeaderInicio.jsx";
+import { HeaderInicio } from "./components/navbar/HeaderInicio.jsx";
 import { Home } from "./components/home/Home.jsx";
 import { About } from "./components/about/About.jsx";
 import { Skills } from "./components/skills/Skills.jsx";
@@ -15,10 +15,10 @@ import "../src/styles/temaoscuro.css";
 
 function App() {
 
-  // Global language state: true for Spanish, false for English
+  // Establece el idioma predeterminado como español
   const [isSpanish, setIsSpanish] = useState(true);
 
-  // Toggle language handler
+  // cambia el lenguaje entre español e inglés
   const toggleLanguage = () => {
     setIsSpanish(!isSpanish);
   };
