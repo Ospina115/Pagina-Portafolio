@@ -9,11 +9,6 @@
     align-items: center;
     text-align: end;
 }
-.about .container h2{
-    font-size: 300%;
-    margin: 5%;
-    margin-bottom: 3%;
-}
 .about .container p{
     font-size: 130%;
     margin: 5%;
@@ -27,4 +22,24 @@
 .about .sobremii{
     height: 40vh;
     border-radius: 50%;
+}
+.about .titulo{
+    font-size: 300%;
+    margin: 5%;
+    margin-top: 0%;
+}
+
+.scroll-reveal {
+  margin: 20px 0;
+  font-size: 100%;
+}
+
+.scroll-reveal-text {
+  font-size: 0.5em;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.word {
+  display: inline-block;
 }

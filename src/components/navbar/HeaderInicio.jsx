@@ -1,8 +1,8 @@
 import './headerInicio.css';
 import englishIcon from '/src/assets/images/icons/english.png';
 import spanishIcon from '/src/assets/images/icons/spanish.png';
+import logo from '/src/assets/images/icons/coding.png';
 
-// Cambiar las rutas de los íconos a la carpeta public/icons
 const menuItems = [
   { id: 'Home', href: '#inicio', labelEs: 'Inicio', labelEn: 'Home', iconPath: '/src/assets/images/icons/home.svg' },
   { id: 'About', href: '#info', labelEs: 'Sobre Mi', labelEn: 'About', iconPath: '/src/assets/images/icons/smile.svg' },
@@ -46,7 +46,7 @@ function LanguageToggle({ isSpanish, toggleLanguage }) {
 export function HeaderInicio({ isSpanish, toggleLanguage }) {
   return (
     <header>
-      <img className="logo" src="/icons/coding.png" alt="logo" />
+      <img className="logo" src={logo} alt="logo" />
       <nav>
         <ul className="menu" data-animation="to-top">
           {menuItems.map(({ id, href, labelEs, labelEn, iconPath }) => (
