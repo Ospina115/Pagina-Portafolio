@@ -1,4 +1,4 @@
-import './headerInicio.css';
+import './NavBar.css';
 import englishIcon from '/src/assets/images/icons/english.png';
 import spanishIcon from '/src/assets/images/icons/spanish.png';
 import logo from '/src/assets/images/icons/coding.png';
@@ -43,7 +43,7 @@ function LanguageToggle({ isSpanish, toggleLanguage }) {
   );
 }
 
-export function HeaderInicio({ isSpanish, toggleLanguage }) {
+export function NavBar({ isSpanish, toggleLanguage }) {
   return (
     <header>
       <img className="logo" src={logo} alt="logo" />
