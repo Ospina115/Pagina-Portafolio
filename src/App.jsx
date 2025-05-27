@@ -23,6 +23,7 @@ function App() {
     setIsSpanish(!isSpanish);
   };
 
+
   return (
     <ReactLenis root>
       <NavBar isSpanish={isSpanish} toggleLanguage={toggleLanguage} />

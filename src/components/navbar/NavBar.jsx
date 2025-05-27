@@ -1,33 +1,27 @@
 import './NavBar.css';
+
+// ICONOS //
+import logo from '/src/assets/images/icons/coding.png';
 import englishIcon from '/src/assets/images/icons/english.png';
 import spanishIcon from '/src/assets/images/icons/spanish.png';
-import logo from '/src/assets/images/icons/coding.png';
+// SVG //
+import BrainIcon from '/src/assets/images/icons/brain.svg';
+import FolderIcon from '/src/assets/images/icons/folder.svg';
+import HomeIcon from '/src/assets/images/icons/home.svg';
+import SmileIcon from '/src/assets/images/icons/smile.svg';
+import UserIcon from '/src/assets/images/icons/user.svg';
+
+import Dock from './Dock.jsx';
 
 const menuItems = [
-  { id: 'Home', href: '#inicio', labelEs: 'Inicio', labelEn: 'Home', iconPath: '/src/assets/images/icons/home.svg' },
-  { id: 'About', href: '#info', labelEs: 'Sobre Mi', labelEn: 'About', iconPath: '/src/assets/images/icons/smile.svg' },
-  { id: 'Menu', href: '#habilidades', labelEs: 'Habilidades', labelEn: 'Skills', iconPath: '/src/assets/images/icons/english.svg' },
-  { id: 'Service', href: '#proyectos', labelEs: 'Proyectos', labelEn: 'Projects', iconPath: '/src/assets/images/icons/folder.svg' },
-  { id: 'Contact', href: '#contacto', labelEs: 'Contacto', labelEn: 'Contact', iconPath: '/src/assets/images/icons/user.svg' },
+  { id: 'Home', href: '#inicio', labelEs: 'Inicio', labelEn: 'Home', iconPath: HomeIcon },
+  { id: 'About', href: '#info', labelEs: 'Sobre Mi', labelEn: 'About', iconPath: SmileIcon },
+  { id: 'Menu', href: '#habilidades', labelEs: 'Habilidades', labelEn: 'Skills', iconPath: BrainIcon },
+  { id: 'Service', href: '#proyectos', labelEs: 'Proyectos', labelEn: 'Projects', iconPath: FolderIcon },
+  { id: 'Contact', href: '#contacto', labelEs: 'Contacto', labelEn: 'Contact', iconPath: UserIcon },
 ];
 
-function MenuItem({ id, href, label, iconPath }) {
-  return (
-    <li id={id}>
-      <a href={href}>
-        <span>{label}</span>
-        <span>
-          <img
-            src={iconPath}
-            alt={label}
-            aria-hidden="true"
-            style={{ width: '20px', height: '20px', filter: 'invert(1)' }}
-          />
-        </span>
-      </a>
-    </li>
-  );
-}
+
 
 function LanguageToggle({ isSpanish, toggleLanguage }) {
   const src = isSpanish ? spanishIcon : englishIcon;
@@ -44,21 +38,23 @@ function LanguageToggle({ isSpanish, toggleLanguage }) {
 }
 
 export function NavBar({ isSpanish, toggleLanguage }) {
+  // Adaptar los items para Dock
+  const dockItems = menuItems.map(({ id, href, labelEs, labelEn, iconPath }) => ({
+    icon: <img src={iconPath} alt={isSpanish ? labelEs : labelEn} style={{ width: 32, height: 32, filter: 'invert(1)' }} />, // SVG como img
+    label: isSpanish ? labelEs : labelEn,
+    onClick: () => { window.location.hash = href; },
+    className: id
+  }));
   return (
     <header>
       <img className="logo" src={logo} alt="logo" />
       <nav>
-        <ul className="menu" data-animation="to-top">
-          {menuItems.map(({ id, href, labelEs, labelEn, iconPath }) => (
-            <MenuItem
-              key={id}
-              id={id}
-              href={href}
-              label={isSpanish ? labelEs : labelEn}
-              iconPath={iconPath}
-            />
-          ))}
-        </ul>
+        <Dock
+          items={dockItems}
+          panelHeight={68}
+          baseItemSize={50}
+          magnification={70}
+        />
       </nav>
       <LanguageToggle isSpanish={isSpanish} toggleLanguage={toggleLanguage} />
     </header>
