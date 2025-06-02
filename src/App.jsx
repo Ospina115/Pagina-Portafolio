@@ -1,4 +1,4 @@
-import { ReactLenis, useLenis } from "lenis/react";
+
 import { useState } from "react";
 
 // COMPONENTES //
@@ -25,12 +25,12 @@ function App() {
 
 
   return (
-    <ReactLenis root>
+    <>
       <NavBar isSpanish={isSpanish} toggleLanguage={toggleLanguage} />
       <Home isSpanish={isSpanish} />
       <About isSpanish={isSpanish} />
       <Skills isSpanish={isSpanish} />
-    </ReactLenis>
+    </>
   );
 }
 
