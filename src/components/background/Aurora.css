@@ -1,0 +1,72 @@
+/**
+ * Aurora Background Styles
+ * 
+ * Estilos CSS para el componente de fondo Aurora.
+ * Define el contenedor como fondo fijo de pantalla completa.
+ */
+
+.aurora-container {
+  /* Posicionamiento fijo para que permanezca detrás del contenido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  /* Coloca el fondo en la capa más baja */
+  z-index: -1;
+  
+  /* Asegura que ocupe toda la pantalla */
+  overflow: hidden;
+  
+  /* Optimizaciones de rendimiento */
+  will-change: transform;
+  transform: translateZ(0); /* Fuerza aceleración por hardware */
+}
+
+/* Canvas del WebGL dentro del contenedor */
+.aurora-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  
+  /* Elimina espacios en blanco alrededor del canvas */
+  margin: 0;
+  padding: 0;
+  
+  /* Asegura que el canvas mantenga su transparencia */
+  background: transparent !important;
+}
+
+/* Optimizaciones para dispositivos móviles */
+@media (max-width: 768px) {
+  .aurora-container {
+    /* Reduce la intensidad en móviles para mejor rendimiento */
+    opacity: 0.8;
+  }
+}
+
+/* Optimización para dispositivos con poca potencia gráfica */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-container {
+    /* Reduce o elimina animaciones si el usuario prefiere menos movimiento */
+    opacity: 0.5;
+  }
+}
+
+/* Configuración para modo de alto contraste */
+@media (prefers-contrast: high) {
+  .aurora-container {
+    /* Reduce la opacidad para no interferir con la legibilidad */
+    opacity: 0.3;
+  }
+}
+
+/* Soporte para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .aurora-container canvas {
+    /* Optimizaciones específicas para pantallas retina */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}

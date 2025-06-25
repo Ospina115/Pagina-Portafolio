@@ -35,6 +35,12 @@ Este proyecto utiliza tecnologías modernas de desarrollo web para garantizar re
 - **Lenis 1.1.14**: Smooth scrolling y efectos de desplazamiento
 - **Framer Motion 12.14.0**: Animaciones fluidas y transiciones
 - **GSAP 3.13.0**: Animaciones avanzadas y timeline management
+- **OGL 1.0.11**: Renderizado WebGL para efectos de fondo dinámicos
+
+### Efectos Visuales
+- **Aurora Background**: Fondo animado con shaders WebGL que simula una aurora boreal
+- **Glassmorphism**: Efectos de cristal esmerilado en la interfaz
+- **Smooth Scrolling**: Navegación fluida entre secciones
 
 ### Versiones Específicas
 - **React**: 18.3.1
@@ -119,6 +125,9 @@ src/
 │   └── icons/              # Iconografía SVG y PNG
 ├── components/             # Componentes reutilizables
 │   ├── about/             # Sección "Acerca de"
+│   ├── background/        # Componentes de fondo animado
+│   │   ├── Aurora.jsx     # Fondo aurora boreal con WebGL
+│   │   └── Aurora.css     # Estilos del componente Aurora
 │   ├── footer/            # Pie de página
 │   ├── home/              # Página de inicio
 │   ├── loading/           # Componente de carga
@@ -143,18 +152,22 @@ src/
 ## 🎨 Características
 
 ### ✨ Funcionalidades Principales
+- **Fondo Aurora Animado**: Efecto de aurora boreal dinámico con WebGL
 - **Diseño Responsivo**: Adaptable a móviles, tablets y desktop
 - **Modo Oscuro/Claro**: Temas intercambiables para mejor experiencia
 - **Multiidioma**: Soporte para español e inglés
 - **Smooth Scrolling**: Navegación fluida entre secciones
-- **Animaciones**: Transiciones y efectos visuales atractivos
-- **Loading Screen**: Pantalla de carga con animación
+- **Animaciones Avanzadas**: Transiciones y efectos visuales con Framer Motion y GSAP
+- **Loading Screen**: Pantalla de carga con animación personalizada
+- **Glassmorphism**: Efectos de cristal esmerilado en la UI
 
 ### 🔧 Optimizaciones
+- **WebGL Acceleration**: Renderizado acelerado por hardware para efectos visuales
 - **Lazy Loading**: Carga diferida de componentes
 - **Code Splitting**: División automática del código
 - **Tree Shaking**: Eliminación de código no utilizado
 - **Minificación**: Compresión automática en producción
+- **Performance Monitoring**: Optimizaciones específicas para dispositivos móviles
 
 ---
 

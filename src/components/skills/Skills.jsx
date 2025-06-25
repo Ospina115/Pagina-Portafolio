@@ -1,4 +1,3 @@
-import React from 'react';
 import { SkillGroup } from './SkillGroup';
 
 const skillData = [
@@ -97,10 +96,10 @@ const skillData = [
   },
 ];
 
-export function Skills({isSpanish}) {
+export function Skills({ isSpanish }) {
   return (
-    <div className="skills" id="habilidades">
-      <h1>{isSpanish? "Habilidades":"Skills"}</h1>
+    <section className="skills" id="skills" aria-label={isSpanish ? "Sección de habilidades" : "Skills section"}>
+      <h1>{isSpanish ? "Habilidades" : "Skills"}</h1>
       {skillData.map(({ key, titleEs, titleEn, iconSrc, icons }) => (
         <SkillGroup
           key={key}
@@ -108,8 +107,9 @@ export function Skills({isSpanish}) {
           titleEn={titleEn}
           iconSrc={iconSrc}
           icons={icons}
+          isSpanish={isSpanish}
         />
       ))}
-    </div>
+    </section>
   );
 }
