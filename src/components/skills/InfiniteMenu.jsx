@@ -222,29 +222,28 @@ class IcosahedronGeometry extends Geometry {
   }
 }
 
-class DiscGeometry extends Geometry {
-  constructor(steps = 4, radius = 1) {
+class SquareGeometry extends Geometry {
+  constructor(size = 1) {
     super();
-    steps = Math.max(4, steps);
+    const halfSize = size * 0.5;
 
-    const alpha = (2 * Math.PI) / steps;
+    // Crear los 4 vértices del cuadrado
+    this.addVertex(
+      -halfSize, -halfSize, 0,  // Bottom-left
+       halfSize, -halfSize, 0,  // Bottom-right
+       halfSize,  halfSize, 0,  // Top-right
+      -halfSize,  halfSize, 0   // Top-left
+    );
 
-    this.addVertex(0, 0, 0);
-    this.lastVertex.uv[0] = 0.5;
-    this.lastVertex.uv[1] = 0.5;
+    // Configurar las coordenadas UV para mapear la textura correctamente
+    this.vertices[0].uv[0] = 0; this.vertices[0].uv[1] = 0; // Bottom-left
+    this.vertices[1].uv[0] = 1; this.vertices[1].uv[1] = 0; // Bottom-right
+    this.vertices[2].uv[0] = 1; this.vertices[2].uv[1] = 1; // Top-right
+    this.vertices[3].uv[0] = 0; this.vertices[3].uv[1] = 1; // Top-left
 
-    for (let i = 0; i < steps; ++i) {
-      const x = Math.cos(alpha * i);
-      const y = Math.sin(alpha * i);
-      this.addVertex(radius * x, radius * y, 0);
-      this.lastVertex.uv[0] = x * 0.5 + 0.5;
-      this.lastVertex.uv[1] = y * 0.5 + 0.5;
-
-      if (i > 0) {
-        this.addFace(0, i, i + 1);
-      }
-    }
-    this.addFace(0, steps, 1);
+    // Crear los dos triángulos que forman el cuadrado
+    this.addFace(0, 1, 2); // Primer triángulo
+    this.addFace(0, 2, 3); // Segundo triángulo
   }
 }
 
@@ -372,7 +371,8 @@ class ArcballControl {
     this._combinedQuat = quat.create();
 
     canvas.addEventListener('pointerdown', (e) => {
-      vec2.set(this.pointerPos, e.clientX, e.clientY);
+      const rect = canvas.getBoundingClientRect();
+      vec2.set(this.pointerPos, e.clientX - rect.left, e.clientY - rect.top);
       vec2.copy(this.previousPointerPos, this.pointerPos);
       this.isPointerDown = true;
     });
@@ -384,7 +384,8 @@ class ArcballControl {
     });
     canvas.addEventListener('pointermove', (e) => {
       if (this.isPointerDown) {
-        vec2.set(this.pointerPos, e.clientX, e.clientY);
+        const rect = canvas.getBoundingClientRect();
+        vec2.set(this.pointerPos, e.clientX - rect.left, e.clientY - rect.top);
       }
     });
 
@@ -587,7 +588,7 @@ class InfiniteGridMenu {
       uAtlasSize: gl.getUniformLocation(this.discProgram, 'uAtlasSize'),
     };
 
-    this.discGeo = new DiscGeometry(56, 1);
+    this.discGeo = new SquareGeometry(1);
     this.discBuffers = this.discGeo.data;
     this.discVAO = makeVertexArray(
       gl,
@@ -601,8 +602,8 @@ class InfiniteGridMenu {
     this.icoGeo = new IcosahedronGeometry();
     this.icoGeo.subdivide(1).spherize(this.SPHERE_RADIUS);
     this.instancePositions = this.icoGeo.vertices.map((v) => v.position);
-    this.DISC_INSTANCE_COUNT = this.icoGeo.vertices.length;
-    this.#initDiscInstances(this.DISC_INSTANCE_COUNT);
+    this.INSTANCE_COUNT = this.icoGeo.vertices.length;
+    this.#initInstances(this.INSTANCE_COUNT);
 
     this.worldMatrix = mat4.create();
     this.#initTexture();
@@ -649,7 +650,7 @@ class InfiniteGridMenu {
     });
   }
 
-  #initDiscInstances(count) {
+  #initInstances(count) {
     const gl = this.gl;
     this.discInstances = {
       matricesArray: new Float32Array(count * 16),
@@ -746,7 +747,7 @@ class InfiniteGridMenu {
       this.discBuffers.indices.length,
       gl.UNSIGNED_SHORT,
       0,
-      this.DISC_INSTANCE_COUNT
+      this.INSTANCE_COUNT
     );
   }
 
@@ -893,8 +894,6 @@ export default function InfiniteMenu({ items = [] }) {
           <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
             {activeItem.title}
           </h2>
-
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
 
           <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
             <p className="action-button-icon">&#x2197;</p>

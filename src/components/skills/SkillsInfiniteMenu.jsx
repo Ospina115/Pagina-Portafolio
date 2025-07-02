@@ -110,13 +110,36 @@ const prepareMenuItems = (group) => {
 export function SkillsInfiniteMenu({ isSpanish }) {
   return (
     <section className="skills-infinite-menu" id="skills" aria-label={isSpanish ? "Sección de habilidades" : "Skills section"}>
-      <h1 className="skills-main-title">{isSpanish ? "Habilidades" : "Skills"}</h1>
-      
       <div className="skills-grid">
-        {skillData.map((group, index) => (
+        {/* Título y descripción - ocupan las primeras 2 columnas de la primera fila */}
+        <div className="skills-header">
+          <h1 className="skills-main-title">{isSpanish ? "Habilidades" : "Skills"}</h1>
+          <p className="skills-description">
+            {isSpanish 
+              ? "Estas son las tecnologías y herramientas con las que trabajo para crear soluciones digitales innovadoras." 
+              : "These are the technologies and tools I work with to create innovative digital solutions."
+            }
+          </p>
+        </div>
+        
+        {/* Lenguajes de programación - tercera columna de la primera fila */}
+        <div className="skill-group-container skill-group-featured">
+          <div className="skill-group-header">
+            <img src={skillData[0].iconSrc} alt="" className="skill-group-icon" />
+            <h2 className="skill-group-title">
+              {isSpanish ? skillData[0].titleEs : skillData[0].titleEn}
+            </h2>
+          </div>
+          <div className="infinite-menu-container">
+            <InfiniteMenu items={prepareMenuItems(skillData[0])} />
+          </div>
+        </div>
+
+        {/* Resto de grupos de tecnologías - una columna cada uno */}
+        {skillData.slice(1).map((group) => (
           <div 
             key={group.key} 
-            className={`skill-group-container ${index === 0 ? 'skill-group-featured' : ''}`}
+            className="skill-group-container"
           >
             <div className="skill-group-header">
               <img src={group.iconSrc} alt="" className="skill-group-icon" />
