@@ -1,53 +1,309 @@
-# 🌟 Portafolio Ospina115
+# 🌟 Portafolio Samuel Ospina
 
 ![Vista previa del portafolio](preview.png)
 
-Un portafolio web moderno y responsivo desarrollado con React y Vite, que presenta información personal, habilidades y proyectos de manera interactiva y atractiva.
-
----
+Un portafolio web moderno y responsivo desarrollado con React y Vite, que presenta información personal, habilidades y proyectos de manera interactiva y atractiva con efectos visuales avanzados.
 
 ## 📋 Tabla de Contenidos
 
 - [🚧 Tecnologías](#-tecnologías)
-- [🏗️ Arquitectura del Proyecto](#️-arquitectura-del-proyecto)
 - [🚀 Instalación](#-instalación)
 - [💻 Uso](#-uso)
 - [📁 Estructura del Proyecto](#-estructura-del-proyecto)
 - [🎨 Características](#-características)
 - [🔧 Scripts Disponibles](#-scripts-disponibles)
+- [🏗️ Arquitectura](#️-arquitectura)
+- [📝 Mejores Prácticas](#-mejores-prácticas)
 - [🌐 Despliegue](#-despliegue)
 - [🤝 Contribución](#-contribución)
-- [📈 Estado del Proyecto](#-estado-del-proyecto)
 
 ---
 
 ## 🚧 Tecnologías
 
-Este proyecto utiliza tecnologías modernas de desarrollo web para garantizar rendimiento, escalabilidad y una excelente experiencia de usuario:
-
 ### Frontend Core
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-### Gestión de Paquetes
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+- **React 18.3.1**: Biblioteca para construir interfaces de usuario
+- **Vite 5.4.8**: Herramienta de construcción y servidor de desarrollo
+- **JavaScript ES2022**: Lenguaje de programación principal
 
 ### Animaciones y UX
-- **Lenis 1.1.14**: Smooth scrolling y efectos de desplazamiento
+- **Lenis 1.1.14**: Smooth scrolling avanzado y efectos de desplazamiento
 - **Framer Motion 12.14.0**: Animaciones fluidas y transiciones
 - **GSAP 3.13.0**: Animaciones avanzadas y timeline management
-- **OGL 1.0.11**: Renderizado WebGL para efectos de fondo dinámicos
 
 ### Efectos Visuales
-- **Aurora Background**: Fondo animado con shaders WebGL que simula una aurora boreal
-- **Glassmorphism**: Efectos de cristal esmerilado en la interfaz
-- **Smooth Scrolling**: Navegación fluida entre secciones
+- **OGL 1.0.11**: Renderizado WebGL para efectos de fondo dinámicos
+- **gl-matrix 3.4.3**: Operaciones matemáticas para WebGL
+- **Devicon 2.16.0**: Iconos de tecnologías a color
 
-### Versiones Específicas
-- **React**: 18.3.1
-- **Vite**: 5.4.8
-- **Node.js**: Compatible con NPM 10.9.2+
+### Herramientas de Desarrollo
+- **ESLint 9.11.1**: Linter para mantener calidad del código
+- **Vite Plugin React SWC**: Compilador rápido para React
 
 ---
+
+## 🚀 Instalación
+
+### Requisitos Previos
+- Node.js 18+ 
+- npm 9+
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/tu-usuario/Pagina-Portafolio.git
+cd Pagina-Portafolio
+```
+
+2. **Instalar dependencias**
+```bash
+npm install
+```
+
+3. **Iniciar servidor de desarrollo**
+```bash
+npm run dev
+```
+
+4. **Abrir en el navegador**
+```
+http://localhost:5173
+```
+
+---
+
+## 💻 Uso
+
+### Comandos Disponibles
+
+```bash
+# Desarrollo
+npm run dev          # Inicia servidor de desarrollo
+
+# Producción
+npm run build        # Construye para producción
+npm run preview      # Vista previa de build de producción
+
+# Calidad de código
+npm run lint         # Ejecuta ESLint
+```
+
+### Configuración de Desarrollo
+
+El proyecto utiliza Vite con configuración optimizada para desarrollo:
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 5173,
+    open: true
+  }
+})
+```
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+Pagina-Portafolio/
+├── public/                     # Archivos estáticos
+│   └── favicon.ico
+├── src/
+│   ├── components/            # Componentes React
+│   │   ├── about/            # Sección Acerca de
+│   │   ├── background/       # Efectos de fondo Aurora
+│   │   ├── contact/          # Formulario de contacto
+│   │   ├── home/            # Página principal
+│   │   ├── loading/         # Pantalla de carga
+│   │   ├── navbar/          # Navegación
+│   │   ├── navigation/      # Indicadores de scroll
+│   │   ├── projects/        # Galería de proyectos
+│   │   ├── review/          # Testimonios
+│   │   └── skills/          # Habilidades técnicas
+│   ├── hooks/               # Custom hooks
+│   │   └── useLenisScroll.js
+│   ├── styles/              # Estilos globales
+│   │   ├── style.css        # Estilos base
+│   │   ├── temaclaro.css    # Tema claro
+│   │   └── temaoscuro.css   # Tema oscuro
+│   ├── assets/              # Recursos estáticos
+│   │   └── images/          # Imágenes del proyecto
+│   ├── App.jsx              # Componente raíz
+│   └── main.jsx             # Punto de entrada
+├── eslint.config.js         # Configuración ESLint
+├── vite.config.js          # Configuración Vite
+└── package.json            # Dependencias y scripts
+```
+
+---
+
+## 🎨 Características
+
+### ✨ Interfaz de Usuario
+- **Diseño Responsive**: Adaptable a todos los dispositivos
+- **Tema Dual**: Soporte para modo claro y oscuro
+- **Navegación Fluida**: Smooth scrolling con Lenis
+- **Efectos Visuales**: Fondo animado con shaders WebGL
+
+### 🌐 Multiidioma
+- **Español/Inglés**: Cambio dinámico de idioma
+- **Persistencia**: Preferencia guardada en localStorage
+
+### 🎯 Secciones
+1. **Home**: Presentación con efectos tipográficos
+2. **About**: Información personal y profesional
+3. **Skills**: Habilidades técnicas con iconos interactivos
+4. **Projects**: Portafolio de proyectos
+5. **Reviews**: Testimonios y recomendaciones
+6. **Contact**: Información de contacto
+
+### 🔧 Tecnología Avanzada
+- **WebGL Aurora**: Fondo animado con efectos de aurora
+- **Skills Grid**: Iconos de tecnologías con Devicon
+- **Smooth Scrolling**: Navegación fluida entre secciones
+- **Performance**: Optimizado para carga rápida
+
+---
+
+## 🏗️ Arquitectura
+
+### Patrones de Diseño
+- **Component-Based**: Arquitectura basada en componentes reutilizables
+- **Custom Hooks**: Lógica compartida encapsulada
+- **Container/Presenter**: Separación de lógica y presentación
+
+### Gestión del Estado
+```javascript
+// Estado global mínimo
+const [isSpanish, setIsSpanish] = useState(true);
+const [currentTheme, setCurrentTheme] = useState('dark');
+
+// Custom hooks para funcionalidad específica
+const { scrollToSection, scrollToTop } = useLenisScroll();
+```
+
+### Estructura de Componentes
+```
+App
+├── NavBar (Navegación)
+├── Home (Landing)
+├── About (Información personal)
+├── Skills (Habilidades técnicas)
+├── Projects (Portafolio)
+├── Review (Testimonios)
+└── Contact (Contacto)
+```
+
+---
+
+## 📝 Mejores Prácticas
+
+### Código
+- **ESLint**: Linting automático con reglas estrictas
+- **JSDoc**: Documentación de componentes y funciones
+- **Naming Conventions**: CamelCase para componentes, kebab-case para archivos CSS
+
+### Performance
+- **Lazy Loading**: Componentes cargados bajo demanda
+- **Image Optimization**: Imágenes optimizadas para web
+- **Bundle Splitting**: División inteligente del código
+
+### Accesibilidad
+- **ARIA Labels**: Etiquetas semánticas para lectores de pantalla
+- **Keyboard Navigation**: Navegación completa por teclado
+- **Color Contrast**: Contraste adecuado en ambos temas
+
+### Ejemplo de Componente
+```javascript
+/**
+ * Componente de habilidades con iconos interactivos
+ * @param {boolean} isSpanish - Idioma actual
+ * @returns {JSX.Element} Grid de habilidades
+ */
+function Skills({ isSpanish }) {
+  const skills = useMemo(() => getSkillsData(isSpanish), [isSpanish]);
+  
+  return (
+    <section className="skills" aria-label={isSpanish ? "Habilidades" : "Skills"}>
+      <SimpleSkillsGrid items={skills} />
+    </section>
+  );
+}
+```
+
+---
+
+## 🌐 Despliegue
+
+### Build de Producción
+```bash
+npm run build
+```
+
+### Plataformas Recomendadas
+- **Netlify**: Despliegue automático desde Git
+- **Vercel**: Optimizado para proyectos React
+- **GitHub Pages**: Hosting gratuito
+
+### Variables de Entorno
+```bash
+# .env.production
+VITE_APP_TITLE="Portafolio Samuel Ospina"
+VITE_APP_URL="https://tu-dominio.com"
+```
+
+---
+
+## 🤝 Contribución
+
+### Cómo Contribuir
+
+1. **Fork del repositorio**
+2. **Crear rama feature**: `git checkout -b feature/nueva-funcionalidad`
+3. **Commit cambios**: `git commit -m 'Add: nueva funcionalidad'`
+4. **Push a la rama**: `git push origin feature/nueva-funcionalidad`
+5. **Crear Pull Request**
+
+### Estándares
+- Seguir las convenciones de nomenclatura existentes
+- Documentar nuevos componentes con JSDoc
+- Asegurar responsividad en todos los dispositivos
+- Mantener accesibilidad (ARIA labels, contraste)
+
+### Estructura de Commits
+```bash
+Add: nueva funcionalidad
+Fix: corrección de bug
+Update: actualización de dependencia
+Refactor: refactorización de código
+Docs: actualización de documentación
+```
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+---
+
+## 👤 Autor
+
+**Samuel Ospina**
+- GitHub: [@ospina115](https://github.com/ospina115)
+- LinkedIn: [Samuel Ospina](https://linkedin.com/in/samuel-ospina)
+- Email: samuel.ospina@email.com
+
+---
+
+⭐ ¡Dale una estrella al proyecto si te gusta!
 
 ## 🏗️ Arquitectura del Proyecto
 
