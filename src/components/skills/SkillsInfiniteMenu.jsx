@@ -39,12 +39,9 @@ const skillData = [
       'devicon-react-original',
       'devicon-nodejs-plain',
       'devicon-vitejs-plain',
-      'devicon-angularjs-plain',
       'devicon-bootstrap-plain',
-      'devicon-django-plain',
       'devicon-fastapi-plain',
       'devicon-insomnia-plain',
-      'devicon-jquery-plain',
       'devicon-json-plain',
       'devicon-npm-original-wordmark',
       'devicon-tailwindcss-original',
@@ -71,6 +68,7 @@ const skillData = [
       'devicon-illustrator-plain',
       'devicon-photoshop-plain',
       'devicon-canva-original',
+      'devicon-figma-plain',
     ],
   },
   {
@@ -79,9 +77,10 @@ const skillData = [
     titleEn: 'CI/CD VCS',
     iconSrc: 'src/assets/images/skills/disquete.png',
     icons: [
-      'devicon-github-original',
       'devicon-git-plain',
+      'devicon-github-original',
       'devicon-githubcodespaces-plain',
+      'devicon-gitlab-plain',
     ],
   },
   {
