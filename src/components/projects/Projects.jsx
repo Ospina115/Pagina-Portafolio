@@ -183,13 +183,6 @@ const projectsData = [
 ];
 
 export function Projects({ isSpanish }) {
-  // Preparar datos para la galería circular
-  const galleryItems = projectsData.map(project => ({
-    image: project.image,
-    title: isSpanish ? project.title.es : project.title.en,
-    projectData: project
-  }));
-
   return (
     <section className="projects" id="projects" aria-label={isSpanish ? "Sección de proyectos" : "Projects section"}>
       <div className="projects-container">
@@ -208,24 +201,14 @@ export function Projects({ isSpanish }) {
         <div className="gallery-section">
           <div className="gallery-container">
             <CircularGallery
-              items={galleryItems}
+              items={projectsData}
               bend={3}
-              textColor="#ffffff"
-              borderRadius={0.05}
-              scrollEase={0.02}
+              CardComponent={ProjectCard}
+              isSpanish={isSpanish}
               scrollSpeed={2}
+              scrollEase={0.05}
             />
           </div>
-        </div>
-
-        <div className="projects-grid">
-          {projectsData.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              isSpanish={isSpanish}
-            />
-          ))}
         </div>
 
         <div className="projects-cta">

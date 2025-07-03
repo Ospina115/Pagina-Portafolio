@@ -16,9 +16,7 @@
   transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-}
+/* Sin efectos de elevación en hover */
 
 .card-inner {
   position: relative;
@@ -40,9 +38,7 @@
   backface-visibility: hidden;
   background: linear-gradient(145deg, #f8fbfe 0%, #ffffff 100%);
   border-radius: 12px;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Sin sombras para evitar efectos de elevación */
   border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
@@ -72,7 +68,7 @@
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  /* Sin sombra interna para evitar efectos visuales */
 }
 
 .control.red {
@@ -224,7 +220,7 @@
 
 .tech-item:hover {
   background: #edf2f7;
-  transform: translateY(-1px);
+  /* Sin elevación en hover */
 }
 
 .tech-item img {
@@ -266,7 +262,7 @@
 
 .project-link.github:hover {
   background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
-  transform: translateY(-2px);
+  /* Sin elevación en hover */
 }
 
 .project-link.live {
@@ -276,7 +272,7 @@
 
 .project-link.live:hover {
   background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
-  transform: translateY(-2px);
+  /* Sin elevación en hover */
 }
 
 .project-features ul {

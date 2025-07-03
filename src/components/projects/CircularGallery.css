@@ -1,98 +1,179 @@
 /**
  * CircularGallery.css - Estilos para el componente CircularGallery
  * 
- * Estilos para la galería circular de proyectos con animaciones y efectos visuales.
+ * Estilos para la galería circular de proyectos con efectos de curvatura CSS.
  * 
  * @author Samuel Ospina
- * @version 1.0.0
+ * @version 2.0.0
  */
 
-.circular-gallery {
+.circular-gallery-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
   cursor: grab;
   border-radius: 16px;
   position: relative;
-  background: linear-gradient(135deg, 
-    rgba(15, 23, 42, 0.1) 0%, 
-    rgba(30, 41, 59, 0.1) 50%, 
-    rgba(15, 23, 42, 0.1) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+  background: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
-.circular-gallery:active {
+.circular-gallery-container:active {
   cursor: grabbing;
 }
 
-.circular-gallery::before {
-  content: '';
+.gallery-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gallery-card {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, 
-    transparent 30%, 
-    rgba(255, 255, 255, 0.02) 50%, 
-    transparent 70%);
-  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  transition: transform 0.1s ease;
+  will-change: transform;
+  pointer-events: auto;
   z-index: 1;
+  margin-left: -160px; /* Mitad del ancho de la tarjeta (320px/2) */
+  margin-top: -210px;  /* Mitad de la altura de la tarjeta (420px/2) */
 }
 
-.circular-gallery canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: inherit;
+.gallery-card:hover {
+  z-index: 10;
 }
 
-/* Indicador de scroll */
-.circular-gallery::after {
-  content: '↔ Desliza para navegar';
+/* Indicadores de navegación */
+.gallery-indicators {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  z-index: 2;
-  pointer-events: none;
-  animation: fadeInOut 3s ease-in-out infinite;
+  display: flex;
+  gap: 12px;
+  z-index: 20;
 }
 
-@keyframes fadeInOut {
-  0%, 100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.8;
-  }
+.gallery-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.gallery-indicator:hover {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.gallery-indicator.active {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/* Instrucciones de navegación */
+.circular-gallery-container::after {
+  content: '↔ Arrastra para navegar';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.circular-gallery-container:hover::after {
+  opacity: 1;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .circular-gallery::after {
+  .circular-gallery-container::after {
     content: 'Desliza para navegar';
-    font-size: 10px;
+    font-size: 12px;
+    top: 15px;
+  }
+  
+  .gallery-indicators {
     bottom: 15px;
+    gap: 10px;
+  }
+  
+  .gallery-indicator {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .gallery-card {
+    margin-left: -150px; /* Ajuste para tarjetas más pequeñas en tablet */
+    margin-top: -190px;
   }
 }
 
 @media (max-width: 480px) {
-  .circular-gallery {
-    border-radius: 12px;
+  .circular-gallery-container::after {
+    font-size: 11px;
+    padding: 6px 12px;
+    top: 10px;
   }
   
-  .circular-gallery::after {
+  .gallery-indicators {
     bottom: 10px;
-    font-size: 9px;
+    gap: 8px;
+  }
+  
+  .gallery-indicator {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .gallery-card {
+    margin-left: -140px; /* Ajuste para móviles */
+    margin-top: -180px;
+  }
+}
+
+/* Estilos para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .circular-gallery-container::after {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .gallery-indicator {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .gallery-indicator:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .gallery-indicator.active {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.9);
   }
 }
