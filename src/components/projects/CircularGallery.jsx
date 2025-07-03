@@ -1,18 +1,18 @@
 /**
  * CircularGallery.jsx - Componente de galería circular para proyectos
  * 
- * Galería circular con carrusel infinito que muestra tarjetas de proyecto 
- * con navegación por arrastre y scroll automático continuo sin interrupciones.
+ * Galería circular que muestra tarjetas de proyecto con navegación manual
+ * por arrastre únicamente.
  * 
  * @component
  * @param {Object} props - Propiedades del componente
  * @param {Array} props.items - Array de proyectos a mostrar
  * @param {number} props.bend - Curvatura de la galería (no utilizada en versión actual)
  * @param {Object} props.CardComponent - Componente de tarjeta a renderizar
- * @returns {JSX.Element} Galería circular infinita renderizada
+ * @returns {JSX.Element} Galería circular renderizada
  * 
  * @author Samuel Ospina
- * @version 3.1.0
+ * @version 4.0.0
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -37,12 +37,9 @@ export default function CircularGallery({
   const startRef = useRef(0);
   const positionRef = useRef(0);
   const animationRef = useRef();
-  const autoScrollRef = useRef(true); // Control del scroll automático
-  const autoScrollSpeedRef = useRef(0.5); // Velocidad del scroll automático
   
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemWidth] = useState(350); // Ancho fijo para las tarjetas
-  const [isInitialized, setIsInitialized] = useState(false); // Control de inicialización
 
   useEffect(() => {
     const container = containerRef.current;
@@ -50,15 +47,6 @@ export default function CircularGallery({
 
     const updateSize = () => {
       setContainerWidth(container.clientWidth);
-      
-      // Inicializar scroll en el set del medio para efecto infinito
-      if (!isInitialized && items.length > 0) {
-        const cardWidth = itemWidth + 40;
-        const singleSetWidth = items.length * cardWidth;
-        scrollRef.current.target = singleSetWidth; // Empezar en el segundo set
-        scrollRef.current.current = singleSetWidth;
-        setIsInitialized(true);
-      }
     };
 
     updateSize();
@@ -67,27 +55,13 @@ export default function CircularGallery({
     return () => {
       window.removeEventListener('resize', updateSize);
     };
-  }, [itemWidth, items.length, isInitialized]);
+  }, []);
 
   useEffect(() => {
     const animate = () => {
       const scroll = scrollRef.current;
       
-      // Si no se está arrastrando, aplicar scroll automático
-      if (!isDownRef.current && autoScrollRef.current) {
-        scroll.target += autoScrollSpeedRef.current;
-        
-        // Carrusel infinito: reset suave cuando llegue al final del segundo set
-        const cardWidth = itemWidth + 40;
-        const singleSetWidth = items.length * cardWidth;
-        
-        // Reset cuando llega al final del segundo set (antes del tercero)
-        if (scroll.target >= singleSetWidth * 2) {
-          scroll.target = singleSetWidth; // Reset al inicio del segundo set
-          scroll.current = singleSetWidth; // Reset inmediato para evitar saltos
-        }
-      }
-      
+      // Solo interpolación suave, sin scroll automático
       scroll.current = lerp(scroll.current, scroll.target, scrollEase);
       
       const container = containerRef.current;
@@ -124,7 +98,6 @@ export default function CircularGallery({
 
   const handleMouseDown = (e) => {
     isDownRef.current = true;
-    autoScrollRef.current = false; // Pausar scroll automático
     positionRef.current = scrollRef.current.current;
     startRef.current = e.clientX;
     containerRef.current.style.cursor = 'grabbing';
@@ -140,42 +113,19 @@ export default function CircularGallery({
     isDownRef.current = false;
     containerRef.current.style.cursor = 'grab';
     snapToNearestCard();
-    
-    // Reanudar scroll automático después de un breve delay
-    setTimeout(() => {
-      autoScrollRef.current = true;
-    }, 2000); // 2 segundos de pausa antes de reanudar
   };
 
   // Función eliminada: handleWheel - ya no se permite scroll con rueda del mouse
 
   const snapToNearestCard = () => {
     const cardWidth = itemWidth + 40;
-    const singleSetWidth = items.length * cardWidth;
-    
-    // Normalizar la posición dentro del set principal (segundo set)
-    let targetPosition = scrollRef.current.target;
-    
-    // Si está en el primer set, mover al equivalente en el segundo set
-    if (targetPosition < singleSetWidth) {
-      targetPosition += singleSetWidth;
-    }
-    // Si está en el tercer set, mover al equivalente en el segundo set
-    else if (targetPosition >= singleSetWidth * 2) {
-      targetPosition -= singleSetWidth;
-    }
-    
-    // Encontrar la tarjeta más cercana dentro del segundo set
-    const relativePosition = targetPosition - singleSetWidth;
-    const cardIndex = Math.round(relativePosition / cardWidth);
+    const cardIndex = Math.round(scrollRef.current.target / cardWidth);
     const clampedIndex = Math.max(0, Math.min(items.length - 1, cardIndex));
-    
-    scrollRef.current.target = singleSetWidth + (clampedIndex * cardWidth);
+    scrollRef.current.target = clampedIndex * cardWidth;
   };
 
   const handleTouchStart = (e) => {
     isDownRef.current = true;
-    autoScrollRef.current = false; // Pausar scroll automático
     positionRef.current = scrollRef.current.current;
     startRef.current = e.touches[0].clientX;
   };
@@ -189,11 +139,6 @@ export default function CircularGallery({
   const handleTouchEnd = () => {
     isDownRef.current = false;
     snapToNearestCard();
-    
-    // Reanudar scroll automático después de un breve delay
-    setTimeout(() => {
-      autoScrollRef.current = true;
-    }, 2000); // 2 segundos de pausa antes de reanudar
   };
 
   return (
@@ -209,42 +154,9 @@ export default function CircularGallery({
       onTouchEnd={handleTouchEnd}
     >
       <div className="gallery-track">
-        {/* Primera copia de tarjetas (antes del set principal) */}
         {items.map((item, index) => (
           <div 
-            key={`prev-${index}`} 
-            className="gallery-card"
-            style={{
-              transform: `scale(var(--scale, 1))`,
-            }}
-          >
-            <CardComponent
-              project={item.projectData || item}
-              isSpanish={isSpanish}
-            />
-          </div>
-        ))}
-        
-        {/* Segunda copia de tarjetas (set principal - donde inicia) */}
-        {items.map((item, index) => (
-          <div 
-            key={`main-${index}`} 
-            className="gallery-card"
-            style={{
-              transform: `scale(var(--scale, 1))`,
-            }}
-          >
-            <CardComponent
-              project={item.projectData || item}
-              isSpanish={isSpanish}
-            />
-          </div>
-        ))}
-        
-        {/* Tercera copia de tarjetas (después del set principal) */}
-        {items.map((item, index) => (
-          <div 
-            key={`next-${index}`} 
+            key={index} 
             className="gallery-card"
             style={{
               transform: `scale(var(--scale, 1))`,
@@ -265,16 +177,7 @@ export default function CircularGallery({
             className="gallery-indicator"
             onClick={() => {
               const cardWidth = itemWidth + 40;
-              const singleSetWidth = items.length * cardWidth;
-              
-              // Ir al índice seleccionado en el set principal (segundo set)
-              scrollRef.current.target = singleSetWidth + (index * cardWidth);
-              
-              // Pausar scroll automático temporalmente
-              autoScrollRef.current = false;
-              setTimeout(() => {
-                autoScrollRef.current = true;
-              }, 2000);
+              scrollRef.current.target = index * cardWidth;
             }}
             aria-label={`Ir a proyecto ${index + 1}`}
           />

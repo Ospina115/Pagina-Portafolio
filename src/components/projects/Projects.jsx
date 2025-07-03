@@ -23,80 +23,83 @@ const projectsData = [
   {
     id: 1,
     title: {
-      es: "E-Commerce Moderno",
-      en: "Modern E-Commerce"
+      es: "TCN Pagina Web",
+      en: "TCN Website"
     },
     description: {
-      es: "Plataforma de comercio electrónico con React, Node.js y MongoDB",
-      en: "E-commerce platform built with React, Node.js and MongoDB"
+      es: "Pagina web de territorio centro de negocios, responsiva y compatible para todos los ordenadores",
+      en: "Territorio Centro de Negocios website, responsive and compatible for all computers"
     },
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
     alt: {
-      es: "Captura de pantalla del e-commerce",
-      en: "E-commerce screenshot"
+      es: "Captura de pantalla de la pagina web TCN",
+      en: "TCN webppage screenshot"
     },
     technologies: [
       { name: "React", icon: "/src/assets/images/devicons/frameworks/react-original.svg" },
-      { name: "Node.js", icon: "/src/assets/images/devicons/frameworks/nodejs-original.svg" },
-      { name: "MongoDB", icon: "/src/assets/images/devicons/basesdedatos/mongodb-original.svg" },
-      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" }
+      { name: "HTML", icon: "/src/assets/images/devicons/lenguajes/html5-original.svg" },
+      { name: "CSS", icon: "/src/assets/images/devicons/lenguajes/css3-original.svg" },
+      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" },
+      { name: "Vite", icon: "/src/assets/images/devicons/frameworks/vitejs-original.svg" }
     ],
-    githubUrl: "https://github.com/tuusuario/ecommerce-project",
-    liveUrl: "https://tu-ecommerce-demo.vercel.app",
+    githubUrl: "https://github.com/Ospina115/Territorio-centro-de-negocios",
+    liveUrl: "https://territoriocentrodenegocios.netlify.app/",
     features: {
       es: [
-        "Carrito de compras interactivo",
-        "Sistema de autenticación",
-        "Panel de administración",
-        "Pagos con Stripe",
-        "Responsive design"
+        "Pagina interactiva",
+        "Diseño responsivo",
+        "Optimización",
+        "Arquitectura escalable",
+        "Diseño moderno"
       ],
       en: [
-        "Interactive shopping cart",
-        "Authentication system",
-        "Admin dashboard",
-        "Stripe payments",
-        "Responsive design"
+        "Interactive page",
+        "Responsive design",
+        "Optimization",
+        "Scalable architecture",
+        "Modern design"
       ]
     }
   },
   {
     id: 2,
     title: {
-      es: "Dashboard Analítico",
-      en: "Analytics Dashboard"
+      es: "API REST con JWT",
+      en: "API REST with JWT"
     },
     description: {
-      es: "Dashboard interactivo para visualización de datos con gráficos dinámicos",
-      en: "Interactive dashboard for data visualization with dynamic charts"
+      es: "API REST desarrollada con Spring Boot que implementa autenticación mediante JSON Web Tokens con expiración configurable",
+      en: "REST API developed with Spring Boot that implements authentication using JSON Web Tokens with configurable expiration."
     },
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
     alt: {
-      es: "Captura del dashboard analítico",
-      en: "Analytics dashboard screenshot"
+      es: "Captura del resultado de la consulta",
+      en: "Screenshot of the query result"
     },
     technologies: [
-      { name: "React", icon: "/src/assets/images/devicons/frameworks/react-original.svg" },
-      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" },
-      { name: "HTML5", icon: "/src/assets/images/devicons/lenguajes/html5-original.svg" },
-      { name: "CSS3", icon: "/src/assets/images/devicons/lenguajes/css3-original.svg" }
+      { name: "Spring", icon: "/src/assets/images/devicons/frameworks/spring-original.svg" },
+      { name: "Java", icon: "/src/assets/images/devicons/lenguajes/java-original.svg" },
+      { name: "Maven", icon: "/src/assets/images/devicons/servidores/maven-original.svg" },
+      { name: "Postman", icon: "/src/assets/images/devicons/frameworks/postman-original.svg" },
+      { name: "Git", icon:"/src/assets/images/devicons/controlversiones/git-original.svg"}
     ],
-    githubUrl: "https://github.com/tuusuario/analytics-dashboard",
-    liveUrl: "https://tu-dashboard-demo.vercel.app",
+    githubUrl: "https://github.com/Ospina115/JWT-SpringBoot",
     features: {
       es: [
-        "Gráficos interactivos",
-        "Filtros en tiempo real",
-        "Exportación a PDF",
-        "Modo oscuro/claro",
-        "API RESTful"
+        "Autenticación JWT",
+        "Autorización por Roles",
+        "Configuración Externa",
+        "API RESTful",
+        "Seguridad Stateless",
+        "Documentación Completa"
       ],
       en: [
-        "Interactive charts",
-        "Real-time filters",
-        "PDF export",
-        "Dark/light mode",
-        "RESTful API"
+        "JWT Authentication",
+        "Role-based Authorization",
+        "External Configuration",
+        "RESTful API",
+        "Stateless Security",
+        "Complete Documentation"
       ]
     }
   },
