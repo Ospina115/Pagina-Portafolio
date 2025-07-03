@@ -15,6 +15,7 @@
 
 import './about.css';
 import ScrollReveal from './ScrollReveal.jsx';
+// import sobremiImage from '../../assets/images/sobremi.jpg'; // Descomentar cuando tengas la imagen
 
 export function About({ isSpanish }) {
     return (
@@ -38,11 +39,12 @@ export function About({ isSpanish }) {
                     </ScrollReveal>
                 </div>
                 
-                <img 
+                {/* <img 
                     className="sobremi" 
-                    src="/public/images/sobremi.jpg" 
+                    src={sobremiImage} 
                     alt={isSpanish ? "Imagen de Samuel Ospina" : "Samuel Ospina image"}
-                />
+                /> */}
+                {/* Imagen comentada temporalmente - agrega sobremi.jpg a src/assets/images/ y descomenta */}
             </div>
         </section>
     );

@@ -1,3 +1,56 @@
+// Importar todos los iconos de tecnologías
+// Lenguajes
+import javaIcon from '../../assets/images/devicons/lenguajes/java-original.svg';
+import javascriptIcon from '../../assets/images/devicons/lenguajes/javascript-original.svg';
+import html5Icon from '../../assets/images/devicons/lenguajes/html5-original.svg';
+import css3Icon from '../../assets/images/devicons/lenguajes/css3-original.svg';
+import pythonIcon from '../../assets/images/devicons/lenguajes/python-original.svg';
+import powershellIcon from '../../assets/images/devicons/lenguajes/powershell-original.svg';
+
+// Hosting
+import azureIcon from '../../assets/images/devicons/hosting/azure-original.svg';
+import netlifyIcon from '../../assets/images/devicons/hosting/netlify-original.svg';
+import githubIcon from '../../assets/images/devicons/hosting/github-original.svg';
+import vercelIcon from '../../assets/images/devicons/hosting/vercel-original.svg';
+import googlecloudIcon from '../../assets/images/devicons/hosting/googlecloud-original.svg';
+
+// Frameworks
+import reactIcon from '../../assets/images/devicons/frameworks/react-original.svg';
+import nodejsIcon from '../../assets/images/devicons/frameworks/nodejs-original.svg';
+import vitejsIcon from '../../assets/images/devicons/frameworks/vitejs-original.svg';
+import bootstrapIcon from '../../assets/images/devicons/frameworks/bootstrap-original.svg';
+import fastapiIcon from '../../assets/images/devicons/frameworks/fastapi-original.svg';
+import insomniaIcon from '../../assets/images/devicons/frameworks/insomnia-original.svg';
+import jsonIcon from '../../assets/images/devicons/frameworks/json-original.svg';
+import npmIcon from '../../assets/images/devicons/frameworks/npm-original-wordmark.svg';
+import tailwindcssIcon from '../../assets/images/devicons/frameworks/tailwindcss-original.svg';
+import postmanIcon from '../../assets/images/devicons/frameworks/postman-original.svg';
+
+// Servidores
+import apacheIcon from '../../assets/images/devicons/servidores/apache-original.svg';
+import mavenIcon from '../../assets/images/devicons/servidores/maven-original.svg';
+import tomcatIcon from '../../assets/images/devicons/servidores/tomcat-original.svg';
+
+// Diseño
+import aftereffectsIcon from '../../assets/images/devicons/diseño/aftereffects-original.svg';
+import illustratorIcon from '../../assets/images/devicons/diseño/illustrator-line.svg';
+import photoshopIcon from '../../assets/images/devicons/diseño/photoshop-original.svg';
+import canvaIcon from '../../assets/images/devicons/diseño/canva-original.svg';
+import figmaIcon from '../../assets/images/devicons/diseño/figma-original.svg';
+
+// Control de versiones
+import gitIcon from '../../assets/images/devicons/controlversiones/git-original.svg';
+import githubVcsIcon from '../../assets/images/devicons/controlversiones/github-original.svg';
+import githubcodespacesIcon from '../../assets/images/devicons/controlversiones/githubcodespaces-original.svg';
+import gitlabIcon from '../../assets/images/devicons/controlversiones/gitlab-original.svg';
+
+// Bases de datos
+import mysqlIcon from '../../assets/images/devicons/basesdedatos/mysql-original.svg';
+import postgresqlIcon from '../../assets/images/devicons/basesdedatos/postgresql-original.svg';
+import mongodbIcon from '../../assets/images/devicons/basesdedatos/mongodb-original.svg';
+import hibernateIcon from '../../assets/images/devicons/basesdedatos/hibernate-original.svg';
+import oracleIcon from '../../assets/images/devicons/basesdedatos/oracle-original.svg';
+
 // Mapeo de tecnologías a sus documentaciones oficiales
 export const techDocumentationLinks = {
   // Lenguajes de Programación
@@ -91,64 +144,63 @@ export const getTechName = (iconClass) => {
 
 // Función para convertir iconos devicon a URLs de imágenes
 export const getIconImageUrl = (iconClass) => {
-  // Mapeo de iconos a sus rutas de archivos reales (solo iconos que existen)
+  // Mapeo de iconos a sus importaciones (solo iconos que existen)
   const iconMappings = {
     // Lenguajes de Programación
-    'devicon-java-plain': 'lenguajes/java-original.svg',
-    'devicon-javascript-plain': 'lenguajes/javascript-original.svg',
-    'devicon-html5-plain': 'lenguajes/html5-original.svg',
-    'devicon-css3-plain': 'lenguajes/css3-original.svg',
-    'devicon-python-plain': 'lenguajes/python-original.svg',
-    'devicon-powershell-plain': 'lenguajes/powershell-original.svg',
+    'devicon-java-plain': javaIcon,
+    'devicon-javascript-plain': javascriptIcon,
+    'devicon-html5-plain': html5Icon,
+    'devicon-css3-plain': css3Icon,
+    'devicon-python-plain': pythonIcon,
+    'devicon-powershell-plain': powershellIcon,
 
     // Hosting / SaaS
-    'devicon-azure-plain': 'hosting/azure-original.svg',
-    'devicon-netlify-plain': 'hosting/netlify-original.svg',
-    'devicon-github-original': 'hosting/github-original.svg',
-    'devicon-vercel-original': 'hosting/vercel-original.svg',
-    'devicon-googlecloud-plain': 'hosting/googlecloud-original.svg',
+    'devicon-azure-plain': azureIcon,
+    'devicon-netlify-plain': netlifyIcon,
+    'devicon-github-original': githubIcon,
+    'devicon-vercel-original': vercelIcon,
+    'devicon-googlecloud-plain': googlecloudIcon,
 
-    // Frameworks, Plataformas y Librerías (solo los que existen)
-    'devicon-react-original': 'frameworks/react-original.svg',
-    'devicon-nodejs-plain': 'frameworks/nodejs-original.svg',
-    'devicon-vitejs-plain': 'frameworks/vitejs-original.svg',
-    'devicon-bootstrap-plain': 'frameworks/bootstrap-original.svg',
-    'devicon-fastapi-plain': 'frameworks/fastapi-original.svg',
-    'devicon-insomnia-plain': 'frameworks/insomnia-original.svg',
-    'devicon-json-plain': 'frameworks/json-original.svg',
-    'devicon-npm-original-wordmark': 'frameworks/npm-original-wordmark.svg',
-    'devicon-tailwindcss-original': 'frameworks/tailwindcss-original.svg',
-    'devicon-postman-plain': 'frameworks/postman-original.svg', // Icono adicional encontrado
+    // Frameworks, Plataformas y Librerías
+    'devicon-react-original': reactIcon,
+    'devicon-nodejs-plain': nodejsIcon,
+    'devicon-vitejs-plain': vitejsIcon,
+    'devicon-bootstrap-plain': bootstrapIcon,
+    'devicon-fastapi-plain': fastapiIcon,
+    'devicon-insomnia-plain': insomniaIcon,
+    'devicon-json-plain': jsonIcon,
+    'devicon-npm-original-wordmark': npmIcon,
+    'devicon-tailwindcss-original': tailwindcssIcon,
+    'devicon-postman-plain': postmanIcon,
 
     // Servidores
-    'devicon-apache-plain': 'servidores/apache-original.svg',
-    'devicon-maven-plain': 'servidores/maven-original.svg',
-    'devicon-tomcat-line': 'servidores/tomcat-original.svg',
+    'devicon-apache-plain': apacheIcon,
+    'devicon-maven-plain': mavenIcon,
+    'devicon-tomcat-line': tomcatIcon,
 
     // Diseño
-    'devicon-aftereffects-plain': 'diseño/aftereffects-original.svg',
-    'devicon-illustrator-plain': 'diseño/illustrator-line.svg',
-    'devicon-photoshop-plain': 'diseño/photoshop-original.svg',
-    'devicon-canva-original': 'diseño/canva-original.svg',
-    'devicon-figma-plain': 'diseño/figma-original.svg', // Icono adicional encontrado
+    'devicon-aftereffects-plain': aftereffectsIcon,
+    'devicon-illustrator-plain': illustratorIcon,
+    'devicon-photoshop-plain': photoshopIcon,
+    'devicon-canva-original': canvaIcon,
+    'devicon-figma-plain': figmaIcon,
 
     // Control de Versiones
-    'devicon-git-plain': 'controlversiones/git-original.svg',
-    'devicon-github-original': 'controlversiones/github-original.svg', // También está en control de versiones
-    'devicon-githubcodespaces-plain': 'controlversiones/githubcodespaces-original.svg',
-    'devicon-gitlab-plain': 'controlversiones/gitlab-original.svg', // Icono adicional encontrado
+    'devicon-git-plain': gitIcon,
+    'devicon-githubcodespaces-plain': githubcodespacesIcon,
+    'devicon-gitlab-plain': gitlabIcon,
 
     // Bases de datos
-    'devicon-mysql-original': 'basesdedatos/mysql-original.svg',
-    'devicon-postgresql-plain': 'basesdedatos/postgresql-original.svg',
-    'devicon-mongodb-plain': 'basesdedatos/mongodb-original.svg',
-    'devicon-hibernate-plain': 'basesdedatos/hibernate-original.svg',
-    'devicon-oracle-plain': 'basesdedatos/oracle-original.svg', // Icono adicional encontrado
+    'devicon-mysql-original': mysqlIcon,
+    'devicon-postgresql-plain': postgresqlIcon,
+    'devicon-mongodb-plain': mongodbIcon,
+    'devicon-hibernate-plain': hibernateIcon,
+    'devicon-oracle-plain': oracleIcon,
   };
 
-  const filePath = iconMappings[iconClass];
-  if (filePath) {
-    return `/src/assets/images/devicons/${filePath}`;
+  const iconSrc = iconMappings[iconClass];
+  if (iconSrc) {
+    return iconSrc;
   }
   
   // Fallback al CDN si no se encuentra el archivo local

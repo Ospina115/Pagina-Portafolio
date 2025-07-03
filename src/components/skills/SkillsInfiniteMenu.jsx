@@ -2,12 +2,21 @@ import InfiniteMenu from './InfiniteMenu';
 import './SkillsInfiniteMenu.css';
 import { getIconImageUrl, getTechName, techDocumentationLinks } from './skillsUtils';
 
+// Importar todas las imágenes de skills
+import laptopIcon from '../../assets/images/skills/laptop.png';
+import sateliteIcon from '../../assets/images/skills/satelite.png';
+import librosIcon from '../../assets/images/skills/libros.png';
+import senalIcon from '../../assets/images/skills/señal.png';
+import brochaIcon from '../../assets/images/skills/brocha.png';
+import disqueteIcon from '../../assets/images/skills/disquete.png';
+import archivosIcon from '../../assets/images/skills/archivos.png';
+
 const skillData = [
   {
     key: 'lenguajes',
     titleEs: 'Lenguajes de Programacion',
     titleEn: 'Programming languages',
-    iconSrc: 'src/assets/images/skills/laptop.png',
+    iconSrc: laptopIcon,
     icons: [
       'devicon-java-plain',
       'devicon-javascript-plain',
@@ -21,7 +30,7 @@ const skillData = [
     key: 'hosting',
     titleEs: 'Hosting / SaaS',
     titleEn: 'Hosting / SaaS',
-    iconSrc: 'src/assets/images/skills/satelite.png',
+    iconSrc: sateliteIcon,
     icons: [
       'devicon-azure-plain',
       'devicon-netlify-plain',
@@ -34,7 +43,7 @@ const skillData = [
     key: 'frameworks',
     titleEs: 'Frameworks, Plataformas y Librerias',
     titleEn: 'Frameworks, Platforms & Libraries',
-    iconSrc: 'src/assets/images/skills/libros.png',
+    iconSrc: librosIcon,
     icons: [
       'devicon-react-original',
       'devicon-nodejs-plain',
@@ -51,7 +60,7 @@ const skillData = [
     key: 'servers',
     titleEs: 'Servidores',
     titleEn: 'Servers',
-    iconSrc: 'src/assets/images/skills/señal.png',
+    iconSrc: senalIcon,
     icons: [
       'devicon-apache-plain',
       'devicon-maven-plain',
@@ -62,7 +71,7 @@ const skillData = [
     key: 'design',
     titleEs: 'Diseño',
     titleEn: 'Design',
-    iconSrc: 'src/assets/images/skills/brocha.png',
+    iconSrc: brochaIcon,
     icons: [
       'devicon-aftereffects-plain',
       'devicon-illustrator-plain',
@@ -75,7 +84,7 @@ const skillData = [
     key: 'versions',
     titleEs: 'Control de Versiones',
     titleEn: 'CI/CD VCS',
-    iconSrc: 'src/assets/images/skills/disquete.png',
+    iconSrc: disqueteIcon,
     icons: [
       'devicon-git-plain',
       'devicon-github-original',
@@ -87,7 +96,7 @@ const skillData = [
     key: 'bases-de-datos',
     titleEs: 'Bases de datos',
     titleEn: 'Databases',
-    iconSrc: 'src/assets/images/skills/archivos.png',
+    iconSrc: archivosIcon,
     icons: [
       'devicon-mysql-original',
       'devicon-postgresql-plain',

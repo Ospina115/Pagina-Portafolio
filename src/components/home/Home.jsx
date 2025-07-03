@@ -14,6 +14,7 @@
  */
 
 import './home.css';
+import iconImage from '../../assets/images/icon.png';
 
 export function Home({ isSpanish }) {
     return (
@@ -57,7 +58,7 @@ export function Home({ isSpanish }) {
             </div>
             
             <img 
-                src="src/assets/images/icon.png" 
+                src={iconImage} 
                 alt={isSpanish ? "Icono de Samuel Ospina" : "Samuel Ospina icon"} 
                 className="sam" 
             />

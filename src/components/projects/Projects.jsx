@@ -18,6 +18,18 @@ import CircularGallery from './CircularGallery';
 import { ProjectCard } from './ProjectCard';
 import './Projects.css';
 
+// Importar iconos de tecnologías
+import reactIcon from '../../assets/images/devicons/frameworks/react-original.svg';
+import html5Icon from '../../assets/images/devicons/lenguajes/html5-original.svg';
+import css3Icon from '../../assets/images/devicons/lenguajes/css3-original.svg';
+import javascriptIcon from '../../assets/images/devicons/lenguajes/javascript-original.svg';
+import viteIcon from '../../assets/images/devicons/frameworks/vitejs-original.svg';
+import javaIcon from '../../assets/images/devicons/lenguajes/java-original.svg';
+import mavenIcon from '../../assets/images/devicons/servidores/maven-original.svg';
+import postmanIcon from '../../assets/images/devicons/frameworks/postman-original.svg';
+import gitIcon from '../../assets/images/devicons/controlversiones/git-original.svg';
+import bootstrapIcon from '../../assets/images/devicons/frameworks/bootstrap-original.svg';
+
 // Datos de proyectos de ejemplo
 const projectsData = [
   {
@@ -36,11 +48,11 @@ const projectsData = [
       en: "TCN webppage screenshot"
     },
     technologies: [
-      { name: "React", icon: "/src/assets/images/devicons/frameworks/react-original.svg" },
-      { name: "HTML", icon: "/src/assets/images/devicons/lenguajes/html5-original.svg" },
-      { name: "CSS", icon: "/src/assets/images/devicons/lenguajes/css3-original.svg" },
-      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" },
-      { name: "Vite", icon: "/src/assets/images/devicons/frameworks/vitejs-original.svg" }
+      { name: "React", icon: reactIcon },
+      { name: "HTML", icon: html5Icon },
+      { name: "CSS", icon: css3Icon },
+      { name: "JavaScript", icon: javascriptIcon },
+      { name: "Vite", icon: viteIcon }
     ],
     githubUrl: "https://github.com/Ospina115/Territorio-centro-de-negocios",
     liveUrl: "https://territoriocentrodenegocios.netlify.app/",
@@ -77,11 +89,10 @@ const projectsData = [
       en: "Screenshot of the query result"
     },
     technologies: [
-      { name: "Spring", icon: "/src/assets/images/devicons/frameworks/spring-original.svg" },
-      { name: "Java", icon: "/src/assets/images/devicons/lenguajes/java-original.svg" },
-      { name: "Maven", icon: "/src/assets/images/devicons/servidores/maven-original.svg" },
-      { name: "Postman", icon: "/src/assets/images/devicons/frameworks/postman-original.svg" },
-      { name: "Git", icon:"/src/assets/images/devicons/controlversiones/git-original.svg"}
+      { name: "Java", icon: javaIcon },
+      { name: "Maven", icon: mavenIcon },
+      { name: "Postman", icon: postmanIcon },
+      { name: "Git", icon: gitIcon}
     ],
     githubUrl: "https://github.com/Ospina115/JWT-SpringBoot",
     features: {
@@ -119,10 +130,10 @@ const projectsData = [
       en: "Task app interface"
     },
     technologies: [
-      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" },
-      { name: "HTML5", icon: "/src/assets/images/devicons/lenguajes/html5-original.svg" },
-      { name: "CSS3", icon: "/src/assets/images/devicons/lenguajes/css3-original.svg" },
-      { name: "Bootstrap", icon: "/src/assets/images/devicons/frameworks/bootstrap-original.svg" }
+      { name: "JavaScript", icon: javascriptIcon },
+      { name: "HTML5", icon: html5Icon },
+      { name: "CSS3", icon: css3Icon },
+      { name: "Bootstrap", icon: bootstrapIcon }
     ],
     githubUrl: "https://github.com/tuusuario/task-manager",
     liveUrl: "https://tu-tasks-demo.vercel.app",
@@ -159,10 +170,10 @@ const projectsData = [
       en: "Interactive portfolio view"
     },
     technologies: [
-      { name: "React", icon: "/src/assets/images/devicons/frameworks/react-original.svg" },
-      { name: "JavaScript", icon: "/src/assets/images/devicons/lenguajes/javascript-original.svg" },
-      { name: "Vite", icon: "/src/assets/images/devicons/frameworks/vitejs-original.svg" },
-      { name: "CSS3", icon: "/src/assets/images/devicons/lenguajes/css3-original.svg" }
+      { name: "React", icon: reactIcon },
+      { name: "JavaScript", icon: javascriptIcon },
+      { name: "Vite", icon: viteIcon },
+      { name: "CSS3", icon: css3Icon }
     ],
     githubUrl: "https://github.com/tuusuario/portfolio-3d",
     liveUrl: "https://tu-portfolio-demo.vercel.app",
