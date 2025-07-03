@@ -98,14 +98,16 @@
   margin: 0 0.5rem;
   display: flex;
   max-width: 100%;
-  align-items: flex-start; /* Cambiar a flex-start */
+  align-items: flex-start;
   position: relative;
-  overflow: visible; /* Permitir que el contenido se expanda */
+  overflow: visible;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform; /* Optimización para GPU */
+  transform: translateZ(0); /* Forzar aceleración por hardware */
 }
 
 .dock-panel {
-  position: relative; /* Cambiar de absolute a relative */
+  position: relative;
   display: flex;
   align-items: flex-start;
   width: fit-content;
@@ -134,7 +136,9 @@
   
   padding: 0.5rem 0.5rem 0.5rem;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: visible; /* Permitir que los elementos se expandan */
+  overflow: visible;
+  will-change: transform, opacity; /* Optimización para GPU */
+  transform: translateZ(0); /* Forzar aceleración por hardware */
 }
 
 .dock-item {
@@ -166,8 +170,10 @@
   
   cursor: pointer;
   outline: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   overflow: hidden;
+  will-change: transform, box-shadow; /* Optimización para GPU */
+  transform: translateZ(0); /* Forzar aceleración por hardware */
 }
 
 .dock-item::before {
@@ -206,6 +212,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05),
     0 0 20px rgba(123, 70, 255, 0.15);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .dock-item:hover::before {
@@ -214,7 +221,7 @@
 
 .dock-item:active {
   transform: scale(0.95);
-  transition: transform 0.1s ease;
+  transition: transform 0.08s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .dock-icon {
@@ -223,13 +230,16 @@
   justify-content: center;
   position: relative;
   z-index: 1;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform; /* Optimización para GPU */
+  transform: translateZ(0); /* Forzar aceleración por hardware */
 }
 
 .dock-icon img,
 .dock-icon svg {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  transition: filter 0.3s ease;
+  transition: filter 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: filter; /* Optimización para GPU */
 }
 
 .dock-item:hover .dock-icon img,
@@ -239,7 +249,7 @@
 
 .dock-label {
   position: absolute;
-  bottom: -2.5rem; /* Cambiar de top a bottom */
+  bottom: -2.5rem;
   left: 50%;
   width: fit-content;
   white-space: pre;
@@ -271,9 +281,10 @@
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   transform: translateX(-50%);
-  z-index: 102; /* Arriba de todo para asegurar visibilidad */
+  z-index: 102;
   
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity; /* Optimización para GPU */
 }
 
 /* Navegación principal */

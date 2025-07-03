@@ -214,21 +214,7 @@ export function Projects({ isSpanish }) {
           </div>
         </div>
 
-        <div className="projects-cta">
-          <p className="cta-text">
-            {isSpanish 
-              ? "¿Te interesa colaborar en un proyecto?" 
-              : "Interested in collaborating on a project?"
-            }
-          </p>
-          <a 
-            href="#contact" 
-            className="cta-button"
-            aria-label={isSpanish ? "Ir a la sección de contacto" : "Go to contact section"}
-          >
-            {isSpanish ? "Contáctame" : "Contact Me"}
-          </a>
-        </div>
+
       </div>
     </section>
   );
