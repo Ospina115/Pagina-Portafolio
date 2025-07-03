@@ -14,7 +14,9 @@
  * @version 1.0.0
  */
 
+import { useState, useEffect } from 'react';
 import { useLenisScroll } from '../../hooks/useLenisScroll.js';
+import { useResponsive } from '../../hooks/useResponsive.js';
 import './NavBar.css';
 
 // ICONOS //
@@ -101,6 +103,33 @@ function LanguageToggle({ isSpanish, toggleLanguage }) {
 export function NavBar({ isSpanish, toggleLanguage }) {
   // Hook para navegación con scroll suave
   const { scrollToSection } = useLenisScroll();
+  
+  // Hook responsivo personalizado
+  const { isMobileOrTablet, isMobile, isSmallLandscape } = useResponsive();
+  
+  // Estado para el menú móvil
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Cerrar el menú móvil cuando se cambia el tamaño de pantalla
+  useEffect(() => {
+    if (!isMobileOrTablet) {
+      setIsMenuOpen(false);
+    }
+  }, [isMobileOrTablet]);
+
+  // Prevenir scroll del body cuando el menú está abierto
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Cleanup al desmontar el componente
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isMenuOpen]);
 
   /**
    * Adaptar los items del menú para el componente Dock
@@ -112,8 +141,8 @@ export function NavBar({ isSpanish, toggleLanguage }) {
         src={iconPath} 
         alt={isSpanish ? labelEs : labelEn} 
         style={{ 
-          width: 32, 
-          height: 32, 
+          width: isMobile ? 24 : 32, 
+          height: isMobile ? 24 : 32, 
           filter: 'invert(1)',
           transition: 'filter 0.2s ease'
         }} 
@@ -121,9 +150,14 @@ export function NavBar({ isSpanish, toggleLanguage }) {
     ),
     label: isSpanish ? labelEs : labelEn,
     onClick: () => {
+      // Cerrar el menú móvil al hacer clic
+      if (isMobileOrTablet) {
+        setIsMenuOpen(false);
+      }
+      
       // Usar scroll suave de Lenis en lugar de cambiar hash
       scrollToSection(sectionId, {
-        offset: -80,  // Compensar altura del navbar
+        offset: isSmallLandscape ? -60 : -80,  // Menor offset en landscape móvil
         duration: 1.2, // Duración suave
         easing: (t) => 1 - Math.pow(1 - t, 3) // Easing cúbico suave
       });
@@ -132,8 +166,12 @@ export function NavBar({ isSpanish, toggleLanguage }) {
     'data-section': sectionId // Para identificación en CSS
   }));
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header className="navbar-header">
+    <header className={`navbar-header ${isSmallLandscape ? 'landscape-small' : ''}`}>
       {/* Logo del portafolio */}
       <img 
         className="logo" 
@@ -143,14 +181,58 @@ export function NavBar({ isSpanish, toggleLanguage }) {
         style={{ cursor: 'pointer' }}
       />
       
+      {/* Hamburger Menu para móviles y tablets */}
+      {isMobileOrTablet && (
+        <button 
+          className={`hamburger-menu ${isMenuOpen ? 'active' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      )}
+      
       {/* Navegación principal con Dock */}
-      <nav className="main-navigation" role="navigation" aria-label="Navegación principal">
-        <Dock
-          items={dockItems}
-          panelHeight={68}
-          baseItemSize={50}
-          magnification={70}
-        />
+      <nav className={`main-navigation ${isMobileOrTablet ? 'mobile' : ''} ${isMenuOpen ? 'open' : ''}`} role="navigation" aria-label="Navegación principal">
+        {isMobileOrTablet ? (
+          /* Menú móvil vertical */
+          <div className={`mobile-menu ${isSmallLandscape ? 'landscape' : ''}`}>
+            {menuItems.map(({ id, sectionId, labelEs, labelEn, iconPath }) => (
+              <button
+                key={id}
+                className="mobile-menu-item"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollToSection(sectionId, {
+                    offset: isSmallLandscape ? -60 : -80,
+                    duration: 1.2,
+                    easing: (t) => 1 - Math.pow(1 - t, 3)
+                  });
+                }}
+              >
+                <img 
+                  src={iconPath} 
+                  alt={isSpanish ? labelEs : labelEn}
+                  className="mobile-menu-icon"
+                />
+                <span className="mobile-menu-label">
+                  {isSpanish ? labelEs : labelEn}
+                </span>
+              </button>
+            ))}
+          </div>
+        ) : (
+          /* Dock para desktop/tablet grande */
+          <Dock
+            items={dockItems}
+            panelHeight={68}
+            baseItemSize={50}
+            magnification={70}
+          />
+        )}
       </nav>
       
       {/* Toggle de idioma */}

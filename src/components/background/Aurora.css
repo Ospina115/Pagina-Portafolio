@@ -1,8 +1,8 @@
 /**
  * Aurora Background Styles
  * 
- * Estilos CSS para el componente de fondo Aurora.
- * Define el contenedor como fondo fijo de pantalla completa.
+ * Estilos CSS responsivos para el componente de fondo Aurora.
+ * Optimizado para dispositivos móviles, tablets y desktop.
  */
 
 .aurora-container {
@@ -22,6 +22,20 @@
   /* Optimizaciones de rendimiento */
   will-change: transform;
   transform: translateZ(0); /* Fuerza aceleración por hardware */
+  
+  /* Mejoras de rendimiento para móviles */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  
+  /* Suaviza las transiciones de tamaño */
+  transition: opacity 0.3s ease-in-out;
+  
+  /* Asegura que las dimensiones estén disponibles inmediatamente */
+  min-width: 100vw;
+  min-height: 100vh;
+  
+  /* Fuerza el layout inmediato */
+  contain: layout style paint;
 }
 
 /* Canvas del WebGL dentro del contenedor */
@@ -36,21 +50,116 @@
   
   /* Asegura que el canvas mantenga su transparencia */
   background: transparent !important;
+  
+  /* Mejora la calidad de renderizado */
+  image-rendering: optimizeQuality;
+  
+  /* Evita selección accidental */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  /* Evita el zoom en touch */
+  touch-action: none;
 }
 
-/* Optimizaciones para dispositivos móviles */
-@media (max-width: 768px) {
+/* === DISPOSITIVOS MÓVILES === */
+/* Teléfonos en orientación portrait */
+@media screen and (max-width: 480px) and (orientation: portrait) {
   .aurora-container {
-    /* Reduce la intensidad en móviles para mejor rendimiento */
-    opacity: 0.8;
+    /* Reduce intensidad para mejor rendimiento */
+    opacity: 0.7;
+    /* Optimización específica para pantallas pequeñas */
+    transform: scale(1.02) translateZ(0);
+  }
+  
+  .aurora-container canvas {
+    /* Mejora el rendimiento en móviles */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
   }
 }
 
+/* Teléfonos en orientación landscape */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .aurora-container {
+    opacity: 0.75;
+    /* Ajuste para pantallas muy anchas */
+    transform: scaleX(1.1) translateZ(0);
+  }
+}
+
+/* === TABLETS === */
+/* Tablets en portrait */
+@media screen and (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .aurora-container {
+    opacity: 0.85;
+  }
+}
+
+/* Tablets en landscape */
+@media screen and (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+  .aurora-container {
+    opacity: 0.9;
+  }
+}
+
+/* === DISPOSITIVOS DE ESCRITORIO === */
+/* Pantallas pequeñas de desktop */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  .aurora-container {
+    opacity: 0.95;
+  }
+}
+
+/* Pantallas grandes de desktop */
+@media screen and (min-width: 1367px) {
+  .aurora-container {
+    opacity: 1.0;
+  }
+  
+  .aurora-container canvas {
+    /* Mejor calidad en pantallas grandes */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* === PANTALLAS ULTRA ANCHAS === */
+@media screen and (min-aspect-ratio: 21/9) {
+  .aurora-container {
+    /* Ajuste para pantallas ultrawide */
+    transform: scaleX(0.95) translateZ(0);
+  }
+}
+
+/* === OPTIMIZACIONES PARA DISPOSITIVOS DE BAJA POTENCIA === */
+@media (max-width: 768px) {
+  .aurora-container {
+    /* Reduce la intensidad en móviles para mejor rendimiento */
+    opacity: 0.7;
+  }
+  
+  .aurora-container canvas {
+    /* Optimizaciones específicas para móviles */
+    image-rendering: pixelated;
+    transform: translateZ(0);
+  }
+}
+
+/* === PREFERENCIAS DE ACCESIBILIDAD === */
 /* Optimización para dispositivos con poca potencia gráfica */
 @media (prefers-reduced-motion: reduce) {
   .aurora-container {
     /* Reduce o elimina animaciones si el usuario prefiere menos movimiento */
-    opacity: 0.5;
+    opacity: 0.4;
+    animation: none !important;
+  }
+  
+  .aurora-container canvas {
+    /* Desactiva transformaciones que pueden causar movimiento */
+    transform: none !important;
   }
 }
 
@@ -58,15 +167,102 @@
 @media (prefers-contrast: high) {
   .aurora-container {
     /* Reduce la opacidad para no interferir con la legibilidad */
-    opacity: 0.3;
+    opacity: 0.25;
   }
 }
 
-/* Soporte para pantallas de alta densidad */
+/* === PANTALLAS DE ALTA DENSIDAD === */
+/* Soporte para pantallas retina y de alta DPI */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .aurora-container canvas {
     /* Optimizaciones específicas para pantallas retina */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+  }
+}
+
+/* Pantallas de muy alta densidad (3x) */
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .aurora-container {
+    /* Ajuste para pantallas de muy alta densidad */
+    opacity: 0.9;
+  }
+}
+
+/* === MODO OSCURO/CLARO === */
+/* Soporte para tema oscuro */
+@media (prefers-color-scheme: dark) {
+  .aurora-container {
+    /* Puede ser más visible en modo oscuro */
+    opacity: 1.0;
+  }
+}
+
+/* Soporte para tema claro */
+@media (prefers-color-scheme: light) {
+  .aurora-container {
+    /* Reduce opacidad en modo claro para mejor legibilidad */
+    opacity: 0.8;
+  }
+}
+
+/* === OPTIMIZACIONES DE RENDIMIENTO === */
+/* Dispositivos con conexión lenta */
+@media (prefers-reduced-data: reduce) {
+  .aurora-container {
+    /* Reduce calidad para ahorrar datos/batería */
+    opacity: 0.6;
+  }
+}
+
+/* === ESTADOS INTERACTIVOS === */
+/* Hover solo en dispositivos que lo soporten */
+@media (hover: hover) and (pointer: fine) {
+  .aurora-container:hover {
+    /* Aumenta ligeramente la intensidad en hover */
+    opacity: 1.0;
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* === ORIENTACIÓN ESPECÍFICA === */
+/* Ajustes cuando el dispositivo rota */
+@media screen and (orientation: portrait) {
+  .aurora-container {
+    /* Ajustes específicos para portrait */
+    background-attachment: local;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .aurora-container {
+    /* Ajustes específicos para landscape */
+    background-attachment: fixed;
+  }
+}
+
+/* === FALLBACK PARA NAVEGADORES SIN SOPORTE === */
+/* Si WebGL no está disponible */
+.aurora-container.fallback {
+  background: linear-gradient(45deg, #5227FF, #7cff67, #5227FF);
+  opacity: 0.3;
+}
+
+/* === ANIMACIONES RESPONSIVAS === */
+/* Animación suave al cargar solo en desktop */
+@media screen and (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+  .aurora-container {
+    animation: fadeInAurora 2s ease-in-out;
+  }
+  
+  @keyframes fadeInAurora {
+    from {
+      opacity: 0;
+      transform: scale(1.05) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateZ(0);
+    }
   }
 }

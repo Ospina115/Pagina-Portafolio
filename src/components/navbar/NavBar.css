@@ -1,6 +1,7 @@
 /* Logo styles */
-.navbar-header .logo{
+.navbar-header .logo {
     height: 6vh;
+    transition: height 0.3s ease;
 }
 
 #boton-cambiar-idioma {
@@ -17,6 +18,372 @@
 #boton-cambiar-idioma:active {
     transform: scale(0.9);
     transition: transform 0.1s ease;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 200;
+}
+
+.hamburger-menu span {
+    width: 2rem;
+    height: 0.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+.hamburger-menu.active span:first-child {
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-navigation.mobile.open .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.mobile-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.mobile-menu-icon {
+    width: 2rem;
+    height: 2rem;
+    filter: invert(1);
+}
+
+.mobile-menu-label {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Mobile First - Pantallas pequeñas (hasta 480px) */
+@media screen and (max-width: 480px) {
+    .navbar-header {
+        padding: 1rem;
+        min-height: 8vh;
+    }
+    
+    .navbar-header .logo {
+        height: 4vh;
+        min-height: 32px;
+    }
+    
+    #boton-cambiar-idioma {
+        height: 3vh;
+        min-height: 24px;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .hamburger-menu span {
+        width: 1.5rem;
+        height: 0.2rem;
+    }
+    
+    .mobile-menu-item {
+        padding: 0.75rem;
+    }
+    
+    .mobile-menu-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .mobile-menu-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tablets y móviles grandes (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar-header {
+        padding: 1.5rem;
+        min-height: 9vh;
+    }
+    
+    .navbar-header .logo {
+        height: 5vh;
+    }
+    
+    #boton-cambiar-idioma {
+        height: 3.5vh;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .mobile-menu-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .mobile-menu-label {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablets grandes y laptops pequeñas (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .navbar-header {
+        padding: 2rem;
+    }
+    
+    .dock-panel {
+        gap: 0.75rem;
+        padding: 0.4rem;
+    }
+    
+    .dock-item {
+        border-radius: 12px;
+    }
+    
+    /* Reducir el tamaño del dock en tablets */
+    .dock-outer {
+        margin: 0 0.25rem;
+    }
+}
+
+/* Laptops y desktops (1025px - 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    .navbar-header {
+        padding: 2.5rem;
+    }
+}
+
+/* Pantallas grandes (más de 1440px) */
+@media screen and (min-width: 1441px) {
+    .navbar-header {
+        padding: 3rem 4rem;
+    }
+    
+    .navbar-header .logo {
+        height: 7vh;
+    }
+    
+    #boton-cambiar-idioma {
+        height: 5vh;
+    }
+    
+    .dock-panel {
+        gap: 1.25rem;
+        padding: 0.6rem;
+    }
+}
+
+/* Orientación landscape en móviles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .navbar-header {
+        min-height: 12vh;
+        padding: 0.75rem;
+    }
+    
+    .navbar-header.landscape-small {
+        min-height: 10vh;
+        padding: 0.5rem;
+    }
+    
+    .navbar-header .logo {
+        height: 8vh;
+    }
+    
+    #boton-cambiar-idioma {
+        height: 6vh;
+    }
+    
+    .mobile-menu.landscape {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mobile-menu.landscape .mobile-menu-item {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        min-width: auto;
+    }
+    
+    .mobile-menu.landscape .mobile-menu-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    .mobile-menu.landscape .mobile-menu-label {
+        font-size: 0.85rem;
+    }
+}
+
+/* Mejoras de accesibilidad y performance */
+@media (prefers-reduced-motion: reduce) {
+    .hamburger-menu span,
+    .mobile-menu,
+    .mobile-menu-item,
+    .navbar-header .logo,
+    #boton-cambiar-idioma,
+    .dock-panel,
+    .dock-item {
+        transition: none;
+    }
+    
+    .dock-item:hover {
+        transform: none;
+    }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+    .hamburger-menu span {
+        background: white;
+    }
+    
+    .mobile-menu {
+        background: black;
+        border: 2px solid white;
+    }
+    
+    .mobile-menu-item {
+        border: 1px solid white;
+    }
+    
+    .dock-panel {
+        border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    .dock-item {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Optimizaciones adicionales para performance */
+.dock-outer,
+.dock-panel,
+.dock-item,
+.mobile-menu,
+.hamburger-menu {
+    will-change: auto;
+    transform: translateZ(0);
+}
+
+/* Estados de focus para accesibilidad */
+.hamburger-menu:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.mobile-menu-item:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* Animación suave para el cierre del menú */
+.mobile-menu {
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutToTop {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+.main-navigation.mobile.open .mobile-menu {
+    animation-name: slideInFromTop;
+}
+
+/* Overlays para evitar scroll del body cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 
 /* Estilos para las animaciones del menú */
@@ -296,6 +663,15 @@
   justify-content: center;
 }
 
+/* Ocultar navegación móvil por defecto */
+.main-navigation.mobile {
+  display: none;
+}
+
+.main-navigation.mobile.open {
+  display: block;
+}
+
 /* Clase para el navbar header */
 .navbar-header {
   padding: 3vh;
@@ -308,4 +684,63 @@
   min-height: 10vh; /* Altura mínima fija */
   overflow: visible; /* Permitir que el dock se expanda fuera del header */
   
+  /* Fondo responsivo */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+/* ===== RESPONSIVE DOCK STYLES ===== */
+
+/* Responsive dock adjustments */
+@media screen and (max-width: 768px) {
+  .main-navigation:not(.mobile) {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .hamburger-menu {
+    display: none;
+  }
+  
+  .main-navigation.mobile {
+    display: none;
+  }
+  
+  .main-navigation {
+    display: flex;
+  }
+}
+
+/* Tablet adjustments for dock */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .dock-outer {
+    margin: 0 0.25rem;
+  }
+  
+  .dock-panel {
+    gap: 0.75rem;
+    padding: 0.4rem 0.4rem 0.4rem;
+  }
+  
+  .dock-item {
+    border-radius: 12px;
+  }
+  
+  .dock-label {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+/* Small laptop adjustments */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .dock-panel {
+    gap: 0.9rem;
+  }
 }
