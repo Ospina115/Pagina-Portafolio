@@ -42,6 +42,7 @@ export default function CircularGallery({
   
   const [containerWidth, setContainerWidth] = useState(0);
   const [itemWidth] = useState(350); // Ancho fijo para las tarjetas
+  const [isInitialized, setIsInitialized] = useState(false); // Control de inicialización
 
   useEffect(() => {
     const container = containerRef.current;
@@ -49,6 +50,15 @@ export default function CircularGallery({
 
     const updateSize = () => {
       setContainerWidth(container.clientWidth);
+      
+      // Inicializar scroll en el set del medio para efecto infinito
+      if (!isInitialized && items.length > 0) {
+        const cardWidth = itemWidth + 40;
+        const singleSetWidth = items.length * cardWidth;
+        scrollRef.current.target = singleSetWidth; // Empezar en el segundo set
+        scrollRef.current.current = singleSetWidth;
+        setIsInitialized(true);
+      }
     };
 
     updateSize();
@@ -57,7 +67,7 @@ export default function CircularGallery({
     return () => {
       window.removeEventListener('resize', updateSize);
     };
-  }, []);
+  }, [itemWidth, items.length, isInitialized]);
 
   useEffect(() => {
     const animate = () => {
@@ -70,7 +80,6 @@ export default function CircularGallery({
         // Carrusel infinito: reset suave cuando llegue al final del segundo set
         const cardWidth = itemWidth + 40;
         const singleSetWidth = items.length * cardWidth;
-        const totalWidth = singleSetWidth * 3; // Tres copias para transición suave
         
         // Reset cuando llega al final del segundo set (antes del tercero)
         if (scroll.target >= singleSetWidth * 2) {
@@ -142,18 +151,26 @@ export default function CircularGallery({
 
   const snapToNearestCard = () => {
     const cardWidth = itemWidth + 40;
-    const totalWidth = items.length * cardWidth;
+    const singleSetWidth = items.length * cardWidth;
     
-    // Normalizar la posición dentro del rango del primer set de tarjetas
-    let normalizedTarget = scrollRef.current.target % totalWidth;
-    if (normalizedTarget < 0) normalizedTarget += totalWidth;
+    // Normalizar la posición dentro del set principal (segundo set)
+    let targetPosition = scrollRef.current.target;
     
-    const cardIndex = Math.round(normalizedTarget / cardWidth);
+    // Si está en el primer set, mover al equivalente en el segundo set
+    if (targetPosition < singleSetWidth) {
+      targetPosition += singleSetWidth;
+    }
+    // Si está en el tercer set, mover al equivalente en el segundo set
+    else if (targetPosition >= singleSetWidth * 2) {
+      targetPosition -= singleSetWidth;
+    }
+    
+    // Encontrar la tarjeta más cercana dentro del segundo set
+    const relativePosition = targetPosition - singleSetWidth;
+    const cardIndex = Math.round(relativePosition / cardWidth);
     const clampedIndex = Math.max(0, Math.min(items.length - 1, cardIndex));
     
-    // Mantener la posición en el rango actual para continuidad
-    const currentCycle = Math.floor(scrollRef.current.target / totalWidth);
-    scrollRef.current.target = currentCycle * totalWidth + clampedIndex * cardWidth;
+    scrollRef.current.target = singleSetWidth + (clampedIndex * cardWidth);
   };
 
   const handleTouchStart = (e) => {
@@ -192,10 +209,10 @@ export default function CircularGallery({
       onTouchEnd={handleTouchEnd}
     >
       <div className="gallery-track">
-        {/* Primera serie de tarjetas */}
+        {/* Primera copia de tarjetas (antes del set principal) */}
         {items.map((item, index) => (
           <div 
-            key={`first-${index}`} 
+            key={`prev-${index}`} 
             className="gallery-card"
             style={{
               transform: `scale(var(--scale, 1))`,
@@ -208,10 +225,26 @@ export default function CircularGallery({
           </div>
         ))}
         
-        {/* Segunda serie de tarjetas para efecto infinito */}
+        {/* Segunda copia de tarjetas (set principal - donde inicia) */}
         {items.map((item, index) => (
           <div 
-            key={`second-${index}`} 
+            key={`main-${index}`} 
+            className="gallery-card"
+            style={{
+              transform: `scale(var(--scale, 1))`,
+            }}
+          >
+            <CardComponent
+              project={item.projectData || item}
+              isSpanish={isSpanish}
+            />
+          </div>
+        ))}
+        
+        {/* Tercera copia de tarjetas (después del set principal) */}
+        {items.map((item, index) => (
+          <div 
+            key={`next-${index}`} 
             className="gallery-card"
             style={{
               transform: `scale(var(--scale, 1))`,
@@ -232,11 +265,10 @@ export default function CircularGallery({
             className="gallery-indicator"
             onClick={() => {
               const cardWidth = itemWidth + 40;
-              const totalWidth = items.length * cardWidth;
-              const currentCycle = Math.floor(scrollRef.current.target / totalWidth);
+              const singleSetWidth = items.length * cardWidth;
               
-              // Ir al índice seleccionado en el ciclo actual
-              scrollRef.current.target = currentCycle * totalWidth + index * cardWidth;
+              // Ir al índice seleccionado en el set principal (segundo set)
+              scrollRef.current.target = singleSetWidth + (index * cardWidth);
               
               // Pausar scroll automático temporalmente
               autoScrollRef.current = false;
