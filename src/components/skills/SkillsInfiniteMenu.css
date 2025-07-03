@@ -245,7 +245,6 @@
    5. ACTION BUTTON (Botón con efecto liquid glass)
    ----------------------------------------------------------------- */
 .infinite-menu-container .action-button {
-  position: relative;
   background: 
     linear-gradient(135deg, 
       rgba(255, 255, 255, 0.15) 0%,
@@ -374,18 +373,18 @@
   .infinite-menu-container .action-button {
     background: 
       linear-gradient(135deg, 
-        rgba(0, 0, 0, 0.1) 0%,
-        rgba(0, 0, 0, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
         rgba(255, 255, 255, 0.1) 100%
       ),
       linear-gradient(45deg, 
-        rgba(100, 100, 100, 0.3) 0%,
-        rgba(128, 128, 128, 0.2) 50%,
-        rgba(160, 160, 160, 0.3) 100%
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.3) 100%
       );
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 8px 32px rgba(255, 255, 255, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.4),
       inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     color: rgba(0, 0, 0, 0.8);

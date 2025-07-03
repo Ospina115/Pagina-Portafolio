@@ -24,7 +24,11 @@ const size = useSpring(targetSize, spring);
     return (
         <motion.div
             ref={ref}
-            style={{width: size, height: size,}}
+            style={{
+                width: size, 
+                height: size,
+                transformOrigin: "top center" // Hace que se expanda hacia abajo
+            }}
             onHoverStart={() => isHovered.set(1)}
             onHoverEnd={() => isHovered.set(0)}
             onFocus={() => isHovered.set(1)}
@@ -54,9 +58,9 @@ function DockLabel({ children, className = "", ...rest }) {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ opacity: 0, y: 0 }}
-                    animate={{ opacity: 1, y: -10 }}
-                    exit={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 5 }}
+                    exit={{ opacity: 0, y: -5 }}
                     transition={{ duration: 0.2 }}
                     className={`dock-label ${className}`}
                     role="tooltip"
@@ -83,8 +87,8 @@ export default function Dock({items, className = "", spring = { mass: 0.1, stiff
     const height = useSpring(heightRow, spring);
 
     return (
-        <motion.div style={{ height, scrollbarWidth: "none" }} className="dock-outer">
-            <motion.div onMouseMove={({ pageX }) => {isHovered.set(1); mouseX.set(pageX);}} onMouseLeave={() => {isHovered.set(0);nmouseX.set(Infinity);}} className={`dock-panel ${className}`} style={{ height: panelHeight }} role="toolbar" aria-label="Application dock">
+        <motion.div style={{ height: panelHeight, scrollbarWidth: "none" }} className="dock-outer">
+            <motion.div onMouseMove={({ pageX }) => {isHovered.set(1); mouseX.set(pageX);}} onMouseLeave={() => {isHovered.set(0); mouseX.set(Infinity);}} className={`dock-panel ${className}`} style={{ height: panelHeight }} role="toolbar" aria-label="Application dock">
                 {items.map((item, index) => (
                     <DockItem key={index} onClick={item.onClick} className={item.className} mouseX={mouseX} spring={spring} distance={distance} magnification={magnification} baseItemSize={baseItemSize}>
                         <DockIcon>{item.icon}</DockIcon>

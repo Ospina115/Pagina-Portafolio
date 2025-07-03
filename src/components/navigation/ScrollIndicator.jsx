@@ -91,42 +91,6 @@ export function ScrollIndicator({ isSpanish }) {
           aria-label={isSpanish ? "Progreso de scroll" : "Scroll progress"}
         />
       </div>
-
-      {/* Navegación por puntos */}
-      <nav className="dot-navigation" role="navigation" aria-label={isSpanish ? "Navegación rápida" : "Quick navigation"}>
-        {sections.map((section) => {
-          const isActive = currentSection === section.id;
-          const label = isSpanish ? section.labelEs : section.labelEn;
-          
-          return (
-            <button
-              key={section.id}
-              className={`dot-nav-item ${isActive ? 'active' : ''}`}
-              onClick={() => {
-                const element = document.getElementById(section.id);
-                if (element && lenis) {
-                  lenis.scrollTo(element, {
-                    offset: -80,
-                    duration: 1.2
-                  });
-                }
-              }}
-              aria-label={`${isSpanish ? 'Ir a' : 'Go to'} ${label}`}
-              title={label}
-            >
-              <span className="dot" />
-              <span className="dot-label">{label}</span>
-            </button>
-          );
-        })}
-      </nav>
-
-      {/* Información de sección actual */}
-      <div className="current-section-info" aria-live="polite">
-        <span className="section-label">
-          {sections.find(s => s.id === currentSection)?.[isSpanish ? 'labelEs' : 'labelEn'] || ''}
-        </span>
-      </div>
     </div>
   );
 }

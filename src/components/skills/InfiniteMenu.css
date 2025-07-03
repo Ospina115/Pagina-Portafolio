@@ -15,7 +15,7 @@
 
 .action-button {
   position: absolute;
-  left: 50%;
+  left: 42%;
   z-index: 10;
   width: 60px;
   height: 60px;
@@ -91,14 +91,9 @@
   transition: 0.1s ease;
 }
 
-.action-button {
-  position: absolute;
-  left: 50%;
-}
 
 .action-button.active {
   bottom: 3.8em;
-  transform: translateX(-50%) scale(1);
   opacity: 1;
   pointer-events: auto;
   transition: 0.5s ease;
@@ -106,7 +101,6 @@
 
 .action-button.inactive {
   bottom: -80px;
-  transform: translateX(-50%) scale(0);
   opacity: 0;
   pointer-events: none;
   transition: 0.1s ease;
