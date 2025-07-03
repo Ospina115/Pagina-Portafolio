@@ -1,0 +1,357 @@
+/**
+ * ProjectCard.css - Estilos para el componente ProjectCard
+ * 
+ * Estilos para las tarjetas de proyecto con efecto flip y diseño tipo terminal.
+ * 
+ * @author Samuel Ospina
+ * @version 1.0.0
+ */
+
+.project-card {
+  width: 320px;
+  height: 420px;
+  perspective: 1000px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.project-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: linear-gradient(145deg, #f8fbfe 0%, #ffffff 100%);
+  border-radius: 12px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, #f0f0f0 0%, #e8e8e8 100%);
+  border-bottom: 1px solid #d0d0d0;
+  min-height: 44px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+  margin-right: 12px;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.control.red {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+}
+
+.control.yellow {
+  background: linear-gradient(135deg, #ffd93d 0%, #ffcd02 100%);
+}
+
+.control.green {
+  background: linear-gradient(135deg, #6bcf7f 0%, #4caf50 100%);
+}
+
+.window-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.card-content {
+  padding: 20px;
+  height: calc(100% - 44px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Estilos del frente */
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: #f7fafc;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.view-details {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border: 2px solid white;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-info {
+  flex: 1;
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.project-description {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Estilos del reverso */
+.card-back .card-content {
+  padding: 16px;
+}
+
+.tech-stack,
+.project-links,
+.project-features {
+  margin-bottom: 20px;
+}
+
+.tech-stack h4,
+.project-links h4,
+.project-features h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 12px 0;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f7fafc;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.tech-item:hover {
+  background: #edf2f7;
+  transform: translateY(-1px);
+}
+
+.tech-item img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.links-container {
+  display: flex;
+  gap: 12px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.project-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.project-link.github {
+  background: linear-gradient(135deg, #333 0%, #24292e 100%);
+  color: white;
+}
+
+.project-link.github:hover {
+  background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+  transform: translateY(-2px);
+}
+
+.project-link.live {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+}
+
+.project-link.live:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+  transform: translateY(-2px);
+}
+
+.project-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-features li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  font-size: 13px;
+  color: #4a5568;
+  line-height: 1.4;
+}
+
+.project-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #48bb78;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-card {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+  }
+  
+  .project-image {
+    height: 150px;
+  }
+  
+  .project-title {
+    font-size: 18px;
+  }
+  
+  .project-description {
+    font-size: 13px;
+  }
+  
+  .links-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .project-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    height: 360px;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-back .card-content {
+    padding: 12px;
+  }
+  
+  .project-image {
+    height: 120px;
+  }
+  
+  .tech-stack,
+  .project-links,
+  .project-features {
+    margin-bottom: 16px;
+  }
+}
