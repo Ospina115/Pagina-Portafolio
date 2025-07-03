@@ -2,18 +2,19 @@
 
 ![Vista previa del portafolio](preview.png)
 
-Un portafolio web moderno y responsivo desarrollado con React y Vite, que presenta información personal, habilidades y proyectos de manera interactiva y atractiva con efectos visuales avanzados.
+Un portafolio web moderno y responsivo desarrollado con React y Vite, que presenta información personal, habilidades y proyectos de manera interactiva con efectos visuales avanzados y una experiencia de usuario optimizada.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f5fb3284-1822-462d-8bbd-48611eacadff/deploy-status)](https://app.netlify.com/sites/portafoliosamuel115/deploys)
 
 ## 📋 Tabla de Contenidos
 
 - [🚧 Tecnologías](#-tecnologías)
 - [🚀 Instalación](#-instalación)
-- [💻 Uso](#-uso)
+- [💻 Scripts Disponibles](#-scripts-disponibles)
 - [📁 Estructura del Proyecto](#-estructura-del-proyecto)
-- [🎨 Características](#-características)
-- [🔧 Scripts Disponibles](#-scripts-disponibles)
-- [🏗️ Arquitectura](#️-arquitectura)
-- [📝 Mejores Prácticas](#-mejores-prácticas)
+- [🎨 Características Principales](#-características-principales)
+- [� Diseño Responsivo](#-diseño-responsivo)
+- [� Sección de Proyectos](#-sección-de-proyectos)
 - [🌐 Despliegue](#-despliegue)
 - [🤝 Contribución](#-contribución)
 
@@ -23,22 +24,22 @@ Un portafolio web moderno y responsivo desarrollado con React y Vite, que presen
 
 ### Frontend Core
 - **React 18.3.1**: Biblioteca para construir interfaces de usuario
-- **Vite 5.4.8**: Herramienta de construcción y servidor de desarrollo
+- **Vite 5.4.8**: Herramienta de construcción y servidor de desarrollo rápido
 - **JavaScript ES2022**: Lenguaje de programación principal
 
 ### Animaciones y UX
-- **Lenis 1.1.14**: Smooth scrolling avanzado y efectos de desplazamiento
-- **Framer Motion 12.14.0**: Animaciones fluidas y transiciones
-- **GSAP 3.13.0**: Animaciones avanzadas y timeline management
+- **Lenis 1.1.14**: Smooth scrolling avanzado y navegación fluida
+- **Framer Motion 12.14.0**: Animaciones fluidas y transiciones elegantes
+- **GSAP 3.13.0**: Animaciones avanzadas y efectos visuales
 
-### Efectos Visuales
-- **OGL 1.0.11**: Renderizado WebGL para efectos de fondo dinámicos
-- **gl-matrix 3.4.3**: Operaciones matemáticas para WebGL
-- **Devicon 2.16.0**: Iconos de tecnologías a color
+### Efectos Visuales y UI
+- **OGL 1.0.11**: Renderizado WebGL para efectos de aurora boreal
+- **gl-matrix 3.4.3**: Matemáticas optimizadas para WebGL
+- **Devicon 2.16.0**: Iconos de tecnologías profesionales
 
 ### Herramientas de Desarrollo
-- **ESLint 9.11.1**: Linter para mantener calidad del código
-- **Vite Plugin React SWC**: Compilador rápido para React
+- **ESLint 9.11.1**: Linter para calidad de código
+- **PropTypes 15.8.1**: Validación de tipos en componentes
 
 ---
 
@@ -52,7 +53,7 @@ Un portafolio web moderno y responsivo desarrollado con React y Vite, que presen
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/tu-usuario/Pagina-Portafolio.git
+git clone https://github.com/Ospina115/Pagina-Portafolio.git
 cd Pagina-Portafolio
 ```
 
@@ -73,39 +74,14 @@ http://localhost:5173
 
 ---
 
-## 💻 Uso
+## 💻 Scripts Disponibles
 
-### Comandos Disponibles
-
-```bash
-# Desarrollo
-npm run dev          # Inicia servidor de desarrollo
-
-# Producción
-npm run build        # Construye para producción
-npm run preview      # Vista previa de build de producción
-
-# Calidad de código
-npm run lint         # Ejecuta ESLint
-```
-
-### Configuración de Desarrollo
-
-El proyecto utiliza Vite con configuración optimizada para desarrollo:
-
-```javascript
-// vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 5173,
-    open: true
-  }
-})
-```
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo con hot-reload |
+| `npm run build` | Construye la aplicación optimizada para producción |
+| `npm run preview` | Vista previa de la build de producción |
+| `npm run lint` | Ejecuta ESLint para análisis de código |
 
 ---
 
@@ -116,168 +92,162 @@ Pagina-Portafolio/
 ├── public/                     # Archivos estáticos
 │   └── favicon.ico
 ├── src/
-│   ├── components/            # Componentes React
-│   │   ├── about/            # Sección Acerca de
-│   │   ├── background/       # Efectos de fondo Aurora
+│   ├── components/            # Componentes React modulares
+│   │   ├── about/            # Sección "Acerca de"
+│   │   ├── background/       # Efectos Aurora con WebGL
 │   │   ├── contact/          # Formulario de contacto
-│   │   ├── home/            # Página principal
-│   │   ├── loading/         # Pantalla de carga
-│   │   ├── navbar/          # Navegación
+│   │   ├── home/            # Página principal/landing
+│   │   ├── loading/         # Pantalla de carga animada
+│   │   ├── navbar/          # Navegación responsiva con dock
 │   │   ├── navigation/      # Indicadores de scroll
-│   │   ├── projects/        # Galería de proyectos
-│   │   ├── review/          # Testimonios
-│   │   └── skills/          # Habilidades técnicas
-│   ├── hooks/               # Custom hooks
-│   │   └── useLenisScroll.js
-│   ├── styles/              # Estilos globales
-│   │   ├── style.css        # Estilos base
-│   │   ├── temaclaro.css    # Tema claro
-│   │   └── temaoscuro.css   # Tema oscuro
-│   ├── assets/              # Recursos estáticos
-│   │   └── images/          # Imágenes del proyecto
-│   ├── App.jsx              # Componente raíz
-│   └── main.jsx             # Punto de entrada
-├── eslint.config.js         # Configuración ESLint
-├── vite.config.js          # Configuración Vite
-└── package.json            # Dependencias y scripts
+│   │   ├── projects/        # Galería circular de proyectos
+│   │   ├── review/          # Testimonios y recomendaciones
+│   │   └── skills/          # Habilidades técnicas con iconos
+│   ├── hooks/               # Custom hooks reutilizables
+│   │   ├── index.js         # Exportaciones centralizadas de hooks
+│   │   ├── useLenisScroll.js # Hook para navegación suave y scroll
+│   │   ├── useResponsive.js  # Hook unificado para diseño responsivo
+│   │   └── useAurora.js     # Hooks especializados para efectos Aurora
+│   ├── assets/              # Recursos estáticos organizados
+│   │   └── images/          # Imágenes, iconos y devicons
+│   ├── styles/              # Estilos CSS globales
+│   │   ├── style.css        # Estilos base del proyecto
+│   │   ├── temaclaro.css    # Variables para tema claro
+│   │   └── temaoscuro.css   # Variables para tema oscuro
+│   ├── App.jsx              # Componente raíz de la aplicación
+│   └── main.jsx             # Punto de entrada principal
+├── eslint.config.js         # Configuración de ESLint
+├── vite.config.js          # Configuración de Vite
+└── package.json            # Dependencias y scripts npm
 ```
 
 ---
 
-## 🎨 Características
+## 🎨 Características Principales
 
-### ✨ Interfaz de Usuario
-- **Diseño Responsive**: Adaptable a todos los dispositivos
-- **Tema Dual**: Soporte para modo claro y oscuro
-- **Navegación Fluida**: Smooth scrolling con Lenis
-- **Efectos Visuales**: Fondo animado con shaders WebGL
+### ✨ Experiencia Visual Avanzada
+- **Aurora Boreal Interactiva**: Fondo animado con WebGL y shaders personalizados
+- **Smooth Scrolling**: Navegación fluida entre secciones usando Lenis
+- **Animaciones Fluidas**: Transiciones elegantes con Framer Motion y GSAP
+- **Temas Dinámicos**: Modo claro/oscuro con transiciones suaves
 
-### 🌐 Multiidioma
-- **Español/Inglés**: Cambio dinámico de idioma
-- **Persistencia**: Preferencia guardada en localStorage
+### 🌐 Navegación y UX
+- **Dock Animado**: Barra de navegación tipo macOS con efectos de magnificación
+- **Multiidioma**: Soporte completo para español e inglés
+- **Navegación Intuitiva**: Scroll suave entre secciones con offsets optimizados
+- **Indicadores Visuales**: Indicador de progreso de scroll
 
-### 🎯 Secciones
-1. **Home**: Presentación con efectos tipográficos
-2. **About**: Información personal y profesional
-3. **Skills**: Habilidades técnicas con iconos interactivos
-4. **Projects**: Portafolio de proyectos
-5. **Reviews**: Testimonios y recomendaciones
-6. **Contact**: Información de contacto
-
-### 🔧 Tecnología Avanzada
-- **WebGL Aurora**: Fondo animado con efectos de aurora
-- **Skills Grid**: Iconos de tecnologías con Devicon
-- **Smooth Scrolling**: Navegación fluida entre secciones
-- **Performance**: Optimizado para carga rápida
+### 🎭 Secciones Interactivas
+- **Home**: Presentación con efectos tipográficos y llamada a la acción
+- **About**: Información personal con animaciones de reveal
+- **Skills**: Grid infinito de tecnologías con iconos de Devicon
+- **Projects**: Galería circular con navegación manual (Ver sección dedicada)
+- **Reviews**: Testimonios con efectos de transición
+- **Contact**: Información de contacto organizada
 
 ---
 
-## 🏗️ Arquitectura
+## 📱 Diseño Responsivo
 
-### Patrones de Diseño
-- **Component-Based**: Arquitectura basada en componentes reutilizables
-- **Custom Hooks**: Lógica compartida encapsulada
-- **Container/Presenter**: Separación de lógica y presentación
+### 🔧 Sistema Responsivo Inteligente
+- **Hook Personalizado**: `useResponsive` para detección precisa de dispositivos
+- **Breakpoints Optimizados**: Móvil (480px), Tablet (768px), Laptop (1024px), Desktop (1440px+)
+- **Orientación Adaptativa**: Manejo especial para landscape en móviles
 
-### Gestión del Estado
-```javascript
-// Estado global mínimo
-const [isSpanish, setIsSpanish] = useState(true);
-const [currentTheme, setCurrentTheme] = useState('dark');
+### 📋 Navegación Adaptativa
+| Dispositivo | Navegación | Características |
+|-------------|------------|-----------------|
+| **Desktop/Laptop** | Dock animado | Efecto magnificación, iconos 32px |
+| **Tablet** | Dock reducido | Tamaños optimizados para touch |
+| **Móvil Portrait** | Menú hamburguesa | Overlay full-screen vertical |
+| **Móvil Landscape** | Menú horizontal | Distribución horizontal optimizada |
 
-// Custom hooks para funcionalidad específica
-const { scrollToSection, scrollToTop } = useLenisScroll();
-```
-
-### Estructura de Componentes
-```
-App
-├── NavBar (Navegación)
-├── Home (Landing)
-├── About (Información personal)
-├── Skills (Habilidades técnicas)
-├── Projects (Portafolio)
-├── Review (Testimonios)
-└── Contact (Contacto)
-```
+### 🎯 Características Móviles
+- **Menú Hamburguesa Animado**: Transformación suave de líneas
+- **Overlay Full-Screen**: Prevención de scroll del body
+- **Touch Optimizado**: Navegación táctil fluida
+- **Accesibilidad**: ARIA labels y soporte para lectores de pantalla
 
 ---
 
-## 📝 Mejores Prácticas
+## 🎭 Sección de Proyectos
 
-### Código
-- **ESLint**: Linting automático con reglas estrictas
-- **JSDoc**: Documentación de componentes y funciones
-- **Naming Conventions**: CamelCase para componentes, kebab-case para archivos CSS
+### 🚀 Galería Circular v4.0 - Manual Navigation
+La galería de proyectos utiliza una implementación completamente renovada con las siguientes características:
 
-### Performance
-- **Lazy Loading**: Componentes cargados bajo demanda
-- **Image Optimization**: Imágenes optimizadas para web
-- **Bundle Splitting**: División inteligente del código
+#### ✨ Funcionalidades Principales
+- **Navegación Manual**: Solo por arrastre de mouse/touch, sin scroll automático
+- **Tarjetas Reales**: Renderiza componentes `ProjectCard` directamente en la galería
+- **Efecto Curvatura**: Simulación 3D usando CSS transforms (sin WebGL)
+- **Snap Inteligente**: Ajuste automático a la tarjeta más cercana
 
-### Accesibilidad
-- **ARIA Labels**: Etiquetas semánticas para lectores de pantalla
-- **Keyboard Navigation**: Navegación completa por teclado
-- **Color Contrast**: Contraste adecuado en ambos temas
+#### 🎨 Características Visuales
+- **Curvatura Configurable**: Nivel de bend ajustable (0-5)
+- **Centrado Perfecto**: Tarjetas perfectamente alineadas en todos los dispositivos
+- **Colores Consistentes**: Sin efectos de oscurecimiento o desenfoque
+- **Indicadores**: Navegación directa por puntos
 
-### Ejemplo de Componente
-```javascript
-/**
- * Componente de habilidades con iconos interactivos
- * @param {boolean} isSpanish - Idioma actual
- * @returns {JSX.Element} Grid de habilidades
- */
-function Skills({ isSpanish }) {
-  const skills = useMemo(() => getSkillsData(isSpanish), [isSpanish]);
-  
-  return (
-    <section className="skills" aria-label={isSpanish ? "Habilidades" : "Skills"}>
-      <SimpleSkillsGrid items={skills} />
-    </section>
-  );
-}
+#### 🔧 Implementación Técnica
+```jsx
+<CircularGallery
+  items={projectsData}           // Array de proyectos
+  bend={3}                       // Intensidad de curvatura
+  CardComponent={ProjectCard}    // Componente de tarjeta
+  isSpanish={isSpanish}         // Control de idioma
+  scrollSpeed={2}               // Velocidad de navegación
+  scrollEase={0.05}             // Suavidad del movimiento
+/>
 ```
+
+#### 📊 Beneficios de la v4.0
+- ✅ **Experiencia Predecible**: Sin movimientos automáticos inesperados
+- ✅ **Rendimiento Optimizado**: Menos cálculos, más eficiencia
+- ✅ **Control Total**: Usuario decide cuándo y cómo navegar
+- ✅ **Compatibilidad Universal**: Funciona en todos los navegadores
+- ✅ **Código Mantenible**: Lógica simplificada y clara
 
 ---
 
 ## 🌐 Despliegue
 
-### Build de Producción
+### 🚀 Estado Actual
+- **Plataforma**: Netlify con deploy automático
+- **URL**: [portafoliosamuel115.netlify.app](https://portafoliosamuel115.netlify.app)
+- **Integración**: Conectado al repositorio de GitHub
+- **Build**: Automático en cada push a main
+
+### ⚙️ Configuración de Producción
 ```bash
+# Build de producción
 npm run build
+
+# Vista previa local
+npm run preview
 ```
 
-### Plataformas Recomendadas
-- **Netlify**: Despliegue automático desde Git
+### 🌍 Otras Opciones de Deploy
 - **Vercel**: Optimizado para proyectos React
-- **GitHub Pages**: Hosting gratuito
-
-### Variables de Entorno
-```bash
-# .env.production
-VITE_APP_TITLE="Portafolio Samuel Ospina"
-VITE_APP_URL="https://tu-dominio.com"
-```
+- **GitHub Pages**: Con configuración para SPA
+- **Heroku**: Con buildpack de Node.js
 
 ---
 
 ## 🤝 Contribución
 
-### Cómo Contribuir
-
-1. **Fork del repositorio**
+### 📋 Cómo Contribuir
+1. **Fork** del repositorio
 2. **Crear rama feature**: `git checkout -b feature/nueva-funcionalidad`
 3. **Commit cambios**: `git commit -m 'Add: nueva funcionalidad'`
 4. **Push a la rama**: `git push origin feature/nueva-funcionalidad`
 5. **Crear Pull Request**
 
-### Estándares
-- Seguir las convenciones de nomenclatura existentes
-- Documentar nuevos componentes con JSDoc
-- Asegurar responsividad en todos los dispositivos
-- Mantener accesibilidad (ARIA labels, contraste)
+### 📏 Estándares de Desarrollo
+- **ESLint**: Seguir las reglas de linting configuradas
+- **JSDoc**: Documentar componentes y funciones complejas
+- **Responsive**: Asegurar compatibilidad en todos los dispositivos
+- **Accesibilidad**: Mantener ARIA labels y contraste adecuado
 
-### Estructura de Commits
+### 🏷️ Convenciones de Commits
 ```bash
 Add: nueva funcionalidad
 Fix: corrección de bug
@@ -297,238 +267,20 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 ## 👤 Autor
 
 **Samuel Ospina**
-- GitHub: [@ospina115](https://github.com/ospina115)
+- GitHub: [@Ospina115](https://github.com/Ospina115)
+- Portafolio: [portafoliosamuel115.netlify.app](https://portafoliosamuel115.netlify.app)
 - LinkedIn: [Samuel Ospina](https://linkedin.com/in/samuel-ospina)
-- Email: samuel.ospina@email.com
 
 ---
 
-⭐ ¡Dale una estrella al proyecto si te gusta!
+## 🏆 Tecnologías Destacadas
 
-## 🏗️ Arquitectura del Proyecto
-
-### Patrón de Diseño
-- **Componentes Funcionales**: Uso exclusivo de React Hooks
-- **Composición sobre Herencia**: Componentes reutilizables y modulares
-- **Estado Local**: Manejo de estado con useState y useEffect
-- **Lazy Loading**: Carga diferida para optimizar rendimiento
-
-### Principios de Desarrollo
-- **Separación de Responsabilidades**: Cada componente tiene una función específica
-- **Código Limpio**: Comentarios JSDoc para documentación
-- **Responsive Design**: Adaptable a diferentes dispositivos
-- **Internacionalización**: Soporte para español e inglés
-
----
-
-## 🚀 Instalación
-
-### Prerrequisitos
-- Node.js (versión 16.0 o superior)
-- NPM (versión 8.0 o superior)
-- Git para clonar el repositorio
-
-### Pasos de Instalación
-
-1. **Clonar el repositorio**
-```bash
-git clone https://github.com/Ospina115/Pagina-Portafolio.git
-cd Pagina-Portafolio
-```
-
-2. **Instalar dependencias**
-```bash
-npm install
-```
-
-3. **Iniciar el servidor de desarrollo**
-```bash
-npm run dev
-```
-
-4. **Abrir en el navegador**
-El proyecto estará disponible en `http://localhost:5173`
-
----
-
-## 💻 Uso
-
-### Desarrollo Local
-- El proyecto incluye hot-reload automático
-- Los cambios se reflejan instantáneamente en el navegador
-- Utiliza el puerto 5173 por defecto (configurable)
-
-### Construcción para Producción
-```bash
-npm run build
-```
-
-### Vista Previa de Producción
-```bash
-npm run preview
-```
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-src/
-├── main.jsx                 # Punto de entrada principal
-├── App.jsx                  # Componente raíz de la aplicación
-├── assets/                  # Recursos estáticos
-│   ├── images/             # Imágenes del proyecto
-│   └── icons/              # Iconografía SVG y PNG
-├── components/             # Componentes reutilizables
-│   ├── about/             # Sección "Acerca de"
-│   ├── background/        # Componentes de fondo animado
-│   │   ├── Aurora.jsx     # Fondo aurora boreal con WebGL
-│   │   └── Aurora.css     # Estilos del componente Aurora
-│   ├── footer/            # Pie de página
-│   ├── home/              # Página de inicio
-│   ├── loading/           # Componente de carga
-│   ├── navbar/            # Barra de navegación
-│   ├── projects/          # Sección de proyectos
-│   ├── review/            # Testimonios/reseñas
-│   └── skills/            # Sección de habilidades
-└── styles/                # Estilos CSS globales
-    ├── style.css          # Estilos base
-    ├── temaclaro.css      # Tema claro
-    └── temaoscuro.css     # Tema oscuro
-```
-
-### Convenciones de Nomenclatura
-- **Componentes**: PascalCase (ej: `NavBar.jsx`)
-- **Archivos CSS**: kebab-case (ej: `loading.css`)
-- **Variables**: camelCase (ej: `isSpanish`)
-- **Constantes**: UPPER_SNAKE_CASE
-
----
-
-## 🎨 Características
-
-### ✨ Funcionalidades Principales
-- **Fondo Aurora Animado**: Efecto de aurora boreal dinámico con WebGL
-- **Diseño Responsivo**: Adaptable a móviles, tablets y desktop
-- **Modo Oscuro/Claro**: Temas intercambiables para mejor experiencia
-- **Multiidioma**: Soporte para español e inglés
-- **Smooth Scrolling**: Navegación fluida entre secciones
-- **Animaciones Avanzadas**: Transiciones y efectos visuales con Framer Motion y GSAP
-- **Loading Screen**: Pantalla de carga con animación personalizada
-- **Glassmorphism**: Efectos de cristal esmerilado en la UI
-
-### 🔧 Optimizaciones
-- **WebGL Acceleration**: Renderizado acelerado por hardware para efectos visuales
-- **Lazy Loading**: Carga diferida de componentes
-- **Code Splitting**: División automática del código
-- **Tree Shaking**: Eliminación de código no utilizado
-- **Minificación**: Compresión automática en producción
-- **Performance Monitoring**: Optimizaciones específicas para dispositivos móviles
-
----
-
-## 🔧 Scripts Disponibles
-
-| Script | Descripción |
-|--------|-------------|
-| `npm run dev` | Inicia el servidor de desarrollo |
-| `npm run build` | Construye la aplicación para producción |
-| `npm run preview` | Vista previa de la build de producción |
-| `npm run lint` | Ejecuta ESLint para análisis de código |
-
----
-
-## 🌐 Despliegue
-
-### Netlify (Actual)
-El proyecto está desplegado automáticamente en Netlify con:
-- **Deploy automático**: Conectado al repositorio de GitHub
-- **Preview deploys**: Para pull requests
-- **Custom domain**: Configuración de dominio personalizado
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f5fb3284-1822-462d-8bbd-48611eacadff/deploy-status)](https://app.netlify.com/sites/portafoliosamuel115/deploys)
-
-### Otras Opciones de Despliegue
-- **Vercel**: Compatible con configuración automática
-- **GitHub Pages**: Requiere configuración adicional para SPA
-- **Heroku**: Con buildpack de Node.js
-
----
-
-## 🤝 Contribución
-
-### Guías para Contribuir
-1. **Fork** el repositorio
-2. **Crea** una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. **Commit** tus cambios (`git commit -m 'Añade nueva funcionalidad'`)
-4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
-5. **Abre** un Pull Request
-
-### Estándares de Código
-- Usar ESLint para mantener consistencia
-- Añadir comentarios JSDoc para funciones complejas
-- Seguir las convenciones de nomenclatura del proyecto
-- Incluir pruebas para nuevas funcionalidades
-
----
-## 🖥 Herramientas de Desarrollo
-
-### Editor de Código
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-
-### Hosting y Despliegue
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
-### Diseño y Prototipado
-![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-
-### Control de Versiones
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-
 ---
 
-## 📈 Estado del Proyecto
-
-### Deploy Status
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f5fb3284-1822-462d-8bbd-48611eacadff/deploy-status)](https://app.netlify.com/sites/portafoliosamuel115/deploys)
-
-### Información del Proyecto
-- **Estado**: 🟢 Activo y en desarrollo
-- **Última actualización**: Junio 2025
-- **Versión**: 1.0.0
-- **Mantenimiento**: Activo
-
----
-
-## 📝 Notas Adicionales
-
-### Performance
-- **Lighthouse Score**: 90+ en todas las métricas
-- **Bundle Size**: Optimizado para carga rápida
-- **SEO**: Configurado para motores de búsqueda
-
-### Compatibilidad
-- **Navegadores**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- **Dispositivos**: Mobile-first, responsive design
-- **Accesibilidad**: WCAG 2.1 AA compliance
-
----
-
-## 📞 Contacto
-
-Para consultas sobre el proyecto:
-- **GitHub**: [@Ospina115](https://github.com/Ospina115)
-- **Portafolio**: [portafoliosamuel115.netlify.app](https://portafoliosamuel115.netlify.app)
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
----
-
-**⭐ Si te gusta este proyecto, no olvides darle una estrella en GitHub!**
-
-<!-- REPO DE DONDE SAQUÉ LOS ICONOS -->
-<!-- https://github.com/Ileriayo/markdown-badges -->
+⭐ **¡Dale una estrella al proyecto si te gusta!**

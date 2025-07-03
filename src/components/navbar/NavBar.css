@@ -684,9 +684,6 @@ body.menu-open {
   min-height: 10vh; /* Altura mínima fija */
   overflow: visible; /* Permitir que el dock se expanda fuera del header */
   
-  /* Fondo responsivo */
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 

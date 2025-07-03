@@ -31,6 +31,7 @@ import { Home } from "./components/home/Home.jsx";
 import { NavBar } from "./components/navbar/NavBar.jsx";
 import { ScrollIndicator } from "./components/navigation/ScrollIndicator.jsx";
 import { Projects } from "./components/projects/Projects.jsx";
+import { Review } from "./components/review/Review.jsx";
 import { Skills } from "./components/skills/Skills.jsx";
 
 // COMPONENTE DE FONDO //
@@ -97,6 +98,7 @@ function App() {
         <About isSpanish={isSpanish} />
         <Skills isSpanish={isSpanish} />
         <Projects isSpanish={isSpanish} />
+        <Review isSpanish={isSpanish} />
         <Contact isSpanish={isSpanish} />
       </ReactLenis>
     </>

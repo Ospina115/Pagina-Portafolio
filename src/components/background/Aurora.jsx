@@ -33,7 +33,11 @@ import {
   optimizeShaderParams,
   setupVisibilityHandler
 } from './responsiveUtils.js';
-import { useAuroraInitialization } from './auroraHooks.js';
+import { 
+  useAuroraInitialization, 
+  useAuroraConfig, 
+  usePageVisibility 
+} from '../../hooks/useAurora.js';
 
 // Vertex Shader - Define las posiciones de los vértices
 const VERT = `#version 300 es

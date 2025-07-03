@@ -26,6 +26,7 @@ import spanishIcon from '/src/assets/images/icons/spanish.png';
 
 // SVG //
 import BrainIcon from '/src/assets/images/icons/brain.svg';
+import DocumentacionIcon from '/src/assets/images/icons/documentacion.svg';
 import FolderIcon from '/src/assets/images/icons/folder.svg';
 import HomeIcon from '/src/assets/images/icons/home.svg';
 import SmileIcon from '/src/assets/images/icons/smile.svg';
@@ -65,6 +66,13 @@ const menuItems = [
     labelEs: 'Proyectos', 
     labelEn: 'Projects', 
     iconPath: FolderIcon 
+  },
+  { 
+    id: 'Review', 
+    sectionId: 'review',
+    labelEs: 'Reseñas', 
+    labelEn: 'Reviews', 
+    iconPath: DocumentacionIcon 
   },
   { 
     id: 'Contact', 
