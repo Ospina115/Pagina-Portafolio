@@ -38,7 +38,7 @@
 .projects-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #1e293b 100%);
+  background: black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -49,7 +49,7 @@
 
 .projects-subtitle {
   font-size: 1.25rem;
-  color: #64748b;
+  color: black;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;

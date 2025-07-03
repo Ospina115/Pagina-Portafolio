@@ -41,6 +41,7 @@
   /* Sin sombras para evitar efectos de elevación */
   border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  color: #2d3748;
 }
 
 .card-back {
@@ -351,3 +352,65 @@
     margin-bottom: 16px;
   }
 }
+
+/* Estilos para tema claro - Tarjetas oscuras */
+@media (prefers-color-scheme: light) {
+  .card-front,
+  .card-back {
+    background: linear-gradient(145deg, #555 0%, #666 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+  
+  .card-header {
+    background: linear-gradient(90deg, #444 0%, #3a3a3a 100%);
+    border-bottom: 1px solid #666;
+  }
+  
+  .window-title {
+    color: #e2e8f0;
+  }
+  
+  .project-image {
+    background: #444;
+  }
+  
+  .project-title {
+    color: #ffffff;
+  }
+  
+  .project-description {
+    color: #e2e8f0;
+  }
+  
+  .tech-stack h4,
+  .project-links h4,
+  .project-features h4 {
+    color: #ffffff;
+    border-bottom: 2px solid #666;
+  }
+  
+  .tech-item {
+    background: #444;
+    color: #e2e8f0;
+    border: 1px solid #666;
+  }
+  
+  .tech-item:hover {
+    background: #3a3a3a;
+  }
+  
+  .project-features li {
+    color: #e2e8f0;
+  }
+  
+  .project-features li::before {
+    color: #68d391;
+  }
+}
+
+/* Estilos para tema oscuro - Tarjetas blancas (mantiene estilos base) */
+@media (prefers-color-scheme: dark) {
+  /* Los estilos base ya son para tarjetas blancas, no necesita sobrescribir */
+}
+

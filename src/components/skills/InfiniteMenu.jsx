@@ -1,6 +1,7 @@
 import { mat4, quat, vec2, vec3 } from 'gl-matrix';
 import { useEffect, useRef, useState } from 'react';
 import './InfiniteMenu.css';
+import documentacionIcon from '../../assets/images/icons/documentacion.svg';
 
 const discVertShaderSource = `#version 300 es
 
@@ -890,9 +891,18 @@ export default function InfiniteMenu({ items = [] }) {
       />
 
       {activeItem && (
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon">&#x2197;</p>
-          </div>
+        <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
+          <img 
+            src={documentacionIcon} 
+            alt="Abrir enlace" 
+            className="action-button-icon"
+            style={{ 
+              width: '24px', 
+              height: '24px',
+              filter: 'brightness(0) invert(1)'
+            }}
+          />
+        </div>
       )
       }
     </div >
