@@ -1,10 +1,40 @@
+/* Estilos base para start */
 .start{
     padding: 10%;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
 }
+
+/* Layout Desktop - diseño horizontal (incluye móviles en landscape y tablets) */
+.start--desktop {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Layout Mobile Portrait - diseño vertical (solo móviles en portrait) */
+.start--mobile {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    min-height: 80vh;
+    gap: 2rem;
+}
+
+/* Contenedor de título para desktop y landscape */
+.titulo--desktop {
+    flex: 1;
+    max-width: 60%;
+}
+
+/* Contenedor de título para mobile portrait */
+.titulo--mobile {
+    width: 100%;
+    text-align: center;
+    order: 1;
+}
+
 .titulo .container{
     padding: 5% 0;
     font-size: 130%;
@@ -13,6 +43,18 @@
     border-radius: 30px;
     width: 90%;
 }
+
+/* Container para desktop */
+.container--desktop {
+    width: 90%;
+}
+
+/* Container para mobile */
+.container--mobile {
+    width: 100%;
+    font-size: 110%;
+}
+
 .titulo .container .text{
     padding-left: 3%;
 }
@@ -38,9 +80,167 @@ body {
     line-height: 1.1;
 }
 
+/* Imagen base */
 .start img {
-    height: 60vh;
     border-radius: 50%;
+}
+
+/* Imagen para desktop */
+.sam--desktop {
+    height: 60vh;
+    flex-shrink: 0;
+}
+
+/* Imagen para mobile */
+.sam--mobile {
+    width: 250px;
+    height: 250px;
+    max-width: 70vw;
+    max-height: 70vw;
+    order: 2;
+    margin-top: 1rem;
+}
+
+/* Ajustes de texto para mobile */
+@media (max-width: 768px) {
+    .titulo--mobile h1 {
+        font-size: 2.0em;
+        margin-bottom: 0.5rem;
+    }
+    
+    .titulo--mobile h3 {
+        font-size: 150%;
+        margin-bottom: 1rem;
+    }
+    
+    .container--mobile .text {
+        padding-left: 2%;
+        margin-left: 10px;
+        font-size: 95%;
+        line-height: 1.4;
+    }
+    
+    .container--mobile .code {
+        font-size: 90%;
+    }
+}
+
+/* Ajustes para tablets en portrait (usar layout horizontal pero con ajustes de tamaño) */
+@media (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
+    .start--desktop {
+        padding: 7%;
+    }
+    
+    .titulo--desktop {
+        max-width: 65%;
+    }
+    
+    .sam--desktop {
+        height: 50vh;
+    }
+    
+    .titulo--desktop h1 {
+        font-size: 2.8em;
+    }
+    
+    .titulo--desktop h3 {
+        font-size: 180%;
+    }
+    
+    .container--desktop {
+        font-size: 115%;
+    }
+}
+
+/* Ajustes para móviles en landscape (mantener layout horizontal) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .start--desktop {
+        padding: 3% 8%;
+        height: 100vh;
+    }
+    
+    .titulo--desktop {
+        max-width: 55%;
+    }
+    
+    .sam--desktop {
+        height: 70vh;
+        max-height: 300px;
+    }
+    
+    .titulo--desktop h1 {
+        font-size: 2.2em;
+    }
+    
+    .titulo--desktop h3 {
+        font-size: 150%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .container--desktop {
+        font-size: 100%;
+        padding: 3% 0;
+    }
+    
+    .container--desktop .text {
+        font-size: 90%;
+        line-height: 1.3;
+    }
+}
+
+/* Ajustes para móviles en portrait (layout vertical) */
+@media (max-width: 768px) and (orientation: portrait) {
+    .titulo--mobile h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.5rem;
+    }
+    
+    .titulo--mobile h3 {
+        font-size: 150%;
+        margin-bottom: 1rem;
+    }
+    
+    .container--mobile .text {
+        padding-left: 2%;
+        margin-left: 10px;
+        font-size: 95%;
+        line-height: 1.4;
+    }
+    
+    .container--mobile .code {
+        font-size: 90%;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas en portrait */
+@media (max-width: 480px) and (orientation: portrait) {
+    .start--mobile {
+        padding: 3%;
+        gap: 1.5rem;
+    }
+    
+    .sam--mobile {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .titulo--mobile h1 {
+        font-size: 2em;
+    }
+    
+    .titulo--mobile h3 {
+        font-size: 130%;
+    }
+    
+    .container--mobile {
+        font-size: 100%;
+        padding: 2% 0;
+    }
+    
+    .container--mobile .text {
+        font-size: 90%;
+        margin-left: 5px;
+    }
 }
 
 .animacioninicio:after {
