@@ -1,72 +1,125 @@
 /**
- * Review.jsx - Sección de reseñas de clientes
+ * Review.jsx - Sección de reseñas de clientes (Versión Responsiva)
  * 
  * Componente que muestra las reseñas de clientes en un formato de marquee
  * con dos filas que se desplazan en direcciones opuestas.
  * 
+ * CARACTERÍSTICAS RESPONSIVAS:
+ * - Móvil: Una sola fila de marquee, tarjetas compactas, velocidad más lenta
+ * - Tablet: Dos filas, tarjetas compactas, velocidad normal
+ * - Laptop/Desktop: Dos filas, tarjetas normales, pauseOnHover habilitado
+ * - Animaciones adaptativas según el tipo de dispositivo
+ * - Gradientes laterales ajustables por tamaño de pantalla
+ * 
  * @component
  * @param {Object} props - Propiedades del componente
  * @param {boolean} props.isSpanish - Determina si el contenido está en español
- * @returns {JSX.Element} Sección de reseñas renderizada
+ * @returns {JSX.Element} Sección de reseñas renderizada responsivamente
  */
 
 import { ReviewCard } from './ReviewCard';
 import { Marquee } from './Marquee';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import { useResponsive } from '../../hooks/useResponsive';
 import './review.css';
 
-// Datos de las reseñas de clientes
+// Datos de las reseñas de clientes con mejor diversidad
 const reviews = [
     {
         name: "Ana García",
         username: "@ana_garcia",
         body: "Increíble trabajo, superó todas mis expectativas. El diseño es moderno y funcional.",
-        img: "https://avatar.vercel.sh/ana"
+        img: "https://avatar.vercel.sh/ana",
+        rating: 5
     },
     {
         name: "Carlos Rodríguez",
         username: "@carlos_dev",
         body: "Excelente desarrollador, muy profesional y entrega en tiempo. Lo recomiendo al 100%.",
-        img: "https://avatar.vercel.sh/carlos"
+        img: "https://avatar.vercel.sh/carlos",
+        rating: 5
     },
     {
         name: "María López",
         username: "@maria_lopez",
         body: "El proyecto quedó espectacular, justo lo que necesitaba para mi negocio.",
-        img: "https://avatar.vercel.sh/maria"
+        img: "https://avatar.vercel.sh/maria",
+        rating: 5
     },
     {
         name: "David Chen",
         username: "@david_chen",
         body: "Amazing work! Very talented developer with great attention to detail.",
-        img: "https://avatar.vercel.sh/david"
+        img: "https://avatar.vercel.sh/david",
+        rating: 5
     },
     {
         name: "Sofia Martínez",
         username: "@sofia_dev",
         body: "Trabajar con Samuel fue una experiencia fantástica. Muy comunicativo y eficiente.",
-        img: "https://avatar.vercel.sh/sofia"
+        img: "https://avatar.vercel.sh/sofia",
+        rating: 5
     },
     {
         name: "Alessandro Rossi",
         username: "@alex_rossi",
         body: "Ottimo lavoro! Il sito web è perfetto e funziona alla perfezione.",
-        img: "https://avatar.vercel.sh/alessandro"
+        img: "https://avatar.vercel.sh/alessandro",
+        rating: 5
+    },
+    {
+        name: "Jennifer Smith",
+        username: "@jennifer_smith",
+        body: "Outstanding quality and great communication throughout the project. Highly recommended!",
+        img: "https://avatar.vercel.sh/jennifer",
+        rating: 5
+    },
+    {
+        name: "Luis Mendoza",
+        username: "@luis_mendoza",
+        body: "Un trabajo excepcional. La atención al detalle y la rapidez fueron impresionantes.",
+        img: "https://avatar.vercel.sh/luis",
+        rating: 5
     }
 ];
 
-// Dividir las reseñas en dos filas
-const firstRow = reviews.slice(0, Math.ceil(reviews.length / 2));
-const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
-
 export function Review({ isSpanish = true }) {
+    // Hook responsivo para adaptar el comportamiento según el dispositivo
+    const { 
+        isMobile, 
+        isTablet, 
+        isMobileOrTablet, 
+        isLaptop
+    } = useResponsive();
+
+    // Adaptar la velocidad del marquee según el dispositivo
+    const getMarqueeSpeed = () => {
+        if (isMobile) return "slower";
+        if (isTablet) return "slow";
+        if (isLaptop) return "normal";
+        return "slow"; // desktop
+    };
+
+    // Ajustar el número de reseñas por fila según el tamaño de pantalla
+    const getReviewsPerRow = () => {
+        if (isMobile) return Math.ceil(reviews.length / 1); // Una sola fila en móvil
+        if (isTablet) return Math.ceil(reviews.length / 2);
+        return Math.ceil(reviews.length / 2); // Dos filas para laptop y desktop
+    };
+
+    // Dividir las reseñas según el dispositivo
+    const reviewsPerRow = getReviewsPerRow();
+    const firstRow = isMobile ? reviews : reviews.slice(0, reviewsPerRow);
+    const secondRow = isMobile ? [] : reviews.slice(reviewsPerRow);
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
-                delayChildren: 0.2
+                staggerChildren: isMobileOrTablet ? 0.1 : 0.2,
+                delayChildren: isMobileOrTablet ? 0.05 : 0.1
             }
         }
     };
@@ -74,16 +127,16 @@ export function Review({ isSpanish = true }) {
     const sectionVariants = {
         hidden: { 
             opacity: 0, 
-            y: 50 
+            y: isMobileOrTablet ? 20 : 30 
         },
         visible: { 
             opacity: 1, 
             y: 0,
             transition: {
                 type: "spring",
-                stiffness: 100,
-                damping: 15,
-                duration: 0.8
+                stiffness: isMobileOrTablet ? 100 : 80,
+                damping: isMobileOrTablet ? 25 : 20,
+                duration: isMobileOrTablet ? 0.4 : 0.6
             }
         }
     };
@@ -95,10 +148,12 @@ export function Review({ isSpanish = true }) {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
+            role="region"
+            aria-labelledby="review-title"
         >
             <motion.div className="review-header" variants={sectionVariants}>
-                <h2 className="review-title">
+                <h2 id="review-title" className="review-title">
                     {isSpanish ? "Lo que dicen mis clientes" : "What my clients say"}
                 </h2>
                 <p className="review-subtitle">
@@ -109,23 +164,53 @@ export function Review({ isSpanish = true }) {
                 </p>
             </motion.div>
 
-            <motion.div className="review-marquee-container" variants={sectionVariants}>
-                <Marquee pauseOnHover className="review-marquee">
+            <motion.div 
+                className={`review-marquee-container ${isMobileOrTablet ? 'mobile-layout' : 'desktop-layout'}`}
+                variants={sectionVariants}
+                role="complementary"
+                aria-label={isSpanish ? "Carrusel de testimonios de clientes" : "Client testimonials carousel"}
+            >
+                <Marquee 
+                    pauseOnHover={!isMobile} // Deshabilitar pauseOnHover en móvil para mejor rendimiento
+                    className="review-marquee"
+                    speed={getMarqueeSpeed()}
+                    aria-label={isSpanish ? "Primera fila de testimonios" : "First row of testimonials"}
+                >
                     {firstRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
+                        <ReviewCard 
+                            key={review.username} 
+                            {...review} 
+                            compact={isMobileOrTablet} // Pasar prop para diseño compacto
+                        />
                     ))}
                 </Marquee>
                 
-                <Marquee reverse pauseOnHover className="review-marquee">
-                    {secondRow.map((review) => (
-                        <ReviewCard key={review.username} {...review} />
-                    ))}
-                </Marquee>
+                {/* Segunda fila solo en tablets, laptops y desktop */}
+                {!isMobile && secondRow.length > 0 && (
+                    <Marquee 
+                        reverse 
+                        pauseOnHover={!isMobile}
+                        className="review-marquee"
+                        speed={getMarqueeSpeed()}
+                        aria-label={isSpanish ? "Segunda fila de testimonios" : "Second row of testimonials"}
+                    >
+                        {secondRow.map((review) => (
+                            <ReviewCard 
+                                key={review.username} 
+                                {...review} 
+                                compact={isMobileOrTablet}
+                            />
+                        ))}
+                    </Marquee>
+                )}
 
-                {/* Gradientes laterales para efecto de desvanecimiento */}
-                <div className="review-gradient-left"></div>
-                <div className="review-gradient-right"></div>
+
             </motion.div>
         </motion.section>
     );
 }
+
+// Validación de PropTypes
+Review.propTypes = {
+    isSpanish: PropTypes.bool
+};

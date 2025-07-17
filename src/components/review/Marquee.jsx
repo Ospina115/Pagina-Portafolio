@@ -14,15 +14,40 @@
  */
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export function Marquee({ 
     children, 
     reverse = false, 
     pauseOnHover = false, 
-    className = "" 
+    className = "",
+    speed = "normal"
 }) {
     const [isPaused, setIsPaused] = useState(false);
+    const [isReducedMotion, setIsReducedMotion] = useState(false);
+
+    // Detectar preferencia de movimiento reducido
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setIsReducedMotion(mediaQuery.matches);
+        
+        const handleChange = (e) => setIsReducedMotion(e.matches);
+        mediaQuery.addEventListener('change', handleChange);
+        
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    const getDuration = () => {
+        if (isReducedMotion) return 60; // Muy lento para accesibilidad
+        
+        const speeds = {
+            slow: 30,
+            normal: 20,
+            fast: 10
+        };
+        return speeds[speed] || speeds.normal;
+    };
 
     const duplicatedChildren = [
         ...children,
@@ -31,25 +56,27 @@ export function Marquee({
 
     return (
         <div 
-            className={`overflow-hidden whitespace-nowrap ${className}`}
+            className={`marquee-container ${className}`}
             onMouseEnter={() => pauseOnHover && setIsPaused(true)}
             onMouseLeave={() => pauseOnHover && setIsPaused(false)}
+            role="region"
+            aria-live="polite"
         >
             <motion.div
-                animate={{
+                animate={!isReducedMotion ? {
                     x: reverse ? ['0%', '50%'] : ['0%', '-50%']
-                }}
+                } : {}}
                 transition={{
-                    duration: 20,
-                    repeat: Infinity,
+                    duration: getDuration(),
+                    repeat: isReducedMotion ? 0 : Infinity,
                     ease: "linear",
                     ...(isPaused && { duration: 0 })
                 }}
-                className="flex gap-4"
+                className="marquee-content"
                 style={{ width: '200%' }}
             >
                 {duplicatedChildren.map((child, index) => (
-                    <div key={index} className="flex-shrink-0">
+                    <div key={index} className="marquee-item">
                         {child}
                     </div>
                 ))}
@@ -57,3 +84,12 @@ export function Marquee({
         </div>
     );
 }
+
+// Validación de PropTypes
+Marquee.propTypes = {
+    children: PropTypes.node.isRequired,
+    reverse: PropTypes.bool,
+    pauseOnHover: PropTypes.bool,
+    className: PropTypes.string,
+    speed: PropTypes.oneOf(['slow', 'normal', 'fast'])
+};

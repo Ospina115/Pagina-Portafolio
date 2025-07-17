@@ -1,26 +1,61 @@
 /**
- * review.css - Estilos para la sección de reseñas
+ * review.css - Estilos mejorados para la sección de reseñas
  * 
- * Estilos para el componente Review y ReviewCard, incluyendo
- * efectos de glassmorphism, gradientes y animaciones.
+ * Incluye responsividad completa, tema oscuro/claro automático,
+ * mejoras de accesibilidad y efectos visuales modernos.
  */
+
+/* Variables CSS para temas */
+:root {
+    --review-bg-primary: rgba(255, 255, 255, 0.1);
+    --review-bg-secondary: rgba(255, 255, 255, 0.15);
+    --review-border: rgba(255, 255, 255, 0.2);
+    --review-border-hover: rgba(102, 126, 234, 0.3);
+    --review-text-primary: #1e293b;
+    --review-text-secondary: #64748b;
+    --review-text-muted: #334155;
+    --review-shadow: rgba(0, 0, 0, 0.1);
+    --review-shadow-hover: rgba(0, 0, 0, 0.15);
+    --review-avatar-border: rgba(255, 255, 255, 0.3);
+    --review-star-filled: #fbbf24;
+    --review-star-empty: #d1d5db;
+}
+
+/* Tema oscuro automático */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --review-bg-primary: rgba(0, 0, 0, 0.3);
+        --review-bg-secondary: rgba(0, 0, 0, 0.4);
+        --review-border: rgba(255, 255, 255, 0.1);
+        --review-border-hover: rgba(102, 126, 234, 0.4);
+        --review-text-primary: #f1f5f9;
+        --review-text-secondary: #94a3b8;
+        --review-text-muted: #cbd5e1;
+        --review-shadow: rgba(0, 0, 0, 0.3);
+        --review-shadow-hover: rgba(0, 0, 0, 0.4);
+        --review-avatar-border: rgba(255, 255, 255, 0.2);
+        --review-star-filled: #f59e0b;
+        --review-star-empty: #4b5563;
+    }
+}
 
 /* Sección principal de reseñas */
 .review-section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem);
+    max-width: 1400px;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 
 /* Header de la sección */
 .review-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
 .review-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
     font-weight: 700;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
@@ -28,11 +63,12 @@
     background-clip: text;
     margin-bottom: 1rem;
     font-family: "JetBrains Mono", monospace;
+    line-height: 1.2;
 }
 
 .review-subtitle {
-    font-size: 1.1rem;
-    color: #64748b;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--review-text-secondary);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
@@ -44,100 +80,76 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: clamp(1rem, 3vw, 1.5rem);
 }
 
-.review-marquee {
-    flex: none;
+/* Layouts responsivos para marquee container */
+.review-marquee-container.mobile-layout {
+    gap: clamp(0.75rem, 2vw, 1rem);
 }
 
-/* Gradientes laterales */
-.review-gradient-left,
-.review-gradient-right {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 15%;
-    pointer-events: none;
-    z-index: 10;
+.review-marquee-container.desktop-layout {
+    gap: clamp(1rem, 3vw, 1.5rem);
 }
 
-.review-gradient-left {
-    left: 0;
-    background: linear-gradient(to right, 
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(255, 255, 255, 0.8) 50%,
-        transparent 100%
-    );
+/* Estilos del marquee */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
 }
 
-.review-gradient-right {
-    right: 0;
-    background: linear-gradient(to left, 
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(255, 255, 255, 0.8) 50%,
-        transparent 100%
-    );
+.marquee-content {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    will-change: transform;
 }
 
-/* Modo oscuro para gradientes */
-@media (prefers-color-scheme: dark) {
-    .review-gradient-left {
-        background: linear-gradient(to right, 
-            rgba(0, 0, 0, 1) 0%, 
-            rgba(0, 0, 0, 0.8) 50%,
-            transparent 100%
-        );
-    }
-    
-    .review-gradient-right {
-        background: linear-gradient(to left, 
-            rgba(0, 0, 0, 1) 0%, 
-            rgba(0, 0, 0, 0.8) 50%,
-            transparent 100%
-        );
-    }
-    
-    .review-subtitle {
-        color: #94a3b8;
-    }
+.marquee-item {
+    flex-shrink: 0;
 }
 
-/* Tarjeta de reseña */
+
+
+/* Tarjeta de reseña mejorada */
 .review-card {
     position: relative;
-    width: 320px;
-    min-height: 180px;
-    padding: 1.5rem;
+    width: clamp(260px, 30vw, 320px);
+    min-height: clamp(160px, 20vh, 200px);
+    padding: clamp(1rem, 3vw, 1.5rem);
     cursor: pointer;
     overflow: hidden;
     border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--review-border);
     
-    /* Glassmorphism effect */
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* Glassmorphism mejorado */
+    background: var(--review-bg-primary);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     
-    /* Sombra sutil */
+    /* Sombra mejorada */
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 8px 32px var(--review-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin: 0.5rem;
+    will-change: transform;
 }
 
 .review-card:hover {
-    border-color: rgba(102, 126, 234, 0.3);
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+    border-color: var(--review-border-hover);
+    background: var(--review-bg-secondary);
+    box-shadow: 
+        0 20px 40px var(--review-shadow-hover),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Header de la tarjeta */
+/* Header de la tarjeta mejorado */
 .review-card-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
     margin-bottom: 1rem;
 }
@@ -145,100 +157,212 @@
 .review-card-avatar {
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--review-avatar-border);
+    transition: border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.review-card:hover .review-card-avatar {
+    border-color: var(--review-border-hover);
 }
 
 .review-card-info {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    flex: 1;
+    min-width: 0;
 }
 
 .review-card-name {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
     font-weight: 600;
-    color: #1e293b;
+    color: var(--review-text-primary);
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .review-card-username {
-    font-size: 0.8rem;
-    color: #64748b;
+    font-size: clamp(0.75rem, 1.8vw, 0.8rem);
+    color: var(--review-text-secondary);
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Cuerpo de la reseña */
+/* Sistema de calificaciones */
+.review-card-rating {
+    display: flex;
+    gap: 0.1rem;
+    flex-shrink: 0;
+}
+
+.review-star {
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.review-star-filled {
+    color: var(--review-star-filled);
+}
+
+.review-star-empty {
+    color: var(--review-star-empty);
+}
+
+/* Cuerpo de la reseña mejorado */
 .review-card-body {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #334155;
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    line-height: 1.6;
+    color: var(--review-text-muted);
     margin: 0;
     font-style: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Modo oscuro para las tarjetas */
-@media (prefers-color-scheme: dark) {
-    .review-card {
-        background: rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .review-card:hover {
-        background: rgba(0, 0, 0, 0.4);
-        border-color: rgba(102, 126, 234, 0.4);
-    }
-    
-    .review-card-name {
-        color: #f1f5f9;
-    }
-    
-    .review-card-username {
-        color: #94a3b8;
-    }
-    
-    .review-card-body {
-        color: #cbd5e1;
-    }
-    
-    .review-card-avatar {
-        border-color: rgba(255, 255, 255, 0.2);
+/* Versión compacta de la tarjeta para dispositivos móviles */
+.review-card.review-card-compact {
+    width: clamp(220px, 28vw, 280px);
+    min-height: clamp(140px, 18vh, 180px);
+    padding: clamp(0.75rem, 2.5vw, 1.25rem);
+    margin: 0.25rem;
+}
+
+.review-card.review-card-compact .review-card-header {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.review-card.review-card-compact .review-card-avatar {
+    width: 32px;
+    height: 32px;
+}
+
+.review-card.review-card-compact .review-card-name {
+    font-size: 0.9rem;
+}
+
+.review-card.review-card-compact .review-card-username {
+    font-size: 0.8rem;
+}
+
+.review-card.review-card-compact .review-card-body {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.review-card.review-card-compact .review-star {
+    font-size: 0.9rem;
+}
+
+/* Responsive design mejorado */
+@media (max-width: 1024px) {
+    .review-section {
+        padding: clamp(1.5rem, 4vw, 3rem) clamp(0.75rem, 3vw, 1.5rem);
     }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .review-section {
         padding: 2rem 1rem;
     }
     
-    .review-title {
-        font-size: 2rem;
-    }
-    
-    .review-subtitle {
-        font-size: 1rem;
-    }
-    
     .review-card {
-        width: 280px;
-        min-height: 160px;
-        padding: 1.25rem;
-    }
-    
-    .review-gradient-left,
-    .review-gradient-right {
-        width: 20%;
-    }
-}
-
-@media (max-width: 480px) {
-    .review-card {
-        width: 260px;
-        min-height: 150px;
+        width: clamp(240px, 85vw, 280px);
+        min-height: 140px;
         padding: 1rem;
     }
     
-    .review-title {
-        font-size: 1.75rem;
+    .review-marquee-container {
+        gap: 1rem;
+    }
+    
+    .marquee-content {
+        gap: 0.75rem;
+    }
+}
+
+/* Media queries adicionales para el comportamiento responsivo */
+@media (max-width: 480px) {
+    .review-section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .review-marquee-container.mobile-layout {
+        gap: 0.75rem;
+    }
+    
+    .review-card.review-card-compact {
+        width: clamp(200px, 85vw, 260px);
+        min-height: clamp(120px, 16vh, 160px);
+        padding: 0.75rem;
+        margin: 0.25rem;
+    }
+}
+
+/* Optimización para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .review-card.review-card-compact {
+        width: 90vw;
+        max-width: 240px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .review-card,
+    .review-card-avatar,
+    .review-star {
+        transition: none;
+    }
+    
+    .marquee-content {
+        animation: none !important;
+    }
+}
+
+/* Focus visible para navegación por teclado */
+.review-card:focus-visible {
+    outline: 2px solid var(--review-border-hover);
+    outline-offset: 2px;
+}
+
+/* Hover mejorado para dispositivos que lo soportan */
+@media (hover: hover) {
+    .review-card:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    .review-star:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* Optimizaciones de rendimiento */
+.review-card,
+.marquee-content {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Print styles */
+@media print {
+    .review-section {
+        break-inside: avoid;
+    }
+    
+    .review-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: white;
     }
 }

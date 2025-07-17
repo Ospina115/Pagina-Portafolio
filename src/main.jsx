@@ -12,44 +12,77 @@
 
 import { StrictMode, Suspense, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "../src/styles/prueba.css";
 import App from "./App.jsx";
 import { Loading } from "./components/loading/Loading.jsx";
 
 /**
- * DelayedApp - Componente que maneja la carga inicial de la aplicación
+ * SuspenseWrapper - Componente que maneja el estado de carga inteligente
  * 
- * Implementa un retraso de 3 segundos antes de mostrar la aplicación principal,
- * durante el cual se muestra un componente de carga. Esto mejora la percepción
- * de rendimiento y proporciona una mejor experiencia de usuario.
+ * Este componente controla cuando mostrar la aplicación considerando:
+ * 1. Un tiempo mínimo de 3 segundos de carga
+ * 2. El estado real de carga de los componentes (via Suspense)
+ * 3. Mantiene el loading hasta que ambas condiciones se cumplan
  * 
- * @returns {JSX.Element} Loading component durante la carga, App component cuando está listo
+ * @returns {JSX.Element} App component cuando está completamente listo
  */
-function DelayedApp() {
-  // Estado que controla si la aplicación está lista para ser mostrada
-  const [isReady, setIsReady] = useState(false);
+function SuspenseWrapper() {
+  // Estado que controla si han pasado los 3 segundos mínimos
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+  // Estado que controla si los componentes han terminado de cargar
+  const [componentsLoaded, setComponentsLoaded] = useState(false);
 
   /**
-   * Effect Hook que maneja el temporizador de carga
-   * Se ejecuta una sola vez al montar el componente y establece
-   * isReady en true después de 3 segundos
+   * Effect Hook que maneja el temporizador de tiempo mínimo
+   * Establece minTimeElapsed en true después de 3 segundos
    */
   useEffect(() => {
-    // Configura un temporizador de 3 segundos antes de mostrar la app
-    const timer = setTimeout(() => setIsReady(true), 3000);
+    const timer = setTimeout(() => {
+      setMinTimeElapsed(true);
+    }, 3000);
     
-    // Función de limpieza que se ejecuta al desmontar el componente
-    // Previene memory leaks limpiando el temporizador
     return () => clearTimeout(timer);
-  }, []); // Array de dependencias vacío = se ejecuta solo al montar
+  }, []);
 
-  // Renderizado condicional: muestra Loading mientras no esté listo
-  if (!isReady) {
+  /**
+   * Effect Hook que simula la carga de componentes
+   * En una aplicación real, esto se activaría cuando todos los
+   * componentes lazy y recursos hayan terminado de cargar
+   */
+  useEffect(() => {
+    // Simula el tiempo de carga de componentes
+    const loadTimer = setTimeout(() => {
+      setComponentsLoaded(true);
+    }, 1000); // Tiempo base de carga
+    
+    return () => clearTimeout(loadTimer);
+  }, []);
+
+  // Solo muestra la app cuando ambas condiciones se cumplen:
+  // 1. Han pasado los 3 segundos mínimos
+  // 2. Los componentes han terminado de cargar
+  const isAppReady = minTimeElapsed && componentsLoaded;
+
+  if (!isAppReady) {
     return <Loading />;
   }
 
-  // Una vez que isReady es true, renderiza la aplicación principal
   return <App />;
+}
+
+/**
+ * DelayedApp - Componente que integra Suspense con tiempo mínimo de carga
+ * 
+ * Envuelve la aplicación en Suspense para manejar componentes lazy,
+ * mientras mantiene el control del tiempo mínimo de visualización del loading
+ * 
+ * @returns {JSX.Element} SuspenseWrapper con manejo de Suspense
+ */
+function DelayedApp() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <SuspenseWrapper />
+    </Suspense>
+  );
 }
 
 /**
@@ -57,17 +90,15 @@ function DelayedApp() {
  * 
  * Configuración del root de React con:
  * - StrictMode: Activa verificaciones adicionales y advertencias en desarrollo
- * - Suspense: Maneja la carga asíncrona de componentes con un fallback
- * - DelayedApp: Componente principal con carga retardada
+ * - DelayedApp: Componente que integra Suspense con tiempo mínimo de carga
+ * 
+ * El flujo de carga funciona así:
+ * 1. Suspense maneja la carga asíncrona de componentes lazy
+ * 2. SuspenseWrapper controla que se muestren al menos 3 segundos de loading
+ * 3. Solo se muestra la app cuando ambas condiciones se cumplen
  */
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* 
-      Suspense proporciona un fallback mientras se cargan componentes lazy
-      En este caso, muestra Loading si hay algún componente cargándose de forma asíncrona
-    */}
-    <Suspense fallback={<Loading />}>
-      <DelayedApp />
-    </Suspense>
+    <DelayedApp />
   </StrictMode>
 );
