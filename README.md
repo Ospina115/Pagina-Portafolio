@@ -13,10 +13,10 @@ Un portafolio web moderno y responsivo desarrollado con React y Vite, que presen
 - [💻 Scripts Disponibles](#-scripts-disponibles)
 - [📁 Estructura del Proyecto](#-estructura-del-proyecto)
 - [🎨 Características Principales](#-características-principales)
-- [� Diseño Responsivo](#-diseño-responsivo)
-- [� Sección de Proyectos](#-sección-de-proyectos)
+- [📱 Diseño Responsivo](#-diseño-responsivo)
+- [🎭 Sección de Proyectos](#-sección-de-proyectos)
 - [🌐 Despliegue](#-despliegue)
-- [🤝 Contribución](#-contribución)
+- [📚 Documentación Adicional](#-documentación-adicional)
 
 ---
 
@@ -232,35 +232,11 @@ npm run preview
 
 ---
 
-## 🤝 Contribución
+## 📚 Documentación Adicional
 
-### 📋 Cómo Contribuir
-1. **Fork** del repositorio
-2. **Crear rama feature**: `git checkout -b feature/nueva-funcionalidad`
-3. **Commit cambios**: `git commit -m 'Add: nueva funcionalidad'`
-4. **Push a la rama**: `git push origin feature/nueva-funcionalidad`
-5. **Crear Pull Request**
-
-### 📏 Estándares de Desarrollo
-- **ESLint**: Seguir las reglas de linting configuradas
-- **JSDoc**: Documentar componentes y funciones complejas
-- **Responsive**: Asegurar compatibilidad en todos los dispositivos
-- **Accesibilidad**: Mantener ARIA labels y contraste adecuado
-
-### 🏷️ Convenciones de Commits
-```bash
-Add: nueva funcionalidad
-Fix: corrección de bug
-Update: actualización de dependencia
-Refactor: refactorización de código
-Docs: actualización de documentación
-```
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+- **🤝 [CONTRIBUTING.md](CONTRIBUTING.md)**: Guía completa para contribuir al proyecto
+- **🔒 [SECURITY.md](SECURITY.md)**: Política de seguridad y reporte de vulnerabilidades  
+- **📄 [LICENSE.md](LICENSE.md)**: Términos de licencia MIT y detalles de uso
 
 ---
 

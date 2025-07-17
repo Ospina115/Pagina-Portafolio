@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/Ospina115/Pagina-Portafolio/discussions
+    about: Para preguntas generales, ideas, o conversaciones sobre el proyecto
+  - name: 🔒 Security Advisory
+    url: https://github.com/Ospina115/Pagina-Portafolio/security/advisories/new
+    about: Para reportar vulnerabilidades de seguridad de forma privada y responsable
+  - name: 📧 Contact Email
+    url: mailto:Ospina31@icloud.com
+    about: Para consultas privadas o colaboraciones directas
