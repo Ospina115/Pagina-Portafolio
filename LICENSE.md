@@ -45,18 +45,6 @@ SOFTWARE.
 
 ---
 
-## 🎯 ¿Por qué MIT License?
-
-Esta licencia fue elegida para el **Portafolio Samuel Ospina** porque:
-
-1. **🌟 Fomenta el aprendizaje**: Otros desarrolladores pueden estudiar y aprender del código
-2. **🤝 Facilita colaboración**: Contribuciones de la comunidad sin restricciones complejas
-3. **💼 Uso profesional**: Reclutadores y empleadores pueden evaluar el código libremente
-4. **🔄 Reutilización**: Otros pueden usar componentes o técnicas en sus propios proyectos
-5. **📚 Educación**: Perfecto para fines educativos y académicos
-
----
-
 ## 📋 Casos de Uso Comunes
 
 ### Para Desarrolladores
@@ -86,20 +74,6 @@ cd Pagina-Portafolio
 - ✅ Reportar bugs y sugerencias
 - ✅ Crear forks con adaptaciones
 - ✅ Usar componentes en otros proyectos
-
----
-
-## ⚖️ Comparación con Otras Licencias
-
-| Característica | MIT | Apache 2.0 | GPL v3 | CC BY |
-|----------------|-----|------------|--------|-------|
-| **Simplicidad** | ✅ Muy simple | ⚠️ Compleja | ❌ Muy compleja | ✅ Simple |
-| **Uso comercial** | ✅ Permitido | ✅ Permitido | ✅ Permitido* | ✅ Permitido |
-| **Modificaciones** | ✅ Libres | ✅ Libres | ⚠️ Deben ser GPL | ✅ Libres |
-| **Distribución** | ✅ Libre | ✅ Libre | ⚠️ Código abierto | ✅ Libre |
-| **Responsabilidad** | ✅ Sin garantías | ✅ Sin garantías | ✅ Sin garantías | ⚠️ Limitada |
-
-*\*Las modificaciones deben mantenerse bajo GPL*
 
 ---
 
