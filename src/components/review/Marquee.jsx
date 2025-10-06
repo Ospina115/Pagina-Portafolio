@@ -42,16 +42,19 @@ export function Marquee({
         if (isReducedMotion) return 60; // Muy lento para accesibilidad
         
         const speeds = {
+            slower: 40,
             slow: 30,
-            normal: 20,
-            fast: 10
+            normal: 25,
+            fast: 15
         };
         return speeds[speed] || speeds.normal;
     };
 
+    // Triplicamos los elementos para un efecto infinito más suave
     const duplicatedChildren = [
         ...children,
-        ...children // Duplicamos los elementos para crear el efecto infinito
+        ...children,
+        ...children
     ];
 
     return (
@@ -63,17 +66,20 @@ export function Marquee({
             aria-live="polite"
         >
             <motion.div
-                animate={!isReducedMotion ? {
-                    x: reverse ? ['0%', '50%'] : ['0%', '-50%']
+                animate={!isReducedMotion && !isPaused ? {
+                    x: reverse ? ['0%', '33.333%'] : ['0%', '-33.333%']
                 } : {}}
                 transition={{
                     duration: getDuration(),
                     repeat: isReducedMotion ? 0 : Infinity,
                     ease: "linear",
-                    ...(isPaused && { duration: 0 })
+                    repeatType: "loop"
                 }}
                 className="marquee-content"
-                style={{ width: '200%' }}
+                style={{ 
+                    width: '300%',
+                    display: 'flex'
+                }}
             >
                 {duplicatedChildren.map((child, index) => (
                     <div key={index} className="marquee-item">

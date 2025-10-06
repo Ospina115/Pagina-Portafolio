@@ -1,0 +1,16 @@
+/**
+ * background.css - Estilos para elementos de fondo
+ * 
+ * Contiene los estilos para las estrellas del fondo
+ * y otros elementos decorativos de fondo
+ * 
+ * @author Samuel Ospina
+ */
+
+#fondo, 
+#reves {
+    z-index: 0;
+    pointer-events: none;
+    position: fixed;
+    height: 200vh;
+}

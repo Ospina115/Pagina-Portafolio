@@ -1,0 +1,367 @@
+/**
+ * variables.css - Variables CSS Globales (OPCIONAL - Para implementación futura)
+ * 
+ * Este archivo define un sistema de diseño completo usando CSS Custom Properties.
+ * Permite mantener consistencia en colores, espaciados, tipografía y más.
+ * 
+ * Para usar este archivo:
+ * 1. Descomenta el import en index.css
+ * 2. Reemplaza valores hardcoded por variables
+ * 3. Ajusta los valores según necesites
+ * 
+ * @author Samuel Ospina
+ * @version 1.0.0
+ */
+
+:root {
+  /* ===================================================================
+     PALETA DE COLORES
+     =================================================================== */
+  
+  /* --- Colores Primarios --- */
+  --primary-50: #EEE9FF;
+  --primary-100: #DDD3FF;
+  --primary-200: #BBA7FF;
+  --primary-300: #9977FF;
+  --primary-400: #7B46FF;
+  --primary-500: #5227FF;  /* Color principal */
+  --primary-600: #4520CC;
+  --primary-700: #3318A3;
+  --primary-800: #22107A;
+  --primary-900: #110852;
+  
+  /* --- Colores Secundarios --- */
+  --secondary-500: #7B46FF;
+  --accent-500: #9333EA;
+  
+  /* --- Escala de Grises --- */
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* --- Colores Semánticos --- */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+  
+  /* --- Colores de Tema (se sobrescriben en light/dark.css) --- */
+  --color-background: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text-primary: #000000;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  
+  /* ===================================================================
+     SISTEMA DE ESPACIADO
+     =================================================================== */
+  
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0_5: 0.125rem;   /* 2px */
+  --space-1: 0.25rem;      /* 4px */
+  --space-1_5: 0.375rem;   /* 6px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-2_5: 0.625rem;   /* 10px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-3_5: 0.875rem;   /* 14px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-7: 1.75rem;      /* 28px */
+  --space-8: 2rem;         /* 32px */
+  --space-9: 2.25rem;      /* 36px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-11: 2.75rem;     /* 44px */
+  --space-12: 3rem;        /* 48px */
+  --space-14: 3.5rem;      /* 56px */
+  --space-16: 4rem;        /* 64px */
+  --space-20: 5rem;        /* 80px */
+  --space-24: 6rem;        /* 96px */
+  --space-32: 8rem;        /* 128px */
+  --space-40: 10rem;       /* 160px */
+  --space-48: 12rem;       /* 192px */
+  --space-56: 14rem;       /* 224px */
+  --space-64: 16rem;       /* 256px */
+  
+  /* ===================================================================
+     TIPOGRAFÍA
+     =================================================================== */
+  
+  /* --- Familias de Fuentes --- */
+  --font-sans: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* --- Tamaños de Fuente --- */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  --text-9xl: 8rem;        /* 128px */
+  
+  /* --- Pesos de Fuente --- */
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+  
+  /* --- Alturas de Línea --- */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* --- Espaciado de Letras --- */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  
+  /* ===================================================================
+     ANIMACIONES Y TRANSICIONES
+     =================================================================== */
+  
+  /* --- Duraciones --- */
+  --duration-0: 0ms;
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+  
+  /* --- Funciones de Easing --- */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  /* --- Transiciones Comunes --- */
+  --transition-all: all var(--duration-300) var(--ease-out);
+  --transition-colors: color var(--duration-300) var(--ease-out),
+                       background-color var(--duration-300) var(--ease-out),
+                       border-color var(--duration-300) var(--ease-out);
+  --transition-transform: transform var(--duration-300) var(--ease-out);
+  --transition-opacity: opacity var(--duration-300) var(--ease-out);
+  
+  /* ===================================================================
+     BORDES Y RADIOS
+     =================================================================== */
+  
+  /* --- Anchos de Borde --- */
+  --border-0: 0;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-4: 4px;
+  --border-8: 8px;
+  
+  /* --- Radios de Borde --- */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 1rem;       /* 16px */
+  --radius-xl: 1.5rem;     /* 24px */
+  --radius-2xl: 2rem;      /* 32px */
+  --radius-3xl: 3rem;      /* 48px */
+  --radius-full: 9999px;
+  
+  /* ===================================================================
+     SOMBRAS
+     =================================================================== */
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-none: none;
+  
+  /* --- Sombras de Colores --- */
+  --shadow-primary-sm: 0 4px 20px rgba(82, 39, 255, 0.15);
+  --shadow-primary-md: 0 8px 30px rgba(82, 39, 255, 0.25);
+  --shadow-primary-lg: 0 12px 40px rgba(82, 39, 255, 0.35);
+  
+  /* ===================================================================
+     EFECTOS GLASS (Liquid Glass de Apple)
+     =================================================================== */
+  
+  /* --- Fondos Glass --- */
+  --glass-gradient-light: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  
+  --glass-gradient-dark: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  
+  /* --- Bordes Glass --- */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* --- Sombras Glass --- */
+  --glass-shadow: 
+    0 8px 32px rgba(82, 39, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  
+  /* --- Blur Glass --- */
+  --glass-blur: blur(20px);
+  
+  /* ===================================================================
+     Z-INDEX
+     =================================================================== */
+  
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-auto: auto;
+  
+  /* --- Niveles Específicos --- */
+  --z-background: 0;
+  --z-content: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-notification: 1080;
+  
+  /* ===================================================================
+     BREAKPOINTS (para uso con JavaScript)
+     =================================================================== */
+  
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
+  
+  /* ===================================================================
+     CONTENEDORES
+     =================================================================== */
+  
+  --container-xs: 20rem;    /* 320px */
+  --container-sm: 24rem;    /* 384px */
+  --container-md: 28rem;    /* 448px */
+  --container-lg: 32rem;    /* 512px */
+  --container-xl: 36rem;    /* 576px */
+  --container-2xl: 42rem;   /* 672px */
+  --container-3xl: 48rem;   /* 768px */
+  --container-4xl: 56rem;   /* 896px */
+  --container-5xl: 64rem;   /* 1024px */
+  --container-6xl: 72rem;   /* 1152px */
+  --container-7xl: 80rem;   /* 1280px */
+  --container-full: 100%;
+}
+
+/* ===================================================================
+   CLASES UTILITARIAS (Ejemplo)
+   =================================================================== */
+
+/* Descomenta estas clases si quieres usar utilidades predefinidas */
+
+/*
+.container {
+  max-width: var(--container-7xl);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.glass-card {
+  background: var(--glass-gradient-light);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+.text-primary {
+  color: var(--primary-500);
+}
+
+.bg-primary {
+  background-color: var(--primary-500);
+}
+
+.shadow-primary {
+  box-shadow: var(--shadow-primary-md);
+}
+
+.transition-all {
+  transition: var(--transition-all);
+}
+*/
+
+/* ===================================================================
+   NOTAS DE USO
+   =================================================================== */
+
+/*
+EJEMPLO DE USO EN TUS COMPONENTES:
+
+.my-button {
+  padding: var(--space-4) var(--space-6);
+  background: var(--primary-500);
+  color: white;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  box-shadow: var(--shadow-primary-sm);
+  transition: var(--transition-all);
+}
+
+.my-button:hover {
+  background: var(--primary-600);
+  box-shadow: var(--shadow-primary-md);
+  transform: translateY(-2px);
+}
+
+.my-card {
+  background: var(--glass-gradient-light);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  box-shadow: var(--glass-shadow);
+}
+*/

@@ -170,7 +170,9 @@ export function Review({ isSpanish = true }) {
                 role="complementary"
                 aria-label={isSpanish ? "Carrusel de testimonios de clientes" : "Client testimonials carousel"}
             >
+                {/* Primera fila - se mueve hacia la DERECHA */}
                 <Marquee 
+                    reverse
                     pauseOnHover={!isMobile} // Deshabilitar pauseOnHover en móvil para mejor rendimiento
                     className="review-marquee"
                     speed={getMarqueeSpeed()}
@@ -185,10 +187,9 @@ export function Review({ isSpanish = true }) {
                     ))}
                 </Marquee>
                 
-                {/* Segunda fila solo en tablets, laptops y desktop */}
+                {/* Segunda fila - se mueve hacia la IZQUIERDA (solo en tablets, laptops y desktop) */}
                 {!isMobile && secondRow.length > 0 && (
                     <Marquee 
-                        reverse 
                         pauseOnHover={!isMobile}
                         className="review-marquee"
                         speed={getMarqueeSpeed()}

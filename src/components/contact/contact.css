@@ -12,7 +12,7 @@
    CONTENEDOR PRINCIPAL
    ================================================================= */
 .contact {
-  padding: 100px 20px;
+  padding: clamp(60px, 10vh, 100px) clamp(15px, 4vw, 20px);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -42,8 +42,8 @@
 
 .contact h2 {
   text-align: center;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 4rem;
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: clamp(2rem, 5vh, 4rem);
   color: white;
   font-weight: 700;
   background: linear-gradient(
@@ -54,6 +54,7 @@
   );
   -webkit-background-clip: text;
   background-clip: text;
+  line-height: 1.2;
 }
 
 /* =================================================================
@@ -61,9 +62,15 @@
    ================================================================= */
 .contact-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
   align-items: start;
+}
+
+@media (min-width: 769px) {
+  .contact-content {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* =================================================================
@@ -71,7 +78,7 @@
    ================================================================= */
 .glass-effect {
   position: relative;
-  padding: 2.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   background: 
     linear-gradient(135deg, 
       rgba(255, 255, 255, 0.15) 0%,
@@ -132,18 +139,19 @@
    SECCIÓN DE INFORMACIÓN DE CONTACTO
    ================================================================= */
 .contact-info-card h3 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
   color: white;
   font-weight: 600;
   position: relative;
   z-index: 1;
+  line-height: 1.3;
 }
 
 .contact-info-card p {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   color: rgba(255, 255, 255, 0.9);
   position: relative;
   z-index: 1;
@@ -160,8 +168,8 @@
 .contact-method {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  padding: 1.5rem;
+  gap: clamp(0.8rem, 2.5vw, 1.2rem);
+  padding: clamp(1rem, 3vw, 1.5rem);
   background: 
     linear-gradient(135deg, 
       rgba(255, 255, 255, 0.1) 0%,
@@ -208,9 +216,9 @@
 }
 
 .contact-method .icon {
-  font-size: 1.8rem;
-  min-width: 50px;
-  height: 50px;
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  min-width: clamp(40px, 8vw, 50px);
+  height: clamp(40px, 8vw, 50px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +240,7 @@
 .contact-method h4 {
   margin: 0 0 0.3rem 0;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
   font-weight: 600;
 }
 
@@ -241,6 +249,8 @@
   text-decoration: none;
   transition: color 0.3s ease;
   font-weight: 500;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  word-break: break-word;
 }
 
 .contact-method a:hover {
@@ -251,12 +261,13 @@
    SECCIÓN DEL FORMULARIO
    ================================================================= */
 .contact-form-card h3 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: clamp(1.2rem, 3vw, 2rem);
   color: #fff;
   font-weight: 600;
   position: relative;
   z-index: 1;
+  line-height: 1.3;
 }
 
 .form-group {
@@ -276,7 +287,7 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1rem, 2.5vw, 1.2rem);
   background: 
     linear-gradient(135deg, 
       rgba(255, 255, 255, 0.1) 0%,
@@ -314,7 +325,8 @@
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: clamp(100px, 20vh, 150px);
+  max-height: 300px;
   font-family: inherit;
 }
 
@@ -323,7 +335,7 @@
    ================================================================= */
 .submit-btn {
   width: 100%;
-  padding: 1.2rem 2rem;
+  padding: clamp(1rem, 2.5vw, 1.2rem) clamp(1.5rem, 4vw, 2rem);
   background: linear-gradient(
     135deg,
     #5227FF 0%,
@@ -333,7 +345,7 @@
   color: white;
   border: none;
   border-radius: 16px;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -414,34 +426,47 @@
    ================================================================= */
 @media (max-width: 1024px) {
   .contact {
-    padding: 80px 20px;
+    padding: clamp(60px, 8vh, 80px) clamp(15px, 3vw, 20px);
   }
   
   .contact-content {
-    gap: 2.5rem;
+    gap: 2rem;
   }
   
   .glass-effect {
-    padding: 2rem;
+    padding: 1.8rem;
+  }
+  
+  .contact-method {
+    padding: 1.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .contact {
-    padding: 60px 15px;
+    padding: clamp(50px, 7vh, 60px) 15px;
   }
   
   .contact-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
   }
   
   .glass-effect {
     padding: 1.5rem;
+    border-radius: 20px;
   }
   
   .contact h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .contact-info-card p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-methods {
+    gap: 1.2rem;
   }
   
   .contact-method {
@@ -451,39 +476,113 @@
   
   .contact-method .icon {
     font-size: 1.5rem;
-    min-width: 40px;
-    height: 40px;
+    min-width: 42px;
+    height: 42px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .contact {
-    padding: 40px 10px;
+    padding: clamp(40px, 6vh, 50px) 12px;
+  }
+  
+  .contact h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-content {
+    gap: 1.5rem;
   }
   
   .glass-effect {
-    padding: 1.2rem;
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+  
+  .contact-info-card h3,
+  .contact-form-card h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-info-card p {
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
   }
   
   .contact-methods {
-    gap: 1rem;
+    gap: 0.9rem;
   }
   
   .contact-method {
     padding: 1rem;
-    flex-direction: column;
-    text-align: center;
-    gap: 0.8rem;
+    gap: 0.9rem;
+  }
+  
+  .contact-method .icon {
+    min-width: 38px;
+    height: 38px;
+  }
+  
+  .contact-method h4 {
+    font-size: 0.95rem;
+  }
+  
+  .contact-method a {
+    font-size: 0.85rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
   }
   
   .form-group input,
   .form-group textarea {
-    padding: 0.8rem 1rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
   }
   
   .submit-btn {
     padding: 1rem 1.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+  
+  .btn-icon {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mejora adicional para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .contact {
+    padding: 35px 10px;
+  }
+  
+  .glass-effect {
+    padding: 1rem;
+  }
+  
+  .contact-method {
+    padding: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 0.9rem;
   }
 }
 
@@ -513,4 +612,63 @@
 .submit-btn:focus-visible {
   outline: 2px solid #5227FF;
   outline-offset: 2px;
+}
+
+/* =================================================================
+   OPTIMIZACIONES ADICIONALES
+   ================================================================= */
+
+/* Hover mejorado para dispositivos que lo soportan */
+@media (hover: hover) {
+  .contact-method:hover {
+    transform: translateX(4px);
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Optimizaciones para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .contact-method:active {
+    transform: scale(0.98);
+  }
+  
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    transform: none;
+  }
+}
+
+/* Optimizaciones de rendimiento */
+.glass-effect,
+.contact-method,
+.submit-btn {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Mejora adicional para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .contact {
+    padding: 35px 10px;
+  }
+  
+  .glass-effect {
+    padding: 1rem;
+  }
+  
+  .contact-method {
+    padding: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 0.9rem;
+  }
 }

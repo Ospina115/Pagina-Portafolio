@@ -38,9 +38,7 @@ import { Skills } from "./components/skills/Skills.jsx";
 import Aurora from "./components/background/Aurora.jsx";
 
 // ESTILOS //
-import "../src/styles/style.css";
-import "../src/styles/temaclaro.css";
-import "../src/styles/temaoscuro.css";
+import "./styles/index.css";
 
 function App() {
   /**

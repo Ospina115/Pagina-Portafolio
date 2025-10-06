@@ -1,0 +1,26 @@
+/**
+ * index.css - Punto de entrada principal de estilos
+ * 
+ * Este archivo importa todos los estilos del proyecto en el orden correcto:
+ * 1. Base (reset y configuración básica)
+ * 2. Temas (claro/oscuro)
+ * 3. Animaciones
+ * 
+ * Los estilos de componentes se importan individualmente en cada componente.
+ * 
+ * @author Samuel Ospina
+ * @version 2.0.0
+ */
+
+/* ===== BASE ===== */
+@import './base/reset.css';
+@import './base/background.css';
+
+/* ===== TEMAS ===== */
+@import './themes/light.css';
+@import './themes/dark.css';
+
+/* ===== ANIMACIONES ===== */
+@import './animations/background-animations.css';
+@import './animations/text-animations.css';
+@import './animations/menu-animations.css';

@@ -97,16 +97,51 @@
     overflow: hidden;
     white-space: nowrap;
     position: relative;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
 }
 
 .marquee-content {
     display: flex;
     gap: clamp(0.75rem, 2vw, 1rem);
     will-change: transform;
+    animation: marquee-scroll 25s linear infinite;
 }
 
 .marquee-item {
     flex-shrink: 0;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+/* Animación de respaldo para navegadores sin Framer Motion */
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-33.333%);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 

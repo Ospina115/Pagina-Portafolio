@@ -1,0 +1,73 @@
+/**
+ * dark.css - Tema oscuro
+ * 
+ * Define los colores y estilos para el tema oscuro
+ * utilizando media query prefers-color-scheme
+ * 
+ * @author Samuel Ospina
+ */
+
+@media (prefers-color-scheme: dark) {
+
+    /* ===== COLORES GENERALES ===== */
+    :root {
+        color: rgba(255, 255, 255, 1);
+        background-color: #242424;
+    }
+    
+    body {
+        background-color: black;
+    }
+    
+    /* ===== HEADER ===== */
+    nav ul li a {
+        color: #fff;
+    }
+
+    /* ===== PÁGINA DE INICIO ===== */
+    .titulo {
+        color: white;
+    }
+    
+    .container .code {
+        color: #808080;
+    }
+    
+    .code .etiqueta {
+        color: #569CD6;
+    }
+    
+    .code .propiedad {
+        color: #7CDCF0;
+    }
+    
+    .code .string {
+        color: #CE834A;
+    }
+
+    /* ===== SOBRE MÍ ===== */
+    .card {
+        background-color: #0e1225;
+    }
+    
+    .card__content {
+        background-color: #2e3768;
+    }
+    
+    .card__title {
+        color: #ffffff;
+    }
+    
+    .card__description {
+        color: #ffffff;
+    }
+
+    /* ===== HABILIDADES ===== */
+    span.etiqueta {
+        color: #569CD6;
+    }
+    
+    span.code {
+        color: #808080;
+    }
+}

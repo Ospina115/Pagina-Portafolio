@@ -1,0 +1,36 @@
+/**
+ * background-animations.css - Animaciones para elementos de fondo
+ * 
+ * Contiene las animaciones de rotación de las estrellas
+ * y otras animaciones de fondo
+ * 
+ * @author Samuel Ospina
+ */
+
+/* Animación de estrellas - Rotación normal */
+#fondo {
+    animation: rotateStars 120s linear infinite;
+}
+
+/* Animación de estrellas - Rotación inversa */
+#reves {
+    animation: rotateStarsReverse 200s linear infinite;
+}
+
+@keyframes rotateStars {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateStarsReverse {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

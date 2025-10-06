@@ -1,30 +1,47 @@
 /**
- * Contact.jsx - Componente de la sección de contacto
+ * Contact.jsx - Componente de la sección de contacto (Versión Responsiva)
  * 
  * Sección que proporciona información de contacto y formas de comunicación
  * con el desarrollador. Incluye enlaces a redes sociales y email.
  * Dividido en dos secciones con efectos de liquid glass.
  * 
+ * CARACTERÍSTICAS RESPONSIVAS:
+ * - Móvil: Layout vertical, animaciones suaves, formulario optimizado
+ * - Tablet: Layout adaptativo, transiciones mejoradas
+ * - Desktop: Layout horizontal, efectos completos de hover
+ * - Animaciones adaptativas según el tipo de dispositivo
+ * 
  * @component
  * @param {Object} props - Propiedades del componente
  * @param {boolean} props.isSpanish - Determina si el contenido está en español
- * @returns {JSX.Element} Sección Contact renderizada
+ * @returns {JSX.Element} Sección Contact renderizada responsivamente
  * 
  * @author Samuel Ospina
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 import { motion } from 'framer-motion';
+import { useResponsive } from '../../hooks/useResponsive';
 import './contact.css';
 
 export function Contact({ isSpanish }) {
+    // Hook responsivo para adaptar el comportamiento según el dispositivo
+    const { 
+        isMobile, 
+        isTablet, 
+        isMobileOrTablet, 
+        isLaptop,
+        isDesktop 
+    } = useResponsive();
+
+    // Animaciones adaptativas según el dispositivo
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
+                staggerChildren: isMobileOrTablet ? 0.15 : 0.2,
+                delayChildren: isMobileOrTablet ? 0.05 : 0.1
             }
         }
     };
@@ -32,8 +49,8 @@ export function Contact({ isSpanish }) {
     const cardVariants = {
         hidden: { 
             opacity: 0, 
-            y: 30,
-            scale: 0.95
+            y: isMobileOrTablet ? 20 : 30,
+            scale: isMobileOrTablet ? 0.98 : 0.95
         },
         visible: { 
             opacity: 1, 
@@ -41,9 +58,9 @@ export function Contact({ isSpanish }) {
             scale: 1,
             transition: {
                 type: "spring",
-                stiffness: 100,
-                damping: 15,
-                duration: 0.6
+                stiffness: isMobileOrTablet ? 120 : 100,
+                damping: isMobileOrTablet ? 20 : 15,
+                duration: isMobileOrTablet ? 0.4 : 0.6
             }
         }
     };
@@ -51,15 +68,15 @@ export function Contact({ isSpanish }) {
     const itemVariants = {
         hidden: { 
             opacity: 0, 
-            x: -20 
+            x: isMobileOrTablet ? -10 : -20 
         },
         visible: { 
             opacity: 1, 
             x: 0,
             transition: {
                 type: "spring",
-                stiffness: 200,
-                damping: 20
+                stiffness: isMobileOrTablet ? 250 : 200,
+                damping: isMobileOrTablet ? 25 : 20
             }
         }
     };
@@ -93,7 +110,7 @@ export function Contact({ isSpanish }) {
                     <motion.div 
                         className="contact-info-card"
                         variants={cardVariants}
-                        whileHover={{ y: -5 }}
+                        whileHover={!isMobileOrTablet ? { y: -5 } : {}}
                         transition={{ type: "spring", stiffness: 300 }}
                     >
                         <div className="glass-effect">
@@ -118,10 +135,10 @@ export function Contact({ isSpanish }) {
                             >
                                 <motion.div 
                                     className="contact-method"
-                                    whileHover={{ 
+                                    whileHover={!isMobileOrTablet ? { 
                                         scale: 1.02,
                                         x: 5
-                                    }}
+                                    } : {}}
                                     whileTap={{ scale: 0.98 }}
                                     transition={{ type: "spring", stiffness: 400 }}
                                 >
@@ -134,10 +151,10 @@ export function Contact({ isSpanish }) {
                                 
                                 <motion.div 
                                     className="contact-method"
-                                    whileHover={{ 
+                                    whileHover={!isMobileOrTablet ? { 
                                         scale: 1.02,
                                         x: 5
-                                    }}
+                                    } : {}}
                                     whileTap={{ scale: 0.98 }}
                                     transition={{ type: "spring", stiffness: 400 }}
                                 >
@@ -152,10 +169,10 @@ export function Contact({ isSpanish }) {
                                 
                                 <motion.div 
                                     className="contact-method"
-                                    whileHover={{ 
+                                    whileHover={!isMobileOrTablet ? { 
                                         scale: 1.02,
                                         x: 5
-                                    }}
+                                    } : {}}
                                     whileTap={{ scale: 0.98 }}
                                     transition={{ type: "spring", stiffness: 400 }}
                                 >
@@ -175,7 +192,7 @@ export function Contact({ isSpanish }) {
                     <motion.div 
                         className="contact-form-card"
                         variants={cardVariants}
-                        whileHover={{ y: -5 }}
+                        whileHover={!isMobileOrTablet ? { y: -5 } : {}}
                         transition={{ type: "spring", stiffness: 300 }}
                     >
                         <div className="glass-effect">
@@ -191,7 +208,7 @@ export function Contact({ isSpanish }) {
                             >
                                 <motion.div 
                                     className="form-group"
-                                    whileHover={{ scale: 1.02 }}
+                                    whileHover={!isMobileOrTablet ? { scale: 1.02 } : {}}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <label htmlFor="name">
@@ -208,7 +225,7 @@ export function Contact({ isSpanish }) {
                                 
                                 <motion.div 
                                     className="form-group"
-                                    whileHover={{ scale: 1.02 }}
+                                    whileHover={!isMobileOrTablet ? { scale: 1.02 } : {}}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <label htmlFor="email">Email</label>
@@ -223,7 +240,7 @@ export function Contact({ isSpanish }) {
                                 
                                 <motion.div 
                                     className="form-group"
-                                    whileHover={{ scale: 1.02 }}
+                                    whileHover={!isMobileOrTablet ? { scale: 1.02 } : {}}
                                     transition={{ type: "spring", stiffness: 300 }}
                                 >
                                     <label htmlFor="message">
@@ -241,9 +258,11 @@ export function Contact({ isSpanish }) {
                                 <motion.button 
                                     type="submit" 
                                     className="submit-btn"
-                                    whileHover={{ 
+                                    whileHover={!isMobileOrTablet ? { 
                                         scale: 1.05,
                                         boxShadow: "0 10px 30px rgba(82, 39, 255, 0.3)"
+                                    } : { 
+                                        scale: 1.02
                                     }}
                                     whileTap={{ scale: 0.95 }}
                                     transition={{ type: "spring", stiffness: 300 }}
