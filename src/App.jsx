@@ -95,12 +95,13 @@ function App() {
         <Home isSpanish={isSpanish} />
         <About isSpanish={isSpanish} />
         <Skills isSpanish={isSpanish} />
-        <Projects isSpanish={isSpanish} />
-        <Review isSpanish={isSpanish} />
+
         <Contact isSpanish={isSpanish} />
       </ReactLenis>
     </>
   );
-}
+}       // AGREGAR ESTOS COMPONENTES CUANDO ESTEN TERMINADOS
+        // <Projects isSpanish={isSpanish} />
+        // <Review isSpanish={isSpanish} />
 
 export default App;
