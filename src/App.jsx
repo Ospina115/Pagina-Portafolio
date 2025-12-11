@@ -22,7 +22,7 @@
  */
 
 import { ReactLenis } from "lenis/react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 // COMPONENTES //
 import { About } from "./components/about/About.jsx";
@@ -55,18 +55,27 @@ function App() {
     setIsSpanish(!isSpanish);
   };
 
+  /**
+   * Memoiza el componente Aurora para que no se re-renderice cuando cambia el idioma
+   * Solo se creará una vez y se mantendrá constante durante toda la vida de la aplicación
+   */
+  const AuroraBackground = useMemo(() => (
+    <Aurora
+      colorStops={["#3A29FF", "#FF94B4", "#FF3232"]} // Gradiente azul-rosa-rojo
+      blend={0.6}                                     // Suavidad del efecto
+      amplitude={1.2}                                 // Intensidad de la animación
+      speed={0.3}                                     // Velocidad de animación suave
+    />
+  ), []); // Array vacío significa que solo se crea una vez
+
   return (
     <>
       {/* 
         Fondo animado Aurora - Se mantiene fijo detrás de todo el contenido
         Configuración de colores y efectos optimizada para el portafolio
+        Memoizado para evitar re-renderizados innecesarios al cambiar idioma
       */}
-      <Aurora
-        colorStops={["#3A29FF", "#FF94B4", "#FF3232"]} // Gradiente azul-rosa-rojo
-        blend={0.6}                                     // Suavidad del efecto
-        amplitude={1.2}                                 // Intensidad de la animación
-        speed={0.3}                                     // Velocidad de animación suave
-      />
+      {AuroraBackground}
       
       {/* 
         ReactLenis Wrapper - Proporciona smooth scrolling a toda la aplicación
